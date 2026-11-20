@@ -1,0 +1,1090 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f8f1" />
+
+  <title>Under Construction — Something Good Is Coming</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #f7f8f1;
+      --surface: #ffffff;
+      --forest: #244c38;
+      --green: #477653;
+      --sage: #83a982;
+      --light-sage: #dce9d7;
+      --muted: #758276;
+      --border: #e7ebe2;
+      --yellow: #f2c86b;
+
+      --font-main: 'DM Sans', sans-serif;
+      --font-heading: 'Manrope', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--forest);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* =============================
+       BACKGROUND
+    ============================== */
+
+    .background-glow {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: .18;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .glow-one {
+      background: #b4d1a6;
+      top: -200px;
+      left: -150px;
+    }
+
+    .glow-two {
+      background: #c7d9b6;
+      bottom: -200px;
+      right: -150px;
+    }
+
+    /* =============================
+       LAYOUT
+    ============================== */
+
+    .page {
+      min-height: 100svh;
+      max-width: 1440px;
+      margin: auto;
+      padding: 32px 7%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* =============================
+       HEADER
+    ============================== */
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--forest);
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -1px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: #edf4e8;
+      border: 1px solid #dce8d4;
+      border-radius: 100px;
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #5f9862;
+      border-radius: 50%;
+      animation: statusPulse 2s infinite;
+      box-shadow: 0 0 0 4px #5f986215;
+    }
+
+    /* =============================
+       MAIN
+    ============================== */
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    .hero {
+      width: 100%;
+      position: relative;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 10px;
+      animation: fadeUp .7s both;
+    }
+
+    .eyebrow svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* =============================
+       STICKER SCENE
+    ============================== */
+
+    .scene {
+      width: min(100%, 860px);
+      height: 340px;
+      margin: 0 auto;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .scene svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .scene-element {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .cloud {
+      animation: cloudDrift 14s ease-in-out infinite alternate;
+    }
+
+    .cloud-two {
+      animation-duration: 18s;
+      animation-delay: -5s;
+    }
+
+    .mountain-back {
+      animation: mountainBreath 8s ease-in-out infinite;
+    }
+
+    .mountain-front {
+      animation: mountainBreath 10s ease-in-out infinite reverse;
+    }
+
+    .worker-left {
+      transform-origin: 50% 90%;
+      animation: workerBounce 3.5s ease-in-out infinite;
+    }
+
+    .worker-right {
+      transform-origin: 50% 90%;
+      animation: workerBounce 4s ease-in-out infinite;
+      animation-delay: -.8s;
+    }
+
+    .worker-center {
+      transform-origin: 50% 90%;
+      animation: workerBounce 3.2s ease-in-out infinite;
+      animation-delay: -1.4s;
+    }
+
+    .toolbox {
+      animation: toolboxWiggle 5s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    .floating-leaf {
+      animation: leafFloat 5s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .floating-leaf:nth-child(2) {
+      animation-delay: -2s;
+    }
+
+    .spark {
+      animation: sparkPulse 2.5s ease-in-out infinite;
+    }
+
+    .spark:nth-child(2) {
+      animation-delay: .7s;
+    }
+
+    /* =============================
+       TEXT
+    ============================== */
+
+    .content {
+      position: relative;
+      z-index: 2;
+      margin-top: -2px;
+    }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(42px, 6.5vw, 84px);
+      font-weight: 800;
+      letter-spacing: -5px;
+      line-height: 1.02;
+      color: var(--forest);
+      animation: fadeUp .8s .15s both;
+    }
+
+    h1 span {
+      color: var(--green);
+      display: block;
+    }
+
+    .description {
+      margin: 20px auto 0;
+      color: #738076;
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 460px;
+      animation: fadeUp .8s .3s both;
+    }
+
+    /* =============================
+       DEPLOYMENT COUNTDOWN
+    ============================== */
+
+    .launch-card {
+      margin: 34px auto 0;
+      width: min(100%, 490px);
+      background: rgba(255,255,255,.76);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px 24px;
+      box-shadow: 0 12px 35px rgba(36,76,56,.04);
+      animation: fadeUp .8s .45s both;
+    }
+
+    .launch-heading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .launch-heading svg {
+      width: 16px;
+      height: 16px;
+      color: var(--green);
+    }
+
+    .launch-date {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .countdown-item {
+      width: 82px;
+      padding: 14px 8px;
+      border-radius: 14px;
+      background: #f1f5ed;
+      border: 1px solid #e6ece1;
+    }
+
+    .countdown-number {
+      font-family: var(--font-heading);
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+      color: var(--forest);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown-label {
+      margin-top: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #8a9589;
+    }
+
+    /* =============================
+       FOOTER
+    ============================== */
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 36px;
+      padding-bottom: 8px;
+      color: #8c978c;
+      font-size: 12px;
+    }
+
+    .footer-line {
+      width: 50px;
+      height: 1px;
+      background: #d7dfd3;
+    }
+
+    .footer-logo {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* =============================
+       ANIMATIONS
+    ============================== */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes workerBounce {
+      0%, 100% {
+        transform: translateY(0) rotate(0);
+      }
+      50% {
+        transform: translateY(-6px) rotate(-1deg);
+      }
+    }
+
+    @keyframes cloudDrift {
+      0% {
+        transform: translateX(-8px);
+      }
+      100% {
+        transform: translateX(18px);
+      }
+    }
+
+    @keyframes mountainBreath {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    @keyframes toolboxWiggle {
+      0%, 90%, 100% {
+        transform: rotate(0);
+      }
+      93% {
+        transform: rotate(-3deg);
+      }
+      96% {
+        transform: rotate(3deg);
+      }
+    }
+
+    @keyframes leafFloat {
+      0%, 100% {
+        transform: rotate(-3deg) translateY(0);
+      }
+      50% {
+        transform: rotate(5deg) translateY(-6px);
+      }
+    }
+
+    @keyframes sparkPulse {
+      0%, 100% {
+        opacity: .45;
+        transform: scale(.85);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+    }
+
+    @keyframes statusPulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: .45;
+      }
+    }
+
+    /* =============================
+       RESPONSIVE
+    ============================== */
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 24px 22px;
+      }
+
+      .brand-name {
+        font-size: 19px;
+      }
+
+      .brand-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .status {
+        font-size: 11px;
+        padding: 9px 12px;
+      }
+
+      .scene {
+        height: 260px;
+      }
+
+      h1 {
+        font-size: clamp(44px, 11vw, 72px);
+        letter-spacing: -3px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
+
+      .launch-card {
+        padding: 20px 14px;
+      }
+
+      .countdown {
+        gap: 8px;
+      }
+
+      .countdown-item {
+        width: 68px;
+        padding: 13px 6px;
+      }
+
+      .countdown-number {
+        font-size: 25px;
+      }
+
+      footer {
+        margin-top: 26px;
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .scene {
+        height: 220px;
+      }
+
+      .status {
+        gap: 7px;
+        font-size: 10px;
+      }
+
+      .countdown-item {
+        width: 62px;
+      }
+
+      .countdown-number {
+        font-size: 23px;
+      }
+
+      .footer-line {
+        width: 24px;
+      }
+    }
+
+    /* =============================
+       REDUCED MOTION
+    ============================== */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <a href="#" class="brand">
+        <svg class="brand-icon" viewBox="0 0 48 48" fill="none">
+          <path d="M3 39L19 12L27 25L32 17L45 39H3Z"
+                fill="#477653"/>
+          <path d="M14 39L25 22L36 39H14Z"
+                fill="#244C38"/>
+          <path d="M19 12L22 18L19 17L17 19L19 12Z"
+                fill="#F7F8F1"/>
+          <path d="M32 17L35 22L32 21L30 23L32 17Z"
+                fill="#F7F8F1"/>
+          <path d="M2 41H46" stroke="#244C38" stroke-width="2"
+                stroke-linecap="round"/>
+        </svg>
+
+        <span class="brand-name" id="brandName">Summit.id</span>
+      </a>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        <span>Under Construction</span>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <section class="hero">
+
+        <div class="eyebrow">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 19L10 6L14 13L17 9L22 19H3Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"/>
+          </svg>
+          A little work in progress
+        </div>
+
+        <!-- ILLUSTRATION -->
+        <div class="scene">
+
+          <svg viewBox="0 0 900 370" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+
+            <!-- Clouds -->
+            <g class="cloud">
+              <path d="M75 115C75 99 89 87 106 87C111 65 132 51 155 60C169 42 198 48 207 70C231 67 250 83 250 103C270 105 280 116 280 127H75V115Z"
+                    fill="#E5EEDF"/>
+            </g>
+
+            <g class="cloud cloud-two">
+              <path d="M650 92C650 77 663 65 681 65C688 43 711 31 732 41C749 24 775 30 786 53C807 49 826 65 826 85C844 88 854 98 854 110H650V92Z"
+                    fill="#E7EEE0"/>
+            </g>
+
+            <!-- Distant mountains -->
+            <g class="mountain-back">
+              <path d="M0 255L155 142L225 195L350 100L500 230L620 138L900 260V370H0V255Z"
+                    fill="#E5EEDF"/>
+              <path d="M155 142L183 163L166 160L155 169L155 142Z"
+                    fill="#F7F8F1"/>
+              <path d="M350 100L391 145L362 134L350 145L350 100Z"
+                    fill="#F7F8F1"/>
+              <path d="M620 138L660 173L635 164L620 173V138Z"
+                    fill="#F7F8F1"/>
+            </g>
+
+            <!-- Middle mountains -->
+            <g class="mountain-front">
+              <path d="M0 278L145 195L245 267L390 160L535 274L670 185L900 292V370H0V278Z"
+                    fill="#C9DEC5"/>
+            </g>
+
+            <!-- Front hills -->
+            <path d="M0 313C115 265 210 290 340 310C480 340 620 290 760 308C820 315 860 306 900 290V370H0V313Z"
+                  fill="#A8C9A4"/>
+
+            <!-- Pine trees -->
+            <g fill="#477653">
+              <path d="M63 297L95 237L127 297H113L134 327H56L78 297H63Z"/>
+              <path d="M160 312L187 258L214 312H204L220 335H154L170 312H160Z"/>
+              <path d="M785 310L814 250L843 310H831L851 339H777L795 310H785Z"/>
+              <path d="M855 300L877 255L899 300H890L905 325H850L864 300H855Z"/>
+            </g>
+
+            <g fill="#244C38">
+              <path d="M77 297L95 258L113 297H105L118 317H72L85 297H77Z"/>
+              <path d="M797 310L814 275L831 310H823L837 331H790L803 310H797Z"/>
+            </g>
+
+            <!-- Ground -->
+            <path d="M0 330C130 300 210 325 335 334C480 344 640 300 900 330V370H0V330Z"
+                  fill="#F1F5EB"/>
+
+            <!-- Website mockup -->
+            <g transform="translate(280 60)">
+              <rect x="0" y="0" width="320" height="224" rx="17"
+                    fill="#FFFFFF" stroke="#D7E2D3" stroke-width="3"/>
+              <path d="M0 17C0 7.6 7.6 0 17 0H303C312.4 0 320 7.6 320 17V37H0V17Z"
+                    fill="#DAE1DC"/>
+
+              <!-- Browser dots -->
+              <circle cx="22" cy="19" r="5" fill="#A7B4AA"/>
+              <circle cx="40" cy="19" r="5" fill="#A7B4AA"/>
+              <circle cx="58" cy="19" r="5" fill="#A7B4AA"/>
+
+              <!-- Browser content -->
+              <rect x="22" y="56" width="124" height="80" rx="10"
+                    fill="#E7F0E3"/>
+              <path d="M22 117L60 82L83 102L106 91L146 124V136H22V117Z"
+                    fill="#A9C9A4"/>
+              <circle cx="113" cy="77" r="12" fill="#F7F8F1"/>
+
+              <rect x="165" y="60" width="133" height="14" rx="7"
+                    fill="#D9E0D8"/>
+              <rect x="165" y="88" width="110" height="10" rx="5"
+                    fill="#E9EDE7"/>
+              <rect x="165" y="108" width="120" height="10" rx="5"
+                    fill="#E9EDE7"/>
+
+              <rect x="22" y="154" width="276" height="13" rx="6"
+                    fill="#E9EDE7"/>
+              <rect x="22" y="177" width="220" height="10" rx="5"
+                    fill="#E9EDE7"/>
+              <rect x="22" y="197" width="170" height="10" rx="5"
+                    fill="#E9EDE7"/>
+            </g>
+
+            <!-- Left worker -->
+            <g class="worker-left">
+              <!-- legs -->
+              <rect x="300" y="250" width="28" height="65" rx="13"
+                    fill="#426B4C"/>
+              <rect x="331" y="250" width="28" height="65" rx="13"
+                    fill="#426B4C"/>
+              <ellipse cx="310" cy="315" rx="26" ry="11" fill="#244C38"/>
+              <ellipse cx="348" cy="315" rx="26" ry="11" fill="#244C38"/>
+
+              <!-- body -->
+              <rect x="293" y="190" width="72" height="77" rx="24"
+                    fill="#6E9B72"/>
+              <rect x="315" y="192" width="25" height="67" rx="10"
+                    fill="#D8E6D4"/>
+
+              <!-- arms -->
+              <path d="M296 211C276 217 271 238 283 253L304 241"
+                    stroke="#6E9B72" stroke-width="20" stroke-linecap="round"/>
+              <circle cx="304" cy="242" r="11" fill="#F1CBA6"/>
+
+              <path d="M355 211C374 220 378 237 366 248"
+                    stroke="#6E9B72" stroke-width="20" stroke-linecap="round"/>
+              <circle cx="366" cy="249" r="10" fill="#F1CBA6"/>
+
+              <!-- head -->
+              <circle cx="329" cy="166" r="34" fill="#F1CBA6"/>
+              <circle cx="318" cy="168" r="3.5" fill="#244C38"/>
+              <circle cx="340" cy="168" r="3.5" fill="#244C38"/>
+              <path d="M323 181Q329 187 336 181"
+                    stroke="#C77F62" stroke-width="2.5" stroke-linecap="round"/>
+
+              <!-- hair -->
+              <path d="M295 166C292 142 309 127 332 132C353 132 366 148 363 168L354 156L347 145L335 153L318 148L307 158L295 166Z"
+                    fill="#3C493D"/>
+
+              <!-- helmet -->
+              <path d="M293 151C295 126 314 113 334 115C352 118 365 132 366 151L355 154H300L293 151Z"
+                    fill="#477653" stroke="#244C38" stroke-width="3"/>
+              <path d="M288 152H370C370 158 363 163 352 163H304C294 163 288 158 288 152Z"
+                    fill="#244C38"/>
+              <path d="M329 124L334 132L329 130L325 133L329 124Z"
+                    fill="#E8F1E3"/>
+            </g>
+
+            <!-- Center worker laptop -->
+            <g class="worker-center">
+              <!-- legs -->
+              <rect x="428" y="275" width="29" height="42" rx="13" fill="#476B4C"/>
+              <rect x="465" y="275" width="29" height="42" rx="13" fill="#476B4C"/>
+              <ellipse cx="439" cy="317" rx="25" ry="10" fill="#244C38"/>
+              <ellipse cx="483" cy="317" rx="25" ry="10" fill="#244C38"/>
+
+              <!-- body -->
+              <rect x="420" y="223" width="78" height="70" rx="23" fill="#83A982"/>
+              <rect x="442" y="225" width="34" height="66" rx="11" fill="#DCE9D7"/>
+
+              <!-- head -->
+              <circle cx="459" cy="202" r="34" fill="#F1CBA6"/>
+              <circle cx="448" cy="204" r="3.5" fill="#244C38"/>
+              <circle cx="470" cy="204" r="3.5" fill="#244C38"/>
+              <path d="M452 216Q459 222 466 216"
+                    stroke="#C77F62" stroke-width="2.5" stroke-linecap="round"/>
+
+              <!-- helmet -->
+              <path d="M423 187C426 163 445 150 464 152C482 154 495 169 496 187L484 191H430L423 187Z"
+                    fill="#83A982" stroke="#244C38" stroke-width="3"/>
+              <path d="M417 189H500C499 196 490 201 481 201H436C425 201 417 196 417 189Z"
+                    fill="#477653"/>
+              <path d="M459 162L464 170L459 168L455 171L459 162Z"
+                    fill="#F7F8F1"/>
+
+              <!-- Laptop -->
+              <rect x="390" y="261" width="114" height="68" rx="8"
+                    fill="#52645A" stroke="#244C38" stroke-width="3"/>
+              <rect x="398" y="269" width="98" height="52" rx="4" fill="#263B30"/>
+              <path d="M381 329H514L505 338H390L381 329Z" fill="#A3B6A1"/>
+              <path d="M432 293L447 281L461 293L450 291L447 297L444 291L432 293Z"
+                    fill="#83A982"/>
+            </g>
+
+            <!-- Right worker on ladder -->
+            <g class="worker-right">
+              <!-- ladder -->
+              <g stroke="#C99C62" stroke-width="8" stroke-linecap="round">
+                <path d="M584 180L548 323"/>
+                <path d="M617 180L647 323"/>
+              </g>
+              <g stroke="#D6B17A" stroke-width="6" stroke-linecap="round">
+                <path d="M568 225H625"/>
+                <path d="M562 250H631"/>
+                <path d="M556 276H637"/>
+                <path d="M550 302H643"/>
+              </g>
+
+              <!-- legs -->
+              <path d="M595 251L589 300" stroke="#426B4C" stroke-width="18" stroke-linecap="round"/>
+              <path d="M613 251L622 291" stroke="#426B4C" stroke-width="18" stroke-linecap="round"/>
+              <path d="M589 300L580 303" stroke="#244C38" stroke-width="15" stroke-linecap="round"/>
+              <path d="M622 291L632 295" stroke="#244C38" stroke-width="15" stroke-linecap="round"/>
+
+              <!-- body -->
+              <rect x="582" y="185" width="65" height="76" rx="22" fill="#83A982"/>
+              <rect x="602" y="187" width="25" height="68" rx="10" fill="#DCE9D7"/>
+
+              <!-- raised arm -->
+              <path d="M588 207L561 177" stroke="#83A982" stroke-width="20" stroke-linecap="round"/>
+              <circle cx="558" cy="173" r="10" fill="#F1CBA6"/>
+
+              <!-- head -->
+              <circle cx="614" cy="153" r="31" fill="#F1CBA6"/>
+              <circle cx="604" cy="155" r="3.5" fill="#244C38"/>
+              <circle cx="624" cy="155" r="3.5" fill="#244C38"/>
+              <path d="M608 166Q614 172 621 166"
+                    stroke="#C77F62" stroke-width="2.5" stroke-linecap="round"/>
+
+              <!-- helmet -->
+              <path d="M582 143C585 121 603 107 622 109C640 111 652 125 654 143L642 147H590L582 143Z"
+                    fill="#477653" stroke="#244C38" stroke-width="3"/>
+              <path d="M577 146H658C657 152 648 157 639 157H597C586 157 577 152 577 146Z"
+                    fill="#244C38"/>
+              <path d="M615 120L620 128L615 126L611 129L615 120Z"
+                    fill="#E8F1E3"/>
+            </g>
+
+            <!-- Toolbox -->
+            <g class="toolbox">
+              <rect x="526" y="293" width="91" height="42" rx="9"
+                    fill="#477653" stroke="#244C38" stroke-width="3"/>
+              <rect x="553" y="286" width="36" height="12" rx="5"
+                    fill="#83A982" stroke="#244C38" stroke-width="2"/>
+              <rect x="565" y="304" width="14" height="19" rx="4" fill="#DCE9D7"/>
+            </g>
+
+            <!-- Construction board -->
+            <g transform="translate(656 280)">
+              <path d="M0 0H84V39H0V0Z"
+                    fill="#F2C86B" stroke="#B48C44" stroke-width="3"/>
+              <path d="M10 0L0 18M36 0L16 39M63 0L43 39M84 15L71 39"
+                    stroke="#F7F8F1" stroke-width="9"/>
+              <path d="M10 39L5 61M74 39L80 61"
+                    stroke="#8B987F" stroke-width="6" stroke-linecap="round"/>
+            </g>
+
+            <!-- Floating decorative leaves -->
+            <g class="floating-leaf">
+              <path d="M230 280C201 257 191 237 202 218C225 227 241 251 230 280Z"
+                    fill="#83A982"/>
+              <path d="M232 278L207 230" stroke="#477653" stroke-width="2"/>
+            </g>
+
+            <g class="floating-leaf">
+              <path d="M250 292C231 265 230 248 245 235C261 248 267 272 250 292Z"
+                    fill="#A8C9A4"/>
+              <path d="M250 291L246 247" stroke="#477653" stroke-width="2"/>
+            </g>
+
+            <!-- Sparks -->
+            <g class="spark" fill="#E5B64E">
+              <path d="M254 125L259 110L264 125L279 130L264 135L259 150L254 135L239 130L254 125Z"/>
+            </g>
+            <g class="spark" fill="#83A982">
+              <path d="M674 190L678 180L682 190L692 194L682 198L678 208L674 198L664 194L674 190Z"/>
+            </g>
+
+            <!-- Small plants -->
+            <g fill="#83A982">
+              <path d="M125 325C120 305 130 292 143 288C147 306 141 319 125 325Z"/>
+              <path d="M131 326C136 307 151 301 162 304C155 320 146 326 131 326Z"/>
+              <path d="M130 328V343" stroke="#477653" stroke-width="4" stroke-linecap="round"/>
+            </g>
+
+          </svg>
+        </div>
+
+        <!-- TEXT -->
+        <div class="content">
+
+          <h1>
+            Something good
+            <span>is on the way.</span>
+          </h1>
+
+          <p class="description">
+            We're putting things together.<br />
+            Our website will be ready soon.
+          </p>
+
+          <!-- DEPLOYMENT COUNTDOWN -->
+          <div class="launch-card">
+
+            <div class="launch-heading">
+              <svg viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="1.8"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="16" rx="3"/>
+                <path d="M16 3V7M8 3V7M3 11H21"/>
+              </svg>
+
+              <span>Scheduled Deployment</span>
+            </div>
+
+            <div class="launch-date" id="launchDate">
+              Loading deployment date...
+            </div>
+
+            <div class="countdown" id="countdown">
+
+              <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+              </div>
+
+              <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+              </div>
+
+              <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+              </div>
+
+              <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-line"></div>
+
+      <svg class="footer-logo" viewBox="0 0 48 48" fill="none">
+        <path d="M3 39L19 12L27 25L32 17L45 39H3Z" fill="#477653"/>
+        <path d="M14 39L25 22L36 39H14Z" fill="#244C38"/>
+      </svg>
+
+      <span id="footerText">
+        © <span id="year"></span> Summit.id. All rights reserved.
+      </span>
+
+      <div class="footer-line"></div>
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    /* ========================================
+       CONFIGURATION
+       Ubah konfigurasi website di sini
+    ======================================== */
+
+    const CONFIG = {
+      brandName: "Summit.id",
+
+      // Format ISO: YYYY-MM-DDTHH:mm:ss+07:00
+      // Contoh: 15 Desember 2026 pukul 09.00 WIB
+      deployDate: "2026-12-15T09:00:00+07:00",
+
+      locale: "id-ID",
+      timezone: "Asia/Jakarta"
+    };
+
+
+    /* ========================================
+       BRAND SETUP
+    ======================================== */
+
+    document.getElementById("brandName").textContent =
+      CONFIG.brandName;
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("footerText").innerHTML =
+      `© ${new Date().getFullYear()} ${CONFIG.brandName}. All rights reserved.`;
+
+
+    /* ========================================
+       DEPLOYMENT DATE FORMAT
+    ======================================== */
+
+    const targetDate = new Date(CONFIG.deployDate);
+
+    const dateFormatter = new Intl.DateTimeFormat(CONFIG.locale, {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: CONFIG.timezone
+    });
+
+    document.getElementById("launchDate").textContent =
+      dateFormatter.format(targetDate) + " WIB";
+
+
+    /* ========================================
+       COUNTDOWN
+    ======================================== */
+
+    const countdownElements = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds")
+    };
+
+    function pad(number) {
+      return String(number).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = targetDate.getTime() - now;
+
+      if (distance <= 0) {
+        countdownElements.days.textContent = "00";
+        countdownElements.hours.textContent = "00";
+        countdownElements.minutes.textContent = "00";
+        countdownElements.seconds.textContent = "00";
+
+        document.querySelector(".launch-heading span").textContent =
+          "Deployment Time";
+
+        document.getElementById("launchDate").textContent =
+          "We're ready to launch!";
+
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance / (1000 * 60 * 60)) % 24
+      );
+      const minutes = Math.floor(
+        (distance / (1000 * 60)) % 60
+      );
+      const seconds = Math.floor(
+        (distance / 1000) % 60
+      );
+
+      countdownElements.days.textContent = pad(days);
+      countdownElements.hours.textContent = pad(hours);
+      countdownElements.minutes.textContent = pad(minutes);
+      countdownElements.seconds.textContent = pad(seconds);
+    }
+
+    updateCountdown();
+
+    const countdownInterval = setInterval(() => {
+      updateCountdown();
+
+      if (targetDate.getTime() <= Date.now()) {
+        clearInterval(countdownInterval);
+      }
+    }, 1000);
+
+
+    /* ========================================
+       PAGE VISIBILITY OPTIMIZATION
+    ======================================== */
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        updateCountdown();
+      }
+    });
+  </script>
+
+</body>
+</html>
