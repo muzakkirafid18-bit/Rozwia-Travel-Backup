@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@source "../views";
+@source "../../app";
+
+/* Kustomisasi tema jika diperlukan (opsional) */
+@theme {
+  --color-gold-500: #D4AF37;
+  --color-gold-600: #AA8C2C;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+.font-serif-display {
+  font-family: 'Abhaya Libre', 'Playfair Display', serif;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+/* Styling tombol pilihan tipe kamar agar kontras tajam saat aktif */
+.kamar-radio-label:has(input:checked) .kamar-box {
+  background-color: #D8A941 !important;
+  border-color: #D8A941 !important;
+  transform: scale(1.02);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+.kamar-radio-label:has(input:checked) .kamar-box span {
+  color: #0B3B24 !important;
+  font-weight: 800 !important;
+}
