@@ -77,10 +77,10 @@
                 <table class="w-full text-left text-xs">
                     <thead class="bg-stone-100 text-stone-700">
                         <tr>
-                            <th class="px-5 py-3.5 font-semibold">Akun Pengguna</th>
-                            <th class="px-3 py-3.5 text-center font-semibold">Status</th>
+                            <th class="px-3 md:px-5 py-3.5 font-semibold">Akun Pengguna</th>
+                            <th class="px-2 md:px-3 py-3.5 text-center font-semibold">Status</th>
                             @foreach($roleColumns as $colKey => $colInfo)
-                                <th class="px-4 py-3.5 text-center font-semibold whitespace-nowrap">{{ $colInfo['label'] }}</th>
+                                <th class="px-2 md:px-4 py-3.5 text-center font-semibold whitespace-nowrap">{{ $colInfo['label'] }}</th>
                             @endforeach
                         </tr>
                     </thead>
@@ -92,10 +92,10 @@
                             $isLocked = $isSelf || $isLastAdmin;
                         @endphp
                         <tr class="hover:bg-stone-50/80 transition">
-                            <td class="px-5 py-3.5">
-                                <div class="flex items-center gap-2.5">
-                                    <div>
-                                        <div class="flex items-center gap-1.5">
+                            <td class="px-3 md:px-5 py-3.5 max-w-[165px] md:max-w-none">
+                                <div class="flex items-center gap-2">
+                                    <div class="min-w-0">
+                                        <div class="flex items-center gap-1.5 flex-wrap">
                                             <span class="font-bold text-[#0B3B24]">{{ $u->name }}</span>
                                             @if($isSelf)
                                                 <span class="rounded-full bg-[#0B3B24] px-2 py-0.5 text-[9px] font-bold text-amber-200">Anda</span>
@@ -103,13 +103,13 @@
                                                 <span class="rounded-full bg-purple-100 px-2 py-0.5 text-[9px] font-bold text-purple-800">Admin Utama</span>
                                             @endif
                                         </div>
-                                        <span class="text-[11px] text-stone-500 block">{{ $u->email }}</span>
+                                        <span class="text-[11px] text-stone-500 block truncate">{{ $u->email }}</span>
                                     </div>
                                 </div>
                                 <input type="hidden" name="roles[{{ $u->id }}]" :value="selectedRoles[{{ $u->id }}]">
                             </td>
 
-                            <td class="px-3 py-3.5 text-center">
+                            <td class="px-2 md:px-3 py-3.5 text-center">
                                 @if($u->status_akun === 'active')
                                     <span class="rounded-full bg-emerald-100 px-2.5 py-1 text-[10px] font-bold text-emerald-800">Active</span>
                                 @else
@@ -118,7 +118,7 @@
                             </td>
 
                             @foreach($roleColumns as $colKey => $colInfo)
-                                <td class="px-4 py-3.5 text-center">
+                                <td class="px-2 md:px-4 py-3.5 text-center">
                                     <label class="inline-flex items-center justify-center p-1.5 rounded-lg border transition {{ $isLocked ? 'opacity-50 cursor-not-allowed border-stone-200 bg-stone-50' : 'cursor-pointer hover:bg-stone-100 border-transparent' }}"
                                            :class="selectedRoles[{{ $u->id }}] === '{{ $colKey }}' ? '{{ $colInfo['badge'] }}' : ''">
                                         <input type="checkbox"

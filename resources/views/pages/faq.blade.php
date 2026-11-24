@@ -77,13 +77,13 @@
 
             <div class="relative z-10 space-y-2">
                 <p class="text-xs text-amber-300 tracking-widest uppercase">
-                    <a href="/" class="hover:underline">Beranda</a> &gt; <span class="text-white font-medium">Pertanyaan Umum &gt;</span>
+                    <a href="/" class="hover:underline">Beranda</a> &gt; <span class="text-white font-medium">Pertanyaan Umum</span>
                 </p>
                 <h1 class="text-3xl sm:text-5xl font-bold text-white tracking-tight">
-                    Pertanyaan yang sering Diajukan
+                    Pertanyaan yang Sering Diajukan
                 </h1>
                 <p class="text-emerald-100/90 text-xs sm:text-base max-w-2xl leading-relaxed">
-                    Setiap Perjalanan Memiliki Cerita. Kenali lebih dekat siapa kami dan bagaimana kami menemani perjalanan menuju Tanah Suci.
+                    Temukan jawaban seputar pendaftaran, pembayaran, dokumen keberangkatan, dan layanan perjalanan bersama ROZWIA.
                 </p>
             </div>
         </div>

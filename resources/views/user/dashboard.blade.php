@@ -198,7 +198,7 @@
                             </span>
                             <strong class="text-xs font-bold {{ $dpVerified ? 'text-[#063B25]' : 'text-[#8A5311]' }}">Tahap 1</strong>
                         </div>
-                        <p class="text-xs font-bold text-stone-900">Bayar Dp Umrah</p>
+                        <p class="text-xs font-bold text-stone-900">Bayar DP {{ $paket?->kategori === 'Haji' ? 'Haji' : 'Umroh' }}</p>
                         <p class="text-[11px] {{ $dpVerified ? 'text-[#1E6B43]' : 'text-[#9A5B13]' }} font-medium">
                             {{ $dpVerified ? 'Terverifikasi (' . \App\Helpers\RozwiaHelper::formatRupiah($totalDibayar) . ')' : $statusDp }}
                         </p>
@@ -312,12 +312,12 @@
                         <span class="text-xs text-stone-500">Status Pembayaran</span>
                         <div class="grid grid-cols-2 gap-4 pt-2">
                             <div class="bg-emerald-50/70 p-3.5 rounded-2xl border border-emerald-200">
-                                <span class="text-[10px] font-bold text-emerald-800 block">Sudah Dibayar(DP)</span>
+                                <span class="text-[10px] font-bold text-emerald-800 block">Sudah Dibayar (DP)</span>
                                 <strong class="text-base font-bold text-emerald-900 font-serif-display">{{ \App\Helpers\RozwiaHelper::formatRupiah($totalDibayar) }}</strong>
                                 <span class="text-[10px] text-emerald-700 block mt-0.5">{{ $statusDp }}</span>
                             </div>
                             <div class="bg-amber-50 p-3.5 rounded-2xl border border-amber-300 relative">
-                                <span class="text-[10px] font-bold text-amber-900 block">Sisa Tagihan(Kurang)</span>
+                                <span class="text-[10px] font-bold text-amber-900 block">Sisa Tagihan (Kurang)</span>
                                 <strong class="text-base font-bold text-amber-950 font-serif-display">{{ \App\Helpers\RozwiaHelper::formatRupiah(max(0, $sisaTagihan)) }}</strong>
                                 <span class="text-[10px] text-amber-800 block mt-0.5">Jatuh tempo: {{ $jatuhTempo }}</span>
                             </div>

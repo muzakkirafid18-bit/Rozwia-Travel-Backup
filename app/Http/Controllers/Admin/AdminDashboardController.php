@@ -840,9 +840,9 @@ class AdminDashboardController extends Controller
             ->latest()
             ->get();
 
-        $kemenagTerbit = $jamaahDetails->where('status_kemenag', 'Terbit')->count();
-        $visaTerbit    = $jamaahDetails->where('status_visa', 'Terbit')->count();
-        $perluTindakan = $jamaahDetails->filter(fn($j) => $j->status_kemenag !== 'Terbit' || $j->status_visa !== 'Terbit')->count();
+        $kemenagTerbit = $jamaahDetails->filter(fn ($j) => JamaahDetail::normalizeStatus($j->status_kemenag) === 'Terbit')->count();
+        $visaTerbit    = $jamaahDetails->filter(fn ($j) => JamaahDetail::normalizeStatus($j->status_visa) === 'Terbit')->count();
+        $perluTindakan = $jamaahDetails->filter(fn ($j) => JamaahDetail::normalizeStatus($j->status_kemenag) !== 'Terbit' || JamaahDetail::normalizeStatus($j->status_visa) !== 'Terbit')->count();
 
         return view('admin.kemenag', compact(
             'jamaahDetails', 'kemenagTerbit', 'visaTerbit', 'perluTindakan'

@@ -93,7 +93,7 @@
                 </span>
             </div>
             <div class="pt-3 border-t border-stone-200/80 flex items-center justify-between text-xs">
-                <span class="text-stone-600">Lihat Daftar jamaah ({{ $jamaahAktif }} booking aktif)</span>
+                <span class="text-stone-600">Lihat Daftar Jamaah ({{ $jamaahAktif }} booking aktif)</span>
                 <a href="{{ route('admin.aktivasi') }}" class="font-bold text-[#063B25] hover:underline inline-flex items-center gap-1 shrink-0">
                     <span>Kelola</span>
                     <x-icon name="north_east" class="w-3.5 h-3.5" />

@@ -141,7 +141,7 @@
                     <h4 class="font-bold text-[#D4B996] text-base tracking-wide">Perusahaan</h4>
                     <ul class="space-y-2.5 text-sm text-[#E8DFD1]/85">
                         <li><a href="{{ route('tentang.kami') }}" class="hover:text-white transition">&rarr; Tentang Kami</a></li>
-                        <li><a href="#testimoni" class="hover:text-white transition">&rarr; Testimoni</a></li>
+                        <li><a href="{{ route('landing') }}#testimoni" class="hover:text-white transition">&rarr; Testimoni</a></li>
                         <li><a href="{{ route('faq') }}" class="hover:text-white transition">&rarr; Pertanyaan Umum</a></li>
                     </ul>
                 </div>

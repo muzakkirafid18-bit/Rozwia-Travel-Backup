@@ -186,7 +186,7 @@
                     @click="filterStatus = 'perlu diperbaiki'"
                     :class="filterStatus === 'perlu diperbaiki' ? 'bg-[#0B3B24] text-white' : 'bg-white text-stone-800 border border-stone-800'"
                     class="px-4 py-2 rounded-full text-xs font-medium transition shadow-xs cursor-pointer">
-                Perlu diperbaiki
+                Perlu Diperbaiki
             </button>
 
             <button type="button"

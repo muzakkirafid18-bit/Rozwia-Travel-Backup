@@ -80,7 +80,7 @@
                 <a href="{{ route('supervisor.profile') }}"
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('supervisor.profile', 'supervisor.perusahaan', 'supervisor.rekening*') ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
                     <x-icon name="home_work" class="w-5 h-5" />
-                    <span>Profile Perusahaan</span>
+                    <span>Profil Perusahaan</span>
                 </a>
 
                 <a href="{{ route('supervisor.paket') }}"

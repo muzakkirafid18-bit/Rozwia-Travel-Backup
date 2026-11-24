@@ -297,7 +297,7 @@ class DatabaseSeeder extends Seeder
                         'id_paket' => $paket->id,
                         'id_hotel' => $hotelMakkah->id,
                         'id_tipe'  => $tipeDouble->id,
-                        'harga'    => (int) ($p['harga'] * 1.15),
+                        'harga'    => (int) round($p['harga'] * 1.15),
                     ]);
                 }
             }

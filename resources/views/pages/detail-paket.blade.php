@@ -136,7 +136,7 @@
                 <div class="flex flex-wrap items-center gap-1.5">
                     <a href="{{ request()->fullUrlWithQuery(['bulan' => 'semua']) }}" class="{{ $selectedBulan === 'semua' ? 'bg-[#0B3B24] text-white' : 'bg-stone-100 text-stone-700 hover:bg-emerald-50' }} text-[11px] font-serif font-semibold px-3.5 py-1.5 rounded-full transition">Semua</a>
                     @foreach($availableMonths as $bln)
-                        <a href="{{ request()->fullUrlWithQuery(['bulan' => $bln]) }}" class="{{ $selectedBulan === $bln ? 'bg-[#0B3B24] text-white' : 'bg-stone-100 text-stone-700 hover:bg-emerald-50' }} text-[11px] font-serif font-semibold px-3.5 py-1.5 rounded-full transition capitalize">{{ $bln }}</a>
+                        <a href="{{ request()->fullUrlWithQuery(['bulan' => $bln]) }}" class="{{ $selectedBulan === $bln ? 'bg-[#0B3B24] text-white' : 'bg-stone-100 text-stone-700 hover:bg-emerald-50' }} text-[11px] font-serif font-semibold px-3.5 py-1.5 rounded-full transition capitalize">{{ ucfirst($bln) }}</a>
                     @endforeach
                 </div>
             </div>

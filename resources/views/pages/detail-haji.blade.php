@@ -75,7 +75,7 @@
                 </p>
             </div>
             <div class="md:col-span-4 border-t md:border-t-0 md:border-l border-stone-200 pt-4 md:pt-0 md:pl-6 text-stone-700 text-xs sm:text-sm font-serif italic">
-                "Menunaikan Ibadah Haji dengan tenang bersama rozwia."
+                "Menunaikan Ibadah Haji dengan tenang bersama ROZWIA."
             </div>
         </div>
 

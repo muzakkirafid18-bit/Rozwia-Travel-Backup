@@ -38,6 +38,7 @@ class Paket extends Model
     public function quadPrice(): float
     {
         $this->loadMissing('paketTipeKamars.tipeKamar');
+        $baseHarga = (float) ($this->harga_dasar ?? 0);
 
         $quad = $this->paketTipeKamars->first(function ($ptk) {
             return strtolower(trim((string) ($ptk->tipeKamar->nama ?? ''))) === 'quad'
@@ -45,15 +46,24 @@ class Paket extends Model
         });
 
         if ($quad) {
-            return (float) $quad->harga;
+            $quadHarga = (float) $quad->harga;
+            // kalau harga kamar lebih kecil dari harga_dasar (mis. data lama/surcharge), pakai harga_dasar
+            if ($baseHarga > 0 && $quadHarga < $baseHarga) {
+                return $baseHarga;
+            }
+            return $quadHarga;
         }
 
         $minPrice = $this->paketTipeKamars->where('harga', '>', 0)->min('harga');
         if ($minPrice !== null && (float) $minPrice > 0) {
-            return (float) $minPrice;
+            $minHarga = (float) $minPrice;
+            if ($baseHarga > 0 && $minHarga < $baseHarga) {
+                return $baseHarga;
+            }
+            return $minHarga;
         }
 
-        return (float) ($this->harga_dasar ?? 0);
+        return $baseHarga;
     }
 
     public function jenisLayanan(): BelongsTo

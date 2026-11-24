@@ -21,6 +21,8 @@ Route::get('/faq', [PublicController::class, 'faq'])->name('faq');
 
 // alias url biar nggak 404 kalau diakses lewat link pendek
 Route::redirect('/tentang', '/tentang-kami');
+Route::redirect('/umroh', '/paket-umroh');
+Route::redirect('/haji', '/paket-haji');
 Route::redirect('/paket', '/paket-umroh');
 Route::redirect('/administrator/roles', '/administrator/role-matrix');
 Route::redirect('/admin/aktivasi', '/admin/aktivasi-akun');
@@ -167,7 +169,7 @@ Route::middleware(['auth', 'role:supervisor'])->prefix('supervisor')->name('supe
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect()->route('login');
+        return redirect('/');
     })->name('logout');
 });
 

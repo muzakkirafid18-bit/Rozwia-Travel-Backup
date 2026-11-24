@@ -51,12 +51,15 @@
                 $layananNama = strtolower($p->jenisLayanan?->nama_pelayanan ?? '');
                 $namaLower = strtolower($p->nama_paket);
 
+                $isUmrohPlus = str_contains($layananNama, 'plus') || str_contains($namaLower, 'plus') || str_contains($namaLower, 'turki') || str_contains($namaLower, 'dubai') || str_contains($namaLower, 'istanbul') || str_contains($namaLower, 'aqsha');
+                $isRamadhan = str_contains($namaLower, 'ramadhan') || str_contains($namaLower, 'lailatur') || str_contains($namaLower, 'syawal') || str_contains($layananNama, 'ramadhan');
+
                 $filterKey = '9-hari';
                 if ($diffDays >= 14 || str_contains($namaLower, '15 hari')) {
                     $filterKey = '15-hari';
                 } elseif ($diffDays >= 11 || str_contains($namaLower, '12 hari')) {
                     $filterKey = '12-hari';
-                } elseif (str_contains($layananNama, 'plus') || str_contains($namaLower, 'plus') || str_contains($namaLower, 'turki') || str_contains($namaLower, 'dubai')) {
+                } elseif ($isUmrohPlus) {
                     $filterKey = 'umroh-plus';
                 }
 
@@ -73,6 +76,8 @@
                     'days' => $durasi,
                     'diff_days' => $diffDays,
                     'filter_key' => $filterKey,
+                    'is_umroh_plus' => $isUmrohPlus,
+                    'is_ramadhan' => $isRamadhan,
                     'route' => 'Makkah & Madinah',
                     'hotel' => $hotelNama,
                     'price' => \App\Helpers\RozwiaHelper::formatRupiah($p->quadPrice()),
@@ -84,11 +89,11 @@
             // Filter data jika tombol kategori dipilih
             $filteredList = $umrohList->filter(function($item) use ($activeFilter) {
                 if ($activeFilter === 'semua') return true;
-                if ($activeFilter === 'ramadhan') return str_contains(strtolower($item['title']), 'ramadhan');
+                if ($activeFilter === 'ramadhan') return $item['is_ramadhan'];
                 if ($activeFilter === '9-hari') return $item['diff_days'] <= 10;
                 if ($activeFilter === '12-hari') return $item['diff_days'] >= 11 && $item['diff_days'] <= 13;
-                if ($activeFilter === '15-hari') return $item['diff_days'] >= 14;
-                if ($activeFilter === 'umroh-plus') return $item['filter_key'] === 'umroh-plus' || str_contains(strtolower($item['title']), 'plus') || str_contains(strtolower($item['title']), 'turki') || str_contains(strtolower($item['title']), 'dubai');
+                if ($activeFilter === '15-hari') return $item['diff_days'] >= 14 && $item['diff_days'] <= 18;
+                if ($activeFilter === 'umroh-plus') return $item['is_umroh_plus'];
                 return $item['filter_key'] === $activeFilter;
             });
         @endphp
@@ -105,7 +110,7 @@
             
             <a href="{{ route('paket.umroh', ['filter' => 'ramadhan']) }}" class="{{ $activeFilter === 'ramadhan' ? 'bg-[#0B3B24] text-white' : 'bg-white hover:bg-emerald-50 text-[#0B3B24]' }} border border-[#0B3B24] text-xs font-semibold px-5 py-2.5 rounded-full shadow-xs transition">Paket Ramadhan</a>
             
-            <a href="{{ route('paket.umroh', ['filter' => 'umroh-plus']) }}" class="{{ $activeFilter === 'umroh-plus' ? 'bg-[#0B3B24] text-white' : 'bg-white hover:bg-emerald-50 text-[#0B3B24]' }} border border-[#0B3B24] text-xs font-semibold px-5 py-2.5 rounded-full shadow-xs transition">Umroh plus</a>
+            <a href="{{ route('paket.umroh', ['filter' => 'umroh-plus']) }}" class="{{ $activeFilter === 'umroh-plus' ? 'bg-[#0B3B24] text-white' : 'bg-white hover:bg-emerald-50 text-[#0B3B24]' }} border border-[#0B3B24] text-xs font-semibold px-5 py-2.5 rounded-full shadow-xs transition">Umroh Plus</a>
         </div>
 
         <!-- GRID KATALOG UMROH -->

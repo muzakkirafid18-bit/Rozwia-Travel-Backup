@@ -33,9 +33,24 @@ class JamaahDetail extends Model
     protected function casts(): array
     {
         return [
-            'tanggal_lahir'       => 'date',
-            'tanggal_terbit_visa' => 'date',
+            'tanggal_lahir'       => 'date:Y-m-d',
+            'tanggal_terbit_visa' => 'date:Y-m-d',
         ];
+    }
+
+    /**
+     * Samakan label status lama (mis. Dalam Proses / Issued) ke status standar UI.
+     */
+    public static function normalizeStatus(?string $status): string
+    {
+        $val = trim((string) ($status ?? ''));
+        return match (strtolower($val)) {
+            'dalam proses', 'on process', 'proses' => 'Diproses',
+            'issued', 'terbit' => 'Terbit',
+            'ditolak' => 'Ditolak',
+            'belum diajukan', '' => 'Belum Diajukan',
+            default => $val,
+        };
     }
 
     public function booking(): BelongsTo

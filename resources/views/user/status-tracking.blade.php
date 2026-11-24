@@ -24,8 +24,8 @@
             ->map(fn ($w) => strtoupper(mb_substr($w, 0, 1)))
             ->implode('') ?: 'J';
 
-        $kemenag = $j->status_kemenag ?? 'Belum Diajukan';
-        $visa = $j->status_visa ?? 'Belum Diajukan';
+        $kemenag = \App\Models\JamaahDetail::normalizeStatus($j->status_kemenag);
+        $visa = \App\Models\JamaahDetail::normalizeStatus($j->status_visa);
         $isPublished = ($kemenag === 'Terbit' && $visa === 'Terbit');
 
         return [
@@ -178,7 +178,7 @@
                             <span>TITIK KUMPUL</span>
                         </span>
                         <span class="rounded-full px-3 py-0.5 text-[10px] font-bold {{ $isTitikKumpulConfirmed ? 'bg-[#CFE5D5] text-[#063B25]' : 'bg-[#F3E2BA] text-[#8A5311]' }}">
-                            {{ $isTitikKumpulConfirmed ? 'Confirmed' : 'Menunggu' }}
+                            {{ $isTitikKumpulConfirmed ? 'Terkonfirmasi' : 'Menunggu' }}
                         </span>
                     </div>
 
@@ -206,7 +206,7 @@
                             <span>TIKET PESAWAT</span>
                         </span>
                         <span class="rounded-full px-3 py-0.5 text-[10px] font-bold {{ $isFlightConfirmed ? 'bg-[#CFE5D5] text-[#063B25]' : 'bg-[#F3E2BA] text-[#8A5311]' }}">
-                            {{ $isFlightConfirmed ? 'Confirmed' : 'Menunggu Jadwal' }}
+                            {{ $isFlightConfirmed ? 'Terkonfirmasi' : 'Menunggu Jadwal' }}
                         </span>
                     </div>
 

@@ -11,8 +11,8 @@
             'nama'    => $j->nama_lengkap,
             'paket'   => $j->booking?->jadwal?->paket?->nama_paket ?? 'Paket Umroh',
             'isLunas' => $isLunas,
-            'kemenag' => $j->status_kemenag ?? 'Belum Diajukan',
-            'visa'    => $j->status_visa ?? 'Belum Diajukan',
+            'kemenag' => \App\Models\JamaahDetail::normalizeStatus($j->status_kemenag),
+            'visa'    => \App\Models\JamaahDetail::normalizeStatus($j->status_visa),
             'noVisa'  => $j->nomor_visa ?? '',
             'tglVisa' => $j->tanggal_terbit_visa ? $j->tanggal_terbit_visa->format('Y-m-d') : '',
         ];

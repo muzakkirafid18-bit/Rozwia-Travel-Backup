@@ -54,7 +54,7 @@
 
     <!-- bar atas -->
     <div class="flex items-center justify-between gap-4 pb-2">
-        <a href="{{ auth()->check() ? route('user.dashboard') : route('home') }}"
+        <a href="{{ auth()->check() ? route('user.dashboard') : route('landing') }}"
            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-stone-200 text-[#0B3B24] hover:bg-stone-50 font-bold text-xs transition shadow-xs cursor-pointer">
             <x-icon name="arrow_back" class="w-4 h-4" />
             <span>Kembali ke Beranda {{ auth()->check() ? 'Jamaah' : '' }}</span>
