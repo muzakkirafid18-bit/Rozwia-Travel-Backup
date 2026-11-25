@@ -21,8 +21,8 @@ RUN composer install \
     --optimize-autoloader \
     --no-scripts
 
-# Stage 3: Production runtime (PHP 8.3 FPM + Nginx + Supervisor)
-FROM php:8.3-fpm-alpine AS app
+# Stage 3: Production runtime (PHP 8.4 FPM + Nginx + Supervisor)
+FROM php:8.4-fpm-alpine AS app
 WORKDIR /var/www/html
 
 # Install system dependencies, Nginx, Supervisor, and PHP extensions
