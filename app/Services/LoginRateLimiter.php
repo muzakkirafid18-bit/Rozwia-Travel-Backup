@@ -52,6 +52,8 @@ class LoginRateLimiter extends FortifyLoginRateLimiter
 
     protected function throttleKey(Request $request)
     {
-        return Str::transliterate('login_attempt|' . $request->ip());
+        $email = Str::lower(trim((string) $request->input(Fortify::username(), '')));
+
+        return Str::transliterate('login_attempt|' . $email . '|' . $request->ip());
     }
 }

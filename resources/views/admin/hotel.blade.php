@@ -207,7 +207,10 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div class="space-y-1">
                 <h2 class="text-sm sm:text-base font-bold text-[#0B3B24] font-serif flex items-center gap-2">
-                    <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-100 text-amber-700 text-xs">✓</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1.25em" viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
+                        <path d="M0 0h32v32H0z" fill="none" />
+                        <path fill="#7cb342" d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m-1.667 22.143L6.92 16.73l3.293-3.293l4.12 4.107l7.455-7.44l3.294 3.293Z" />
+                    </svg>
                     Data Jamaah Aktif &amp; Status Kesiapan
                 </h2>
                 <p class="text-[11px] text-stone-500">
@@ -217,11 +220,11 @@
 
             <div class="flex flex-wrap items-center gap-2.5">
                 <div class="relative w-full sm:w-56">
-                    <span class="absolute left-3 top-2 text-stone-400 text-xs">🔍</span>
+                    <span class="absolute left-3 top-2 text-stone-400 pointer-events-none"><x-icon name="search" class="w-4 h-4" /></span>
                     <input type="text"
                            x-model="searchQuery"
                            placeholder="Cari nama jamaah..."
-                           class="w-full pl-8 pr-3 py-1.5 rounded-full border border-stone-200 text-xs focus:outline-none focus:ring-1 focus:ring-[#0B3B24]">
+                           class="w-full pl-9 pr-3 py-1.5 rounded-full border border-stone-200 text-xs focus:outline-none focus:ring-1 focus:ring-[#0B3B24]">
                 </div>
 
                 <button type="button"
@@ -266,14 +269,32 @@
                             </td>
                             <td class="py-3.5 px-3 text-center">
                                 <span :class="j.maskapai_ready ? 'bg-[#E6F4EA] text-[#137333] border-[#A8DAB5]' : 'bg-[#FEF7E0] text-[#B06000] border-[#FCE293]'"
-                                      class="inline-block px-3 py-1 rounded-full border text-[10px] font-bold">
-                                    <span x-text="j.maskapai_ready ? '✓ Ready' : 'Not Ready'"></span>
+                                      class="inline-flex items-center gap-1 px-3 py-1 rounded-full border text-[10px] font-bold">
+                                    <template x-if="j.maskapai_ready">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
+                                            <path d="M0 0h32v32H0z" fill="none" />
+                                            <path fill="#7cb342" d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m-1.667 22.143L6.92 16.73l3.293-3.293l4.12 4.107l7.455-7.44l3.294 3.293Z" />
+                                        </svg>
+                                    </template>
+                                    <template x-if="!j.maskapai_ready">
+                                        <x-icon name="hourglass_top" class="w-3.5 h-3.5" />
+                                    </template>
+                                    <span x-text="j.maskapai_ready ? 'Ready' : 'Not Ready'"></span>
                                 </span>
                             </td>
                             <td class="py-3.5 px-3 text-center">
                                 <span :class="j.hotel_ready ? 'bg-[#E6F4EA] text-[#137333] border-[#A8DAB5]' : 'bg-[#FEF7E0] text-[#B06000] border-[#FCE293]'"
-                                      class="inline-block px-3 py-1 rounded-full border text-[10px] font-bold">
-                                    <span x-text="j.hotel_ready ? '✓ Ready' : 'Not Ready'"></span>
+                                      class="inline-flex items-center gap-1 px-3 py-1 rounded-full border text-[10px] font-bold">
+                                    <template x-if="j.hotel_ready">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 32 32" aria-hidden="true" class="shrink-0">
+                                            <path d="M0 0h32v32H0z" fill="none" />
+                                            <path fill="#7cb342" d="M16 2a14 14 0 1 0 14 14A14 14 0 0 0 16 2m-1.667 22.143L6.92 16.73l3.293-3.293l4.12 4.107l7.455-7.44l3.294 3.293Z" />
+                                        </svg>
+                                    </template>
+                                    <template x-if="!j.hotel_ready">
+                                        <x-icon name="hourglass_top" class="w-3.5 h-3.5" />
+                                    </template>
+                                    <span x-text="j.hotel_ready ? 'Ready' : 'Not Ready'"></span>
                                 </span>
                             </td>
                             <td class="py-3.5 px-3 text-center">
@@ -412,8 +433,9 @@
 
                 <div class="flex justify-end gap-2 pt-2">
                     <button type="button" @click="jamaahModalOpen = false" class="px-4 py-2 rounded-xl border border-stone-300 text-stone-700 font-bold cursor-pointer">Batal</button>
-                    <button type="submit" class="bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold px-5 py-2 rounded-xl shadow-md transition cursor-pointer">
-                        💾 Simpan Alokasi
+                    <button type="submit" class="bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold px-5 py-2 rounded-xl shadow-md transition cursor-pointer inline-flex items-center gap-1.5">
+                        <x-icon name="save" class="w-4 h-4" />
+                        <span>Simpan Alokasi</span>
                     </button>
                 </div>
             </form>

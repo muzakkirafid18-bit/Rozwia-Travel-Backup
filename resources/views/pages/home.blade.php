@@ -355,8 +355,9 @@
                 <a href="{{ route('paket.umroh') }}" class="bg-[#F59100] hover:bg-[#e08500] text-[#0B3B24] font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5">
                     Daftar Paket
                 </a>
-                <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20perjalanan." target="_blank" class="bg-emerald-800 hover:bg-emerald-700 text-white font-serif font-bold text-sm px-7 py-3.5 rounded-2xl border border-emerald-600/50 shadow-md transition transform hover:-translate-y-0.5">
-                    Chat Via WhatsApp
+                <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20perjalanan." target="_blank" class="bg-[#25D366] hover:bg-[#20ba5a] text-white font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5">
+                    @include('partials.wa-icon', ['size' => '1.25em'])
+                    <span>Chat Via WhatsApp</span>
                 </a>
             </div>
 

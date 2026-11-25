@@ -65,7 +65,7 @@
 
                 <!-- Telepon (WhatsApp) -->
                 <div class="flex items-start gap-3 pt-3 border-t border-stone-100">
-                    <x-icon name="call" class="w-5 h-5 text-emerald-600 mt-0.5" />
+                    @include('partials.wa-icon', ['size' => '1.6em'])
                     <div>
                         <span class="text-stone-400 block text-[10px] font-bold uppercase tracking-wider">Telepon</span>
                         <span class="font-bold text-[#0B3B24]">{{ $profile['telepon_perusahaan'] ?? '0895-1882-9438' }}</span>

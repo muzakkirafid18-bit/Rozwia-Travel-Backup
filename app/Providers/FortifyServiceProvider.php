@@ -82,9 +82,10 @@ class FortifyServiceProvider extends ServiceProvider
             return null;
         });
 
-        // batasi salah login 3x dalam 5 menit
+        // batasi salah login 3x dalam 5 menit per email + IP
         RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate('login_attempt|' . $request->ip());
+            $email = Str::lower(trim((string) $request->input(Fortify::username(), '')));
+            $throttleKey = Str::transliterate('login_attempt|' . $email . '|' . $request->ip());
 
             return Limit::perMinutes(5, 3)->by($throttleKey);
         });

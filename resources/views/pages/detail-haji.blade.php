@@ -264,9 +264,9 @@
                                    @change="anggotaConfirmed = false; syncAnggotaCount(); if(jumlahJamaah > 1) showAnggotaModal = true;"
                                    class="w-full bg-emerald-900/80 border border-emerald-700 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-amber-400 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
                             <div x-show="jumlahJamaah > 1" x-cloak class="mt-2 p-2.5 rounded-xl bg-emerald-900/60 border border-emerald-700/80 flex items-center justify-between gap-2 text-[11px]">
-                                <span class="text-amber-300">👥 Membawa <strong x-text="jumlahJamaah - 1"></strong> anggota tambahan</span>
-                                <button type="button" @click="syncAnggotaCount(); showAnggotaModal = true" class="bg-amber-500 text-emerald-950 font-bold px-2.5 py-1 rounded-lg hover:bg-amber-400 transition cursor-pointer">
-                                    ✎ Isi Nama
+                                <span class="text-amber-300 inline-flex items-center gap-1.5"><x-icon name="group" class="w-4 h-4" /> Membawa <strong x-text="jumlahJamaah - 1"></strong> anggota tambahan</span>
+                                <button type="button" @click="syncAnggotaCount(); showAnggotaModal = true" class="bg-amber-500 text-emerald-950 font-bold px-2.5 py-1 rounded-lg hover:bg-amber-400 transition cursor-pointer inline-flex items-center gap-1">
+                                    <x-icon name="edit_note" class="w-3.5 h-3.5" /> Isi Nama
                                 </button>
                             </div>
                         </div>
@@ -279,17 +279,14 @@
                             </div>
                         </template>
 
-                        <!-- Tombol Aksi Menumpuk Vertikal & WhatsApp Hijau -->
-                        <div class="pt-2 space-y-3">
+                        <!-- Tombol Aksi Pendaftaran -->
+                        <div class="pt-2">
                             <button type="submit"
                                     :disabled="isSubmitting"
                                     :class="isSubmitting ? 'opacity-60 cursor-not-allowed' : 'hover:bg-amber-400 active:scale-98 hover:shadow-lg cursor-pointer'"
                                     class="w-full bg-amber-500 text-emerald-950 font-bold py-3.5 px-4 rounded-xl shadow-md transition-all duration-200 text-xs uppercase tracking-wider text-center">
                                 <span x-text="isSubmitting ? 'Memproses Pendaftaran...' : 'Daftar Paket'">Daftar Paket</span>
                             </button>
-                            <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20berkonsultasi%20mengenai%20paket%20{{ urlencode($package['name']) }}." target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition text-xs flex items-center justify-center gap-2 text-center">
-                                <span>💬</span> Chat Via WhatsApp
-                            </a>
                         </div>
                     </form>
 

@@ -9,6 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- alpinejs -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body class="bg-[#FDFBF7] font-sans text-stone-800 antialiased selection:bg-emerald-900 selection:text-white min-h-screen flex flex-col justify-between"
@@ -162,15 +163,16 @@
                     </div>
                     <div class="pt-2 space-y-3 text-sm">
                         <a href="https://wa.me/{{ $waDigits ?: '6285122978237' }}" target="_blank" class="flex items-center gap-3 hover:text-white transition">
-                            <span class="w-7 h-7 rounded-full bg-emerald-800 text-emerald-300 flex items-center justify-center">
-                                <x-icon name="call" class="w-3.5 h-3.5" />
-                            </span>
+                            @include('partials.wa-icon', ['size' => '1.3em'])
                             <span class="font-sans">{{ $companyProfile['telepon'] }}</span>
                         </a>
                         <a href="mailto:{{ $companyProfile['email'] }}" class="flex items-center gap-3 hover:text-white transition">
-                            <span class="w-7 h-7 rounded-full bg-amber-500 text-emerald-950 flex items-center justify-center">
-                                <x-icon name="mail" class="w-3.5 h-3.5" />
-                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 1024 1024" aria-hidden="true" class="inline-block shrink-0">
+                                <path d="M0 0h1024v1024H0z" fill="none" />
+                                <path fill="currentColor" fill-opacity=".15" d="M477.5 536.3L135.9 270.7l-27.5-21.4l27.6 21.5V792h752V270.8L546.2 536.3a55.99 55.99 0 0 1-68.7 0" />
+                                <path fill="currentColor" fill-opacity=".15" d="m876.3 198.8l39.3 50.5l-27.6 21.5l27.7-21.5l-39.3-50.5z" />
+                                <path fill="currentColor" d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32m-94.5 72.1L512 482L190.5 232.1zm54.5 38.7V792H136V270.8l-27.6-21.5l27.5 21.4l341.6 265.6a55.99 55.99 0 0 0 68.7 0zl27.6-21.5l-39.3-50.5h.1l39.3 50.5z" />
+                            </svg>
                             <span class="font-sans">{{ $companyProfile['email'] }}</span>
                         </a>
                     </div>

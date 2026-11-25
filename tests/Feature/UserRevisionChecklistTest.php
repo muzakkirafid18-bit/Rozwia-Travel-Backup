@@ -28,29 +28,37 @@ class UserRevisionChecklistTest extends TestCase
     {
         for ($i = 1; $i <= 2; $i++) {
             $resp = $this->post('/login', [
-                'email'    => 'salah' . $i . '@rozwia.com',
-                'password' => 'SalahPassword!',
+                'email'    => 'jamaah@rozwia.com',
+                'password' => 'SalahPassword' . $i . '!',
             ]);
             $resp->assertSessionHasErrors('email');
             $this->assertStringNotContainsString('diblokir sementara', session('errors')->first('email'));
         }
 
-        // Percobaan ke-3 salah -> langsung terblokir 5 menit
+        // Percobaan ke-3 salah pada email yang sama -> email tersebut terblokir 5 menit
         $third = $this->post('/login', [
-            'email'    => 'admin@rozwia.com',
+            'email'    => 'jamaah@rozwia.com',
             'password' => 'SalahPassword3!',
         ]);
         $third->assertSessionHasErrors('email');
         $this->assertStringContainsString('diblokir sementara', session('errors')->first('email'));
 
-        // Percobaan berikutnya dengan password BENAR sekalipun tetap diblokir selama jendela 5 menit
+        // Percobaan berikutnya pada email yang sama dengan password BENAR tetap diblokir selama 5 menit
         $fourth = $this->post('/login', [
-            'email'    => 'admin@rozwia.com',
-            'password' => 'Admin123!',
+            'email'    => 'jamaah@rozwia.com',
+            'password' => 'Jamaah123!',
         ]);
         $this->assertGuest();
         $fourth->assertSessionHasErrors('email');
         $this->assertStringContainsString('diblokir sementara', session('errors')->first('email'));
+
+        // Email lain (misal administrator/admin) TIDAK ikut terblokir
+        $other = $this->post('/login', [
+            'email'    => 'administrator@rozwia.com',
+            'password' => 'Administrator123!',
+        ]);
+        $this->assertAuthenticated();
+        $other->assertRedirect('/home');
     }
 
     public function test_active_session_is_logged_out_on_refresh_after_super_admin_resets_password(): void

@@ -84,7 +84,7 @@
         <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-stone-100 text-center space-y-6 transform transition-all">
             
             <div class="w-16 h-16 bg-emerald-100 text-[#0B3B24] rounded-full flex items-center justify-center mx-auto text-2xl">
-                💬
+                @include('partials.wa-icon', ['size' => '1.6em'])
             </div>
 
             <div class="space-y-2">
