@@ -1,0 +1,37 @@
+name: Scheduled Development Release
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # 09:00 WIB
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scheduled-release-main
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Fetch branches
+        run: git fetch origin main development
+
+      - name: Promote development to main
+        run: |
+          git checkout main
+          git merge --ff-only origin/development
+          git push origin main
