@@ -196,4 +196,30 @@ class UserRevisionChecklistTest extends TestCase
         $directResp->assertRedirect(route('login'));
         $this->assertGuest();
     }
+
+    public function test_jamaah_without_booking_sees_clean_empty_states_and_redirects_from_dp_form(): void
+    {
+        $jamaah = User::where('email', 'jamaah@rozwia.com')->firstOrFail();
+        Booking::where('id_pengguna', $jamaah->id)->delete();
+
+        $dpResp = $this->actingAs($jamaah)->get(route('user.formulir.dp'));
+        $dpResp->assertRedirect(route('user.dashboard'));
+        $dpResp->assertSessionHas('error');
+
+        $dashResp = $this->actingAs($jamaah)->get(route('user.dashboard'));
+        $dashResp->assertStatus(200);
+        $dashResp->assertSee('Belum dipilih');
+        $dashResp->assertSee('Belum ada pemesanan');
+        $dashResp->assertSee('Belum ada tagihan (Silakan pilih paket)');
+        $dashResp->assertDontSee('Pembayaran Lunas');
+        $dashResp->assertDontSee('Quad (4 Orang)');
+
+        $trackResp = $this->actingAs($jamaah)->get(route('user.tracking'));
+        $trackResp->assertStatus(200);
+        $trackResp->assertSee('Menunggu konfirmasi hotel akomodasi');
+        $trackResp->assertSee('Tipe kamar: Belum ditentukan');
+        $trackResp->assertDontSee('Pullman Zamzam Tower');
+        $trackResp->assertDontSee('Anwar Al Madinah');
+        $trackResp->assertDontSee('Quad (4 Orang)');
+    }
 }

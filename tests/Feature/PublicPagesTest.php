@@ -105,4 +105,11 @@ class PublicPagesTest extends TestCase
         $responseFaq = $this->get(route('faq'));
         $responseFaq->assertStatus(200);
     }
+
+    public function test_nonexistent_package_detail_returns_404(): void
+    {
+        $response = $this->get('/paket/detail/999999');
+
+        $response->assertStatus(404);
+    }
 }

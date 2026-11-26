@@ -390,13 +390,17 @@ class JamaahController extends Controller
     }
 
     // halaman form pembayaran dp dari dashboard
-    public function showDpForm(): View
+    public function showDpForm(): View|RedirectResponse
     {
         $user    = auth()->user();
         $booking = Booking::with(['jadwal.paket', 'invoices.riwayatPembayarans'])
             ->where('id_pengguna', $user->id)
             ->latest()
-            ->firstOrFail();
+            ->first();
+
+        if (!$booking) {
+            return redirect()->route('user.dashboard')->with('error', 'Anda belum memiliki pemesanan paket aktif.');
+        }
 
         // ambil rekening bank aktif
         $rekening = RekeningPerusahaan::where('status', 'active')

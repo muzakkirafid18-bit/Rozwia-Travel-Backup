@@ -20,7 +20,7 @@
     $jadwal = $booking?->jadwal;
     $notifikasis = $user->notifikasis()->latest()->take(3)->get();
     $unreadNotifCount = $user->notifikasis()->where('is_read', false)->count();
-    $room = $booking?->catatan ? str_replace('Tipe Kamar: ', '', $booking->catatan) : 'Quad (4 Orang)';
+    $room = $booking?->catatan ? str_replace('Tipe Kamar: ', '', $booking->catatan) : 'Belum dipilih';
     $jatuhTempo = $jadwal?->tanggal_keberangkatan
         ? $jadwal->tanggal_keberangkatan->copy()->subDays(14)->format('d/m/Y')
         : 'Menunggu jadwal';
@@ -296,7 +296,11 @@
                                 <span class="text-stone-400 block text-[11px] mb-1">Jumlah Jamaah Terdaftar</span>
                                 <strong class="text-stone-800 font-serif-display inline-flex items-center gap-1.5 text-sm">
                                     <x-icon name="group" class="w-4 h-4 text-stone-700" />
-                                    <span>{{ $booking?->jumlah_jamaah ?? 0 }} Orang ({{ $booking?->jamaahDetails?->first()?->nama_lengkap ?? $user->name }})</span>
+                                    @if($booking)
+                                        <span>{{ $booking->jumlah_jamaah }} Orang ({{ $booking->jamaahDetails?->first()?->nama_lengkap ?? $user->name }})</span>
+                                    @else
+                                        <span>Belum ada pemesanan</span>
+                                    @endif
                                 </strong>
                             </div>
                         </div>
@@ -323,7 +327,12 @@
                             </div>
                         </div>
                     </div>
-                    @if($sisaTagihan > 0)
+                    @if(!$booking)
+                        <div class="w-full bg-stone-100 text-stone-600 font-semibold py-2.5 px-3 rounded-xl text-xs text-center flex items-center justify-center gap-1.5">
+                            <x-icon name="info" class="w-4 h-4 text-stone-500" />
+                            <span>Belum ada tagihan (Silakan pilih paket)</span>
+                        </div>
+                    @elseif($sisaTagihan > 0)
                         <a href="{{ route('user.formulir.dp') }}" class="w-full bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer shadow-xs text-center block">
                             Unggah Bukti
                         </a>

@@ -9,7 +9,7 @@
     $date = $jadwal?->tanggal_keberangkatan;
     $returnDate = $jadwal?->tanggal_pulang;
     $daysDiff = $date ? max(0, (int) now()->startOfDay()->diffInDays($date->copy()->startOfDay(), false)) : null;
-    $room = $booking?->catatan ? str_replace('Tipe Kamar: ', '', $booking->catatan) : 'Quad (4 Orang)';
+    $room = $booking?->catatan ? str_replace('Tipe Kamar: ', '', $booking->catatan) : 'Belum ditentukan';
     $maskapaiName = $jadwal?->maskapai?->nama_maskapai ?? 'Menunggu konfirmasi maskapai';
     $isFlightConfirmed = filled($jadwal?->maskapai?->nama_maskapai);
     $isTitikKumpulConfirmed = filled($jadwal?->tempat_kumpul) || filled($jadwal?->tanggal_kumpul);
@@ -238,19 +238,14 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="rounded-2xl bg-[#FBF9F3] border border-stone-200/60 px-4 py-2.5">
-                                <span class="block text-[10px] text-stone-400 font-semibold">Makkah</span>
-                                <p class="mt-0.5 text-xs font-bold text-stone-900">Pullman Zamzam Tower</p>
-                            </div>
-                            <div class="rounded-2xl bg-[#FBF9F3] border border-stone-200/60 px-4 py-2.5">
-                                <span class="block text-[10px] text-stone-400 font-semibold">Madinah</span>
-                                <p class="mt-0.5 text-xs font-bold text-stone-900">Anwar Al Madinah Mövenpick</p>
+                            <div class="rounded-2xl bg-[#FBF9F3] border border-stone-200/60 px-4 py-3 text-xs text-stone-500">
+                                Menunggu konfirmasi hotel akomodasi
                             </div>
                         @endif
 
                         <p class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-stone-600 pt-1">
                             <x-icon name="hotel" class="w-3.5 h-3.5 text-amber-700" />
-                            <span>Kamar {{ $room }}</span>
+                            <span>{{ $booking ? "Kamar {$room}" : 'Tipe kamar: Belum ditentukan' }}</span>
                         </p>
                     </div>
                 </section>
