@@ -334,7 +334,7 @@
                         </div>
                     @elseif($sisaTagihan > 0)
                         <a href="{{ route('user.formulir.dp') }}" class="w-full bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold py-2.5 rounded-xl text-xs transition cursor-pointer shadow-xs text-center block">
-                            Unggah Bukti
+                            Lanjutkan Pelunasan
                         </a>
                     @else
                         <div class="w-full bg-emerald-100 text-emerald-800 font-bold py-2.5 rounded-xl text-xs text-center flex items-center justify-center gap-1.5">

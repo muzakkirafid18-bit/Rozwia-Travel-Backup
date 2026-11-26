@@ -340,7 +340,7 @@
 
     <!-- banner ajakan daftar -->
     <section id="cta-bawah" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <div class="bg-white rounded-[28px] p-8 sm:p-12 lg:px-14 lg:py-12 shadow-md border border-emerald-900/20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="bg-white rounded-[28px] p-8 sm:p-12 lg:px-14 lg:py-12 shadow-md border-2 border-emerald-900/25 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             
             <div class="space-y-3 max-w-xl">
                 <h2 class="text-2xl sm:text-4xl font-serif font-bold text-[#1B1B1B] leading-tight tracking-tight">
