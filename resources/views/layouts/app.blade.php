@@ -291,12 +291,6 @@
                     </div>
                 </form>
 
-                <div class="text-center pt-2 border-t border-stone-100">
-                    <button @click="loginOpen = false" type="button" class="text-xs text-stone-500 hover:text-[#0B3B24] transition cursor-pointer font-serif">
-                        ✕ Tutup Jendela Login
-                    </button>
-                </div>
-
             </div>
 
         </div>
