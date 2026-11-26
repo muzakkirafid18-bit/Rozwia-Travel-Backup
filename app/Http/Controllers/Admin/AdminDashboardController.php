@@ -304,7 +304,8 @@ class AdminDashboardController extends Controller
         });
 
         if ($plainPassword) {
-            AsyncMailer::sendMailable($user->email, new AccountCredentialsMail($user, $plainPassword, 'Aktivasi Akun Portal Jamaah'));
+            $emailToken = $this->createEmailLog($user, 'credentials', 'Aktivasi Akun Portal Jamaah');
+            AsyncMailer::sendMailable($user->email, new AccountCredentialsMail($user, $plainPassword, 'Aktivasi Akun Portal Jamaah', $emailToken));
         }
 
         $statusLabel = $targetStatus === 'active' ? 'diaktifkan' : 'dinonaktifkan';
