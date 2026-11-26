@@ -91,7 +91,7 @@
 
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
 
-        <!-- 2. FILTER KATEGORI PILL -->
+        <!-- filter kategori -->
         <div class="flex flex-wrap items-center gap-3">
             <button type="button" @click="activeCategory = 'semua'; openIndex = 0"
                     :class="activeCategory === 'semua' ? 'bg-[#0B3B24] text-white' : 'bg-[#FBF9F5] text-[#0B3B24] hover:bg-emerald-50'"
@@ -120,7 +120,7 @@
             </button>
         </div>
 
-        <!-- 3. ACCORDION PERTANYAAN -->
+        <!-- daftar pertanyaan -->
         <div class="space-y-4">
             <template x-for="(item, idx) in filteredFaqs()" :key="item.q">
                 <div class="bg-[#FBF9F5] rounded-2xl border border-[#0B3B24]/80 shadow-xs overflow-hidden transition">
@@ -141,7 +141,7 @@
             </template>
         </div>
 
-        <!-- 4. CTA BAWAH FAQ -->
+        <!-- banner cta bawah -->
         <div class="bg-[#0B3B24] rounded-[28px] p-8 sm:p-10 shadow-xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div class="space-y-2 max-w-xl">
                 <h2 class="text-2xl sm:text-3xl font-bold text-white">Pertanyaan Anda belum terjawab?</h2>

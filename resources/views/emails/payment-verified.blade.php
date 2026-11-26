@@ -10,7 +10,7 @@
             <td align="center">
                 <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.08);">
                     
-                    <!-- Header -->
+                    <!-- header halaman -->
                     <tr>
                         <td style="background-color:#0B3B24; padding:32px; text-align:center;">
                             <h1 style="color:#ffffff; font-size:24px; margin:0;">🕌 ROZWIA Islamic Travel</h1>
@@ -18,7 +18,7 @@
                         </td>
                     </tr>
 
-                    <!-- Body -->
+                    <!-- isi email -->
                     <tr>
                         <td style="padding:32px;">
                             <p style="font-size:16px; color:#1a1a1a; margin:0 0 8px;">Assalamu'alaikum Warahmatullahi Wabarakatuh, <strong>{{ $sapaan ?? 'Bapak/Ibu' }} {{ $user->name }}</strong></p>
@@ -69,7 +69,7 @@
                         </td>
                     </tr>
 
-                    <!-- Footer -->
+                    <!-- footer email -->
                     <tr>
                         <td style="background-color:#f8f6f2; padding:20px; text-align:center; border-top:1px solid #e5e2dc;">
                             <p style="font-size:12px; color:#999; margin:0;">© {{ date('Y') }} ROZWIA Islamic Travel — PPIU Resmi Kementerian Agama RI</p>

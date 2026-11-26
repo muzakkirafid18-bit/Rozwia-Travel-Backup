@@ -23,7 +23,7 @@
          }
      }">
 
-    <!-- Header -->
+    <!-- header halaman -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/85 backdrop-blur-md border border-stone-200/80 rounded-[28px] p-6 shadow-xs">
         <div class="space-y-1">
             <span class="text-[10px] font-bold uppercase tracking-widest text-amber-800">Penugasan Hak Akses Cepat</span>
@@ -52,7 +52,7 @@
     @endif
 
     <section class="rounded-[28px] border border-stone-200 bg-white shadow-sm overflow-hidden">
-        <!-- Bar Filter -->
+        <!-- filter role -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-200 px-6 py-4 bg-stone-50/50">
             <p class="text-xs text-stone-600">
                 Setiap akun memiliki <strong>1 role aktif</strong>. Akun Anda sendiri dan Super Admin aktif terakhir dilindungi otomatis.

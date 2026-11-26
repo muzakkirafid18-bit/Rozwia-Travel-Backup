@@ -20,7 +20,7 @@
 
     <div class="w-full max-w-4xl bg-white rounded-[32px] shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12 border border-stone-200/90">
 
-        <!-- SISI KIRI -->
+        <!-- kolom kiri -->
         <div class="hidden md:flex md:col-span-5 relative bg-[#0B3B24] p-8 flex-col justify-between overflow-hidden">
             <div class="absolute inset-0 opacity-25 bg-cover bg-center" style="background-image: url('{{ asset('images/makkah home.jpg') }}')"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0B3B24] via-[#0B3B24]/85 to-[#0B3B24]/60"></div>
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <!-- SISI KANAN -->
+        <!-- kolom kanan -->
         <div class="md:col-span-7 p-6 sm:p-10 flex flex-col justify-center bg-white space-y-5">
             <div class="text-center md:text-left space-y-1">
                 <span class="text-[10px] font-bold tracking-widest text-amber-800 uppercase">Pemulihan Akun</span>

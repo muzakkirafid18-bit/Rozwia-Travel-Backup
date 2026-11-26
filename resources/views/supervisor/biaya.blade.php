@@ -5,10 +5,10 @@
 @section('content')
 <div class="space-y-6 font-serif">
 
-    <!-- 1. Judul Halaman -->
+    <!-- judul halaman -->
     <h1 class="text-3xl font-bold text-[#0B3B24]">Report Total Biaya</h1>
 
-    <!-- 2. Banner Laporan Jamaah & Keuangan -->
+    <!-- banner laporan -->
     <div class="bg-[#0B3B24] text-white rounded-[32px] p-6 sm:p-8 shadow-sm flex items-center gap-6">
         <div class="w-16 h-16 rounded-2xl bg-emerald-900 border border-emerald-700 flex items-center justify-center text-3xl shrink-0">
             <x-icon name="mosque" class="w-8 h-8 text-amber-400" />
@@ -21,12 +21,12 @@
         </div>
     </div>
 
-    <!-- 3. Filter Tanggal & Tombol Terapkan -->
+    <!-- filter rentang tanggal -->
     <div class="bg-white rounded-[32px] p-4 sm:p-5 shadow-sm border border-stone-200 flex flex-col lg:flex-row items-center justify-between gap-4 font-sans text-xs">
         <form action="{{ route('supervisor.biaya') }}" method="GET" class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
             <input type="hidden" name="search" value="{{ $search }}">
 
-            <!-- Input Tanggal Mulai -->
+            <!-- tanggal mulai -->
             <div class="flex items-center gap-2 bg-[#FAF8F5] border border-stone-300 rounded-2xl px-4 py-2 flex-1 sm:flex-initial">
                 <x-icon name="calendar_month" class="w-5 h-5 text-stone-500" />
                 <div class="flex flex-col">
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <!-- Input Tanggal Akhir -->
+            <!-- tanggal akhir -->
             <div class="flex items-center gap-2 bg-[#FAF8F5] border border-stone-300 rounded-2xl px-4 py-2 flex-1 sm:flex-initial">
                 <x-icon name="calendar_month" class="w-5 h-5 text-stone-500" />
                 <div class="flex flex-col">
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <!-- Tombol Terapkan -->
+            <!-- tombol terapkan -->
             <button type="submit" class="bg-[#0B3B24] hover:bg-emerald-900 text-white font-bold px-6 py-3 rounded-2xl transition cursor-pointer shadow-sm">
                 Terapkan
             </button>
@@ -58,7 +58,7 @@
             @endif
         </form>
 
-        <!-- Keterangan Rentang Waktu Dinamis -->
+        <!-- info rentang tanggal -->
         <div class="text-stone-600 font-semibold px-2">
             @if($hasDateFilter ?? false)
                 {{ $rawTglMulai ? \Carbon\Carbon::parse($rawTglMulai)->format('d/m/Y') : 'Awal' }}
@@ -70,9 +70,9 @@
         </div>
     </div>
 
-    <!-- 4. Dua Kartu Statistik Utama -->
+    <!-- ringkasan statistik -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 font-serif">
-        <!-- Total Jamaah -->
+        <!-- total jamaah -->
         <div class="bg-white p-6 sm:p-8 rounded-[32px] border border-stone-200 shadow-sm space-y-2">
             <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center text-lg">
                 <x-icon name="group" class="w-5 h-5" />
@@ -81,7 +81,7 @@
             <h3 class="text-4xl font-bold text-[#0B3B24]">{{ $totalJamaahSum }}</h3>
         </div>
 
-        <!-- Total Pembayaran -->
+        <!-- total pembayaran -->
         <div class="bg-white p-6 sm:p-8 rounded-[32px] border border-stone-200 shadow-sm space-y-2">
             <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-lg">
                 <x-icon name="payments" class="w-5 h-5" />
@@ -91,17 +91,17 @@
         </div>
     </div>
 
-    <!-- 5. Tabel Ringkasan Data Paket & Keuangan -->
+    <!-- tabel ringkasan keuangan -->
     <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-sm border border-stone-200 space-y-6 font-sans">
 
-        <!-- Header Tabel & Search / Download -->
+        <!-- header tabel & pencarian -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
                 <h3 class="text-base font-bold text-[#0B3B24] font-serif">Ringkasan Data Paket</h3>
                 <p class="text-xs text-stone-400">Menampilkan {{ $pakets->count() }} paket</p>
             </div>
             <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-                <!-- Search Box -->
+                <!-- kotak pencarian -->
                 <form action="{{ route('supervisor.biaya') }}" method="GET" class="relative flex-1 sm:w-64">
                     @if($rawTglMulai) <input type="hidden" name="tanggal_mulai" value="{{ $rawTglMulai }}"> @endif
                     @if($rawTglAkhir) <input type="hidden" name="tanggal_akhir" value="{{ $rawTglAkhir }}"> @endif
@@ -114,7 +114,7 @@
                            placeholder="Cari Nama Paket"
                            class="w-full pl-9 pr-4 py-2.5 rounded-full bg-stone-50 border border-stone-300 text-xs focus:outline-none focus:border-[#0B3B24]">
                 </form>
-                <!-- Tombol Download Excel -->
+                <!-- tombol export excel -->
                 <a href="{{ route('supervisor.biaya.export', ['tanggal_mulai' => $rawTglMulai, 'tanggal_akhir' => $rawTglAkhir, 'search' => $search]) }}"
                    class="bg-white hover:bg-stone-50 text-[#0B3B24] border border-[#0B3B24] font-bold text-xs py-2.5 px-5 rounded-full transition cursor-pointer flex items-center gap-2 shadow-xs">
                     <x-icon name="download" class="w-4 h-4" />
@@ -123,7 +123,7 @@
             </div>
         </div>
 
-        <!-- Tabel Data -->
+        <!-- tabel data -->
         <div class="overflow-x-auto rounded-2xl border-2 border-stone-300 shadow-xs">
             <table class="w-full text-left text-xs border-collapse">
                 <thead>

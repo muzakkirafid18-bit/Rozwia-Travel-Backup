@@ -3,12 +3,12 @@
 @section('title', 'Registrasi Paket - ROZWIA')
 
 @section('content')
-<!-- Container Utama -->
+<!-- pembungkus halaman -->
 <div class="max-w-6xl mx-auto px-4 py-24 pt-32">
     
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- KOLOM KIRI: Card Gambar & Penjelasan Singkat Paket -->
+        <!-- info singkat paket -->
         <div class="lg:col-span-5 bg-white rounded-3xl p-6 shadow-sm border border-stone-200/80 space-y-6 sticky top-28">
             <div class="overflow-hidden rounded-2xl shadow-sm aspect-video relative">
                 <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=800&q=80" alt="Paket Umroh" class="w-full h-full object-cover">
@@ -32,7 +32,7 @@
         </div>
 
 
-        <!-- KOLOM KANAN: Form Registrasi -->
+        <!-- kolom form pendaftaran -->
         <div class="lg:col-span-7 bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-stone-200/80 space-y-6">
             <div class="space-y-1">
                 <span class="text-xs font-bold tracking-widest text-amber-800 uppercase">Pendaftaran Jamaah</span>
@@ -80,7 +80,7 @@
     <!-- modal pop-up berhasil -->
     <div id="successModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs px-4">
         
-        <!-- Kotak Modal Putih Solid -->
+        <!-- isi modal berhasil -->
         <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-stone-100 text-center space-y-6 transform transition-all">
             
             <div class="w-16 h-16 bg-emerald-100 text-[#0B3B24] rounded-full flex items-center justify-center mx-auto text-2xl">

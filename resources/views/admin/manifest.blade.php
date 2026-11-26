@@ -15,7 +15,7 @@
         isiPesan: `Assalamu'alaikum Warahmatullahi Wabarakatuh [sapaan] [nama lengkap jamaah],\n\nAlhamdulillah jadwal perjalanan dan manifest keberangkatan ibadah {{ addslashes($selectedPaket?->nama_paket ?? 'Umroh') }} ({{ $tglBerangkatLabel }}) telah kami siapkan dengan lengkap.\n\nSilakan unduh lampiran berkas jadwal penerbangan, hotel, serta pembagian kamar dan bus pada email ini.\n\nMohon hadir di titik kumpul sesuai jadwal keberangkatan. Bila ada pertanyaan, hubungi tim ROZWIA Islamic Travel.\n\nWassalamu'alaikum Wr. Wb.\nTim Operasional ROZWIA Islamic Travel`
      }">
 
-    <!-- Header -->
+    <!-- header halaman -->
     <div class="bg-white rounded-[24px] border border-stone-200/80 p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
             <h1 class="text-2xl sm:text-3xl font-bold font-serif-display text-stone-900 tracking-tight">Jadwal &amp; Manifest</h1>
@@ -51,7 +51,7 @@
             <form action="{{ route('admin.manifest.send') }}" method="POST" enctype="multipart/form-data" class="space-y-5 text-xs">
                 @csrf
 
-                <!-- 1. Pilih Paket -->
+                <!-- pilih paket -->
                 <div class="space-y-1.5">
                     <label for="paketSelect" class="font-bold text-stone-800 block">Pilih Paket *</label>
                     <select id="paketSelect"
@@ -74,7 +74,7 @@
                     </p>
                 </div>
 
-                <!-- Ringkasan Penerima Siap Kirim -->
+                <!-- daftar penerima siap kirim -->
                 @if($readyAccounts->isNotEmpty())
                 <div class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-2.5">
                     <div class="flex items-center justify-between text-[11px] font-bold text-emerald-900 uppercase tracking-wider">
@@ -106,14 +106,14 @@
                 </div>
                 @endif
 
-                <!-- 2. Subjek / Judul Email -->
+                <!-- subjek email -->
                 <div class="space-y-1.5">
                     <label class="font-bold text-stone-800 block">Subjek / Judul Email *</label>
                     <input type="text" name="subjek" x-model="subjekEmail" required
                            class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-300 font-bold text-stone-900 focus:outline-none focus:border-[#0B3B24]">
                 </div>
 
-                <!-- 3. Isi Pesan -->
+                <!-- isi pesan -->
                 <div class="space-y-1.5">
                     <div class="flex items-center justify-between">
                         <label class="font-bold text-stone-800 block">Isi Pesan *</label>
@@ -123,7 +123,7 @@
                               class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-300 text-stone-800 leading-relaxed focus:outline-none focus:border-[#0B3B24] resize-none"></textarea>
                 </div>
 
-                <!-- 4. Upload Berkas -->
+                <!-- unggah lampiran -->
                 <div class="space-y-2" x-data="{
                     selectedFiles: [],
                     updateFiles(e) {
@@ -187,7 +187,7 @@
                     </div>
                 </div>
 
-                <!-- 5. Button Kirim Semua Jamaah -->
+                <!-- tombol kirim manifest -->
                 <div class="pt-4 border-t border-stone-100 flex flex-col sm:flex-row items-center gap-3">
                     <button type="submit"
                             @disabled(! $readiness['canSend'])
@@ -261,7 +261,7 @@
                 </div>
             </div>
 
-            <!-- Info Alur Manifest -->
+            <!-- catatan alur manifest -->
             <div class="bg-[#0B3B24] text-white rounded-[28px] p-6 shadow-sm space-y-3 font-serif">
                 <div class="flex items-center gap-2">
                     <x-icon name="info" class="w-5 h-5 text-amber-400" />

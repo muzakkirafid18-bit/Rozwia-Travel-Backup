@@ -101,7 +101,7 @@
                 <div class="rounded-2xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-900">{{ session('error') }}</div>
             @endif
 
-            {{-- Header Sambutan & Lonceng Notifikasi --}}
+            {{-- header sambutan & notifikasi --}}
             <div class="flex justify-between items-center gap-4"
                  x-data="{
                     unreadCount: {{ $unreadNotifCount }},
@@ -160,7 +160,7 @@
                 </button>
             </div>
 
-            {{-- 1. Card: Langkah Anda Berikutnya --}}
+            {{-- kartu langkah berikutnya --}}
             <div class="bg-[#063B25] text-white rounded-[32px] p-7 sm:p-8 shadow-sm space-y-4">
                 <div class="space-y-1">
                     <span class="text-[11px] font-bold text-[#E7C878] uppercase tracking-widest">Langkah Anda Berikutnya</span>
@@ -170,7 +170,7 @@
                     </p>
                 </div>
 
-                {{-- Progress Bar --}}
+                {{-- bar progres --}}
                 <div class="space-y-2 pt-2">
                     <div class="flex justify-between items-center text-xs font-semibold">
                         <span class="text-emerald-200">Dokumen terkumpul</span>
@@ -182,7 +182,7 @@
                 </div>
             </div>
 
-            {{-- 2. Card: Tahap Booking (4 Langkah) --}}
+            {{-- tahapan booking jamaah --}}
             <div class="bg-white rounded-[32px] p-6 sm:p-7 border border-stone-200/80 shadow-sm space-y-3">
                 <div class="flex flex-wrap justify-between items-center gap-2">
                     <h3 class="text-sm font-bold font-serif-display text-stone-900">Tahap Booking</h3>
@@ -190,7 +190,7 @@
                 </div>
 
                 <div class="bg-[#E5E3DF] rounded-2xl p-3.5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-                    {{-- Tahap 1 --}}
+                    {{-- tahap 1 --}}
                     <div class="rounded-xl p-4 space-y-1.5 border {{ $dpVerified ? 'bg-[#CFE5D5] border-[#84C39A]' : 'bg-[#F3E2BA] border-[#D9A74A]' }}">
                         <div class="flex items-center gap-2">
                             <span class="w-6 h-6 rounded-full {{ $dpVerified ? 'bg-[#063B25]' : 'bg-[#D9822B]' }} text-white flex items-center justify-center text-xs font-bold">
@@ -204,7 +204,7 @@
                         </p>
                     </div>
 
-                    {{-- Tahap 2 --}}
+                    {{-- tahap 2 --}}
                     @php
                         $step2State = $docsComplete ? 'done' : ($dpVerified ? 'active' : 'pending');
                     @endphp
@@ -223,7 +223,7 @@
                         </p>
                     </div>
 
-                    {{-- Tahap 3 --}}
+                    {{-- tahap 3 --}}
                     @php
                         $step3State = $isLunas ? 'done' : ($docsComplete ? 'active' : 'pending');
                     @endphp
@@ -242,7 +242,7 @@
                         </p>
                     </div>
 
-                    {{-- Tahap 4 --}}
+                    {{-- tahap 4 --}}
                     @php
                         $step4Active = $docsComplete && $isLunas;
                     @endphp
@@ -259,9 +259,9 @@
                 </div>
             </div>
 
-            {{-- 3. Dua Kartu Sejajar: Paket Saya & Keuangan Booking --}}
+            {{-- ringkasan paket & pembayaran --}}
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {{-- Kartu Paket Saya --}}
+                {{-- kartu paket saya --}}
                 <div class="bg-white rounded-[32px] p-6 border border-stone-200 shadow-sm space-y-5 flex flex-col justify-between">
                     <div class="space-y-5">
                         <div class="flex justify-between items-center border-b border-stone-100 pb-3">
@@ -307,7 +307,7 @@
                     </div>
                 </div>
 
-                {{-- Kartu Keuangan Booking --}}
+                {{-- kartu keuangan booking --}}
                 <div class="bg-white rounded-[32px] p-6 border border-stone-200 shadow-sm flex flex-col justify-between space-y-5">
                     <div class="flex justify-between items-center border-b border-stone-100 pb-3">
                         <span class="text-[10px] font-bold text-stone-400 uppercase tracking-wider">KEUANGAN BOOKING</span>
@@ -345,9 +345,9 @@
                 </div>
             </div>
 
-            {{-- 4. Bagian Bawah: Notifikasi Baru & Butuh Bantuan --}}
+            {{-- notifikasi & bantuan --}}
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                {{-- Kotak Notifikasi Baru (Col 7) --}}
+                {{-- daftar notifikasi baru --}}
                 <div id="notifikasi" class="lg:col-span-7 bg-white rounded-[32px] p-6 sm:p-7 border border-stone-200 shadow-sm space-y-4">
                     <h3 class="text-base font-bold font-serif-display text-stone-900 pb-2 border-b border-stone-100">Notifikasi Baru</h3>
 
@@ -376,7 +376,7 @@
                     </div>
                 </div>
 
-                {{-- Kotak Butuh Bantuan? (Col 5) --}}
+                {{-- kotak bantuan --}}
                 <div class="lg:col-span-5 bg-[#0B3B24] text-white rounded-[32px] p-6 sm:p-7 shadow-sm flex flex-col justify-between space-y-4">
                     <div class="space-y-2">
                         <h3 class="text-base font-bold font-serif-display">Butuh Bantuan?</h3>

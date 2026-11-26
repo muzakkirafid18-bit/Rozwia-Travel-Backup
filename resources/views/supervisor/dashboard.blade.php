@@ -7,7 +7,7 @@
     $chartMax = max(5, (int) collect($monthlyStats)->flatMap(fn ($s) => [$s['umroh'], $s['haji']])->max());
 @endphp
 
-<!-- Banner Utama: Selamat Datang di Dashboard Supervisor -->
+<!-- banner sambutan supervisor -->
 <div class="bg-[#0B3B24] text-white rounded-[32px] p-8 sm:p-10 shadow-sm flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
     <div class="w-24 h-24 rounded-2xl bg-emerald-950/80 border border-emerald-800/60 flex items-center justify-center shrink-0 p-4">
         <img src="{{ asset('images/lOGO rozwia.png') }}" alt="Logo" class="w-full h-full object-contain">
@@ -30,7 +30,7 @@
 <!-- 3 kartu statistik -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-    <!-- Kartu 1: Jumlah Paket Tersedia -->
+    <!-- total paket tersedia -->
     <div class="bg-white rounded-[32px] p-7 border border-stone-200 shadow-sm flex flex-col justify-between space-y-6">
         <div class="space-y-1">
             <span class="text-xs text-stone-500 font-sans block">Jumlah Paket Tersedia</span>
@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <!-- Kartu 2: Jumlah Total Pendapatan -->
+    <!-- total pendapatan -->
     <div class="bg-white rounded-[32px] p-7 border border-stone-200 shadow-sm flex flex-col justify-between space-y-6">
         <div class="space-y-1">
             <span class="text-xs text-stone-500 font-sans block">Jumlah Total Pendapatan</span>
@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    <!-- Kartu 3: Daftar Akun Terdaftar -->
+    <!-- jumlah akun terdaftar -->
     <div class="bg-white rounded-[32px] p-7 border border-stone-200 shadow-sm flex flex-col justify-between space-y-6">
         <div class="space-y-1">
             <span class="text-xs text-stone-500 font-sans block">Daftar Akun Terdaftar</span>
@@ -84,7 +84,7 @@
 
 </div>
 
-<!-- Bagian Bawah: Grafik Pendaftaran & Status -->
+<!-- grafik & ringkasan status -->
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
     <!-- grafik pendaftaran -->
@@ -95,7 +95,7 @@
                 <h3 class="text-base font-[800] font-['Abhaya_Libre'] text-stone-900">Jumlah Pendaftaran Jamaah</h3>
             </div>
 
-            <!-- Legenda -->
+            <!-- legenda grafik -->
             <div class="flex items-center gap-4">
                 <div class="bg-[#F9F6F0] border border-stone-200/80 px-4 py-2 rounded-2xl flex items-center gap-4 text-xs font-[700] font-sans">
                     <span class="flex items-center gap-2 text-stone-800">
@@ -133,7 +133,7 @@
                 @endforeach
             </div>
 
-            <!-- Label Bulan -->
+            <!-- label bulan -->
             <div class="flex justify-around items-center text-[10px] sm:text-xs text-stone-500 font-bold font-sans pt-2 px-1">
                 @foreach($monthlyStats as $stat)
                     <span>{{ $stat['bulan'] }}</span>

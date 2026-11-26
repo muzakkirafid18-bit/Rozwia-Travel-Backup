@@ -114,7 +114,7 @@
      }"
      class="space-y-6">
 
-    <!-- Header -->
+    <!-- header halaman -->
     <div class="space-y-1">
         <h1 class="text-3xl sm:text-4xl font-bold font-serif text-stone-900 tracking-tight">Verifikasi Dokumen Pribadi</h1>
         <p class="text-xs sm:text-sm text-stone-600 font-serif">
@@ -122,9 +122,9 @@
         </p>
     </div>
 
-    <!-- 5 Kartu Statistik Putih -->
+    <!-- ringkasan status dokumen -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 font-serif">
-        <!-- 1. Menunggu Verifikasi -->
+        <!-- menunggu verifikasi -->
         <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/80 shadow-xs flex flex-col justify-between gap-2">
             <span class="text-xs text-stone-700 font-medium block">Menunggu Verifikasi</span>
             <p class="text-xl sm:text-2xl font-bold font-sans tabular-nums text-stone-900">
@@ -132,7 +132,7 @@
             </p>
         </div>
 
-        <!-- 2. Perlu Diperbaiki -->
+        <!-- perlu diperbaiki -->
         <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/80 shadow-xs flex flex-col justify-between gap-2">
             <span class="text-xs text-stone-700 font-medium block">Perlu Diperbaiki</span>
             <p class="text-xl sm:text-2xl font-bold font-sans tabular-nums text-amber-700">
@@ -140,7 +140,7 @@
             </p>
         </div>
 
-        <!-- 3. Ditolak -->
+        <!-- ditolak -->
         <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/80 shadow-xs flex flex-col justify-between gap-2">
             <span class="text-xs text-rose-600 font-medium block">Ditolak</span>
             <p class="text-xl sm:text-2xl font-bold font-sans tabular-nums text-rose-700">
@@ -148,7 +148,7 @@
             </p>
         </div>
 
-        <!-- 4. Kadaluwarsa -->
+        <!-- kadaluwarsa -->
         <div class="bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/80 shadow-xs flex flex-col justify-between gap-2">
             <span class="text-xs text-rose-600 font-medium block">Kadaluwarsa</span>
             <p class="text-xl sm:text-2xl font-bold font-sans tabular-nums text-stone-400">
@@ -156,7 +156,7 @@
             </p>
         </div>
 
-        <!-- 5. Diverifikasi -->
+        <!-- diverifikasi -->
         <div class="col-span-2 md:col-span-1 bg-white p-4 sm:p-5 rounded-2xl border border-stone-200/80 shadow-xs flex flex-col justify-between gap-2">
             <span class="text-xs text-emerald-700 font-medium block">Diverifikasi</span>
             <p class="text-xl sm:text-2xl font-bold font-sans tabular-nums text-emerald-800">
@@ -165,7 +165,7 @@
         </div>
     </div>
 
-    <!-- Bar Filter Tombol + Search Input -->
+    <!-- filter & pencarian -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1 font-serif">
         <div class="flex flex-wrap items-center gap-2.5">
             <button type="button"
@@ -215,7 +215,7 @@
         </div>
     </div>
 
-    <!-- Tabel Jamaah (1 Jamaah = 1 Baris) -->
+    <!-- daftar berkas per jamaah -->
     <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-sm border border-stone-200/80 overflow-hidden font-serif">
         <div class="overflow-x-auto">
             <table class="w-full text-left text-xs">
@@ -231,22 +231,22 @@
                 <tbody class="divide-y divide-stone-100 font-sans text-xs">
                     <template x-for="jamaah in filteredList()" :key="jamaah.id">
                         <tr @click="periksaJamaah(jamaah)" class="hover:bg-stone-50/90 transition cursor-pointer">
-                            <!-- Nama Jamaah + Paket -->
+                            <!-- nama jamaah & paket -->
                             <td class="py-4 pr-3 font-serif">
                                 <div class="text-stone-900 text-xs font-bold" x-text="jamaah.nama"></div>
                                 <div class="text-[11px] text-stone-500 font-sans mt-0.5" x-text="jamaah.paket + ' (' + jamaah.kode_booking + ')'"></div>
                             </td>
 
-                            <!-- Ringkasan Berkas -->
+                            <!-- jumlah berkas -->
                             <td class="py-4 px-3 text-stone-700 font-sans">
                                 <span class="font-semibold text-stone-900" x-text="jamaah.totalDocs + ' Berkas'"></span>
                                 <span class="text-[11px] text-stone-500 block" x-text="jamaah.verifiedCount + ' / ' + jamaah.totalDocs + ' Terverifikasi'"></span>
                             </td>
 
-                            <!-- Tanggal Diunggah Terbaru -->
+                            <!-- tanggal unggah terakhir -->
                             <td class="py-4 px-3 text-stone-600 font-mono text-[11px]" x-text="jamaah.diunggah"></td>
 
-                            <!-- Status Pill -->
+                            <!-- status dokumen -->
                             <td class="py-4 px-3 text-center">
                                 <span :class="{
                                     'bg-[#FEF7E0] text-[#B06000] border border-[#FCE293]': jamaah.status === 'Menunggu Verifikasi',
@@ -257,7 +257,7 @@
                                 </span>
                             </td>
 
-                            <!-- Tombol Aksi Periksa -->
+                            <!-- tombol periksa -->
                             <td class="py-4 pl-3 text-center">
                                 <button type="button"
                                         @click.stop="periksaJamaah(jamaah)"
@@ -287,7 +287,7 @@
          style="display: none;"
          class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs font-serif overflow-y-auto">
         <div @click.away="modalOpen = false" class="bg-white rounded-[32px] p-6 sm:p-7 max-w-3xl w-full shadow-2xl space-y-4 border border-stone-200 my-8 max-h-[92vh] overflow-y-auto">
-            <!-- Header Modal -->
+            <!-- header modal -->
             <div class="flex items-start justify-between border-b border-stone-100 pb-3">
                 <div>
                     <h3 class="text-xl font-bold text-[#0B3B24]" x-text="'Berkas Jamaah: ' + (selectedJamaah?.nama ?? '')"></h3>
@@ -296,7 +296,7 @@
                 <button type="button" @click="modalOpen = false" class="text-stone-400 hover:text-stone-700 font-bold text-lg cursor-pointer px-2">✕</button>
             </div>
 
-            <!-- Ringkasan Data Identitas Jamaah (dari Profil) -->
+            <!-- ringkasan identitas jamaah -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3.5 bg-stone-50 rounded-2xl border border-stone-200 text-xs font-sans" x-show="selectedJamaah">
                 <div>
                     <span class="text-stone-500 block text-[11px]">NIK (KTP)</span>
@@ -316,9 +316,9 @@
                 </div>
             </div>
 
-            <!-- Tab Daftar Dokumen Milik Jamaah -->
+            <!-- tab daftar berkas jamaah -->
             <div class="space-y-2" x-show="selectedJamaah">
-                @php /* Guard jika salah satu berkas berstatus Perlu Diperbaiki / Ditolak */ @endphp
+                @php /* cegah verifikasi massal kalau masih ada berkas ditolak */ @endphp
                 <div class="flex flex-wrap items-center justify-between gap-2"
                      x-data="{
                         get hasRevisionDoc() {
@@ -371,7 +371,7 @@
                 </div>
             </div>
 
-            <!-- Form & Pratinjau Dokumen Aktif -->
+            <!-- pratinjau & form verifikasi dokumen -->
             <form x-show="selectedDoc" @submit="rememberModal()" :action="'{{ url('/admin/dokumen') }}/' + selectedDoc?.id + '/verify'" method="POST" class="space-y-4 pt-2 border-t border-stone-100">
                 @csrf
                 <input type="hidden" name="status" :value="actionStatus">
@@ -413,7 +413,7 @@
                     <textarea name="admin_notes" x-model="adminNotes" rows="2" placeholder="Tuliskan catatan jika berkas perlu diperbaiki oleh jamaah..." class="w-full px-3 py-2 border border-stone-300 rounded-xl text-xs font-sans focus:outline-none focus:ring-1 focus:ring-[#0B3B24]"></textarea>
                 </div>
 
-                <!-- Tombol Aksi Verifikasi -->
+                <!-- tombol aksi verifikasi -->
                 <div class="flex flex-wrap items-center justify-end gap-2 pt-2 border-t border-stone-100">
                     <button type="submit" @click="actionStatus = 'Perlu_Diperbaiki'" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition cursor-pointer inline-flex items-center gap-1.5 shadow-sm">
                         <x-icon name="warning" class="w-4 h-4" />

@@ -4,7 +4,7 @@
 @endphp
 
 <div x-data="{ sidebarOpen: false }" class="contents">
-    {{-- Mobile Top Bar --}}
+    {{-- bar atas mobile --}}
     <div class="lg:hidden sticky top-0 z-30 flex items-center justify-between bg-[#0B3B24] px-5 py-3.5 text-[#E5D3B3] shadow-md">
         <a href="{{ route('user.dashboard') }}" class="flex items-center gap-3">
             <img src="{{ asset('images/lOGO rozwia.png') }}" alt="Logo Rozwia" class="h-9 w-9 object-contain">
@@ -19,14 +19,14 @@
         </button>
     </div>
 
-    {{-- Mobile Overlay --}}
+    {{-- overlay sidebar mobile --}}
     <div x-show="sidebarOpen" x-transition.opacity @click="sidebarOpen = false" class="fixed inset-0 z-40 bg-black/50 lg:hidden" style="display: none;"></div>
 
-    {{-- Sidebar --}}
+    {{-- sidebar menu --}}
     <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'"
         class="fixed inset-y-0 left-0 z-50 w-72 lg:w-full lg:sticky lg:top-0 lg:h-screen bg-[#0B3B24] text-[#E5D3B3] flex flex-col justify-between p-7 lg:p-8 overflow-y-auto shadow-lg transition-transform duration-200 ease-out">
         <div class="space-y-9">
-            {{-- Logo Rozwia --}}
+            {{-- logo sidebar --}}
             <a href="{{ route('user.dashboard') }}" class="flex items-center gap-3 pb-5 border-b border-emerald-800/80">
                 <img src="{{ asset('images/lOGO rozwia.png') }}" alt="Logo Rozwia" class="w-12 h-12 object-contain shrink-0">
                 <div class="leading-tight">
@@ -35,7 +35,7 @@
                 </div>
             </a>
 
-            {{-- Menu Navigasi --}}
+            {{-- menu navigasi --}}
             <nav class="space-y-2.5 font-serif">
                 <a href="{{ route('user.dashboard') }}"
                    class="flex items-center gap-4 px-5 py-3.5 rounded-2xl transition {{ $active === 'beranda' ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
@@ -63,7 +63,7 @@
             </nav>
         </div>
 
-        {{-- Bagian Bawah Sidebar (User Info & Keluar) --}}
+        {{-- info akun & tombol keluar --}}
         <div class="space-y-5 pt-6 mt-8 border-t border-emerald-800/80">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-full bg-emerald-800 border border-[#E5D3B3]/40 flex items-center justify-center text-amber-200 shrink-0">

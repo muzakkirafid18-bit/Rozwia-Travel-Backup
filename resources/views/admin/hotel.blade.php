@@ -150,9 +150,9 @@
             </div>
         </div>
 
-        <!-- 2 Kartu Side-by-Side: Maskapai Penerbangan Kloter & Akomodasi Hotel Kloter -->
+        <!-- kartu maskapai dan hotel kloter -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <!-- Kiri: Maskapai Penerbangan Kloter -->
+            <!-- kartu maskapai kloter -->
             <div class="p-4 sm:p-5 rounded-2xl border border-stone-200 bg-[#FCFBF8] flex flex-col justify-between gap-4">
                 <div class="space-y-1.5">
                     <div class="flex items-center justify-between gap-2">
@@ -177,7 +177,7 @@
                 </div>
             </div>
 
-            <!-- Kanan: Akomodasi Hotel Kloter -->
+            <!-- kartu akomodasi hotel -->
             <div class="p-4 sm:p-5 rounded-2xl border border-stone-200 bg-[#FCFBF8] flex flex-col justify-between gap-4">
                 <div class="space-y-1.5">
                     <div class="flex items-center justify-between gap-2">
@@ -319,7 +319,7 @@
         </div>
     </div>
 
-    <!-- MODAL 1: UBAH DATA PENERBANGAN KLOTER -->
+    <!-- modal ubah data penerbangan -->
     <div x-show="flightModalOpen"
          x-transition.opacity
          style="display: none;"
@@ -359,7 +359,7 @@
         </div>
     </div>
 
-    <!-- MODAL 2: DAFTAR HOTEL TERDAFTAR -->
+    <!-- modal daftar hotel -->
     <div x-show="hotelModalOpen"
          x-transition.opacity
          style="display: none;"
@@ -387,7 +387,7 @@
         </div>
     </div>
 
-    <!-- MODAL 3: ATUR ALOKASI & KESIAPAN JAMAAH -->
+    <!-- modal atur alokasi jamaah -->
     <div x-show="jamaahModalOpen"
          x-transition.opacity
          style="display: none;"

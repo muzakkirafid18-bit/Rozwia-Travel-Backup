@@ -22,7 +22,7 @@
     @endphp
     <header class="fixed top-0 z-50 w-full bg-[#F4EBDD] px-4 pb-4 pt-5 sm:px-8">
         <div class="mx-auto flex max-w-7xl items-center justify-between rounded-[22px] border border-emerald-900/50 bg-[#063B25] px-4 sm:px-6 py-3 shadow-lg">
-            <!-- Logo Rozwia -->
+            <!-- logo navbar -->
             <div class="flex items-center gap-4">
                 <a href="{{ $landingUrl }}" class="flex items-center gap-3 text-white font-serif font-bold tracking-wider group">
                     <img src="{{ asset('images/lOGO rozwia.png') }}" alt="ROZWIA Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
@@ -34,7 +34,7 @@
                 <span class="hidden md:block h-7 w-px bg-emerald-700/70 ml-2"></span>
             </div>
 
-            <!-- Menu Navigasi Desktop -->
+            <!-- menu desktop -->
             <nav class="hidden md:flex items-center space-x-2 text-sm font-serif text-emerald-100">
                 <a href="{{ $landingUrl }}" class="px-4 py-1.5 rounded-lg transition {{ request()->routeIs('landing') ? 'border border-[#B78616]/70 bg-emerald-900/40 text-white' : 'hover:bg-emerald-900/40 hover:text-white' }}">Beranda</a>
                 <a href="{{ route('tentang.kami') }}" class="px-4 py-1.5 rounded-lg transition {{ request()->routeIs('tentang.kami') ? 'border border-[#B78616]/70 bg-emerald-900/40 text-white' : 'hover:bg-emerald-900/40 hover:text-white' }}">Tentang Kami</a>
@@ -43,7 +43,7 @@
                 <a href="{{ route('faq') }}" class="px-4 py-1.5 rounded-lg transition {{ request()->routeIs('faq') ? 'border border-[#B78616]/70 bg-emerald-900/40 text-white' : 'hover:bg-emerald-900/40 hover:text-white' }}">FAQ</a>
             </nav>
 
-            <!-- Tombol Navigasi Auth & Hamburger Mobile -->
+            <!-- tombol login & menu mobile -->
             <div class="flex items-center gap-2 sm:gap-3">
                 @auth
                     @php
@@ -108,12 +108,12 @@
         @yield('content')
     </main>
 
-    <!-- FOOTER -->
+    <!-- footer -->
     <footer class="bg-[#0B3B24] text-[#E8DFD1] pt-16 pb-10 border-t border-emerald-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
                 
-                <!-- Kolom 1: Logo & Deskripsi -->
+                <!-- kolom logo & deskripsi -->
                 <div class="lg:col-span-4 space-y-5">
                     <div class="flex items-center gap-3">
                         <img src="{{ asset('images/lOGO rozwia.png') }}" alt="ROZWIA Logo" class="h-11 w-auto object-contain">
@@ -127,7 +127,7 @@
                     </p>
                 </div>
 
-                <!-- Kolom 2: Paket -->
+                <!-- kolom paket -->
                 <div class="lg:col-span-3 space-y-4 font-serif">
                     <h4 class="font-bold text-[#D4B996] text-base tracking-wide">Paket</h4>
                     <ul class="space-y-2.5 text-sm text-[#E8DFD1]/85">
@@ -137,7 +137,7 @@
                     </ul>
                 </div>
 
-                <!-- Kolom 3: Perusahaan -->
+                <!-- kolom perusahaan -->
                 <div class="lg:col-span-2 space-y-4 font-serif">
                     <h4 class="font-bold text-[#D4B996] text-base tracking-wide">Perusahaan</h4>
                     <ul class="space-y-2.5 text-sm text-[#E8DFD1]/85">
@@ -147,7 +147,7 @@
                     </ul>
                 </div>
 
-                <!-- Kolom 4: Kontak -->
+                <!-- kolom kontak -->
                 @php
                     $companyProfile = \App\Helpers\RozwiaHelper::companyProfile();
                     $waDigits = preg_replace('/[^0-9]/', '', $companyProfile['telepon'] ?? '');
@@ -180,7 +180,7 @@
 
             </div>
 
-            <!-- Garis Pemisah & Copyright -->
+            <!-- copyright -->
             <div class="pt-6 border-t border-[#E8DFD1]/20 flex flex-col sm:flex-row items-center justify-between text-xs text-[#E8DFD1]/70 font-serif gap-4">
                 <p>&copy; 2026 {{ $companyProfile['nama_perusahaan'] }}</p>
                 <p>{{ $companyProfile['no_izin'] }}</p>
@@ -249,17 +249,17 @@
                 </div>
                 @endif
 
-                <!-- Form Login -->
+                <!-- form login -->
                 <form action="{{ route('login.store') }}" method="POST" class="space-y-4 font-serif">
                     @csrf
 
-                    <!-- Email -->
+                    <!-- input email -->
                     <div class="space-y-1.5">
                         <label class="block text-xs font-bold uppercase tracking-wider text-stone-700">Email</label>
                         <input type="text" name="email" value="{{ old('email') }}" placeholder="nama@gmail.com" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#0B3B24] text-xs font-sans" required autofocus>
                     </div>
 
-                    <!-- Password -->
+                    <!-- input password -->
                     <div class="space-y-1.5" x-data="{ showModalPassword: false }">
                         <div class="flex items-center justify-between">
                             <label class="block text-xs font-bold uppercase tracking-wider text-stone-700">Password</label>
@@ -283,7 +283,7 @@
                         </p>
                     </div>
 
-                    <!-- Tombol Masuk -->
+                    <!-- tombol masuk -->
                     <div class="pt-2">
                         <button type="submit" class="w-full bg-[#0B3B24] hover:bg-emerald-900 text-white font-serif font-bold text-xs py-3.5 rounded-xl shadow-md transition cursor-pointer uppercase tracking-wider">
                             Masuk Sekarang

@@ -258,7 +258,7 @@ class AdminDashboardController extends Controller
 
     /**
      * Ubah status akun dari switch/tombol Admin.
-     * Admin berwenang mengaktifkan atau menonaktifkan akun jamaah secara fleksibel.
+     * Ubah status aktif/nonaktif akun jamaah.
      */
     public function activateAccount(Request $request, int $userId): RedirectResponse
     {
@@ -1176,7 +1176,7 @@ class AdminDashboardController extends Controller
     }
 
     /**
-     * Sinkronisasi otomatis status_booking & tracking_status seluruh anggota rombongan.
+     * Update status booking otomatis berdasarkan pembayaran dan dokumen.
      */
     private function syncBookingWorkflow(Booking $booking): void
     {

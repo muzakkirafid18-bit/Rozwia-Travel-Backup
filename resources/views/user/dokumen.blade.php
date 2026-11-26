@@ -87,7 +87,7 @@
                 </section>
             @endif
 
-            <!-- Panduan & Syarat Pengunggahan (Maks 10MB) -->
+            <!-- panduan unggah dokumen -->
             <section class="rounded-3xl border border-stone-200 bg-white p-6 shadow-sm">
                 <div class="flex flex-wrap items-center justify-between gap-3 border-b border-stone-200 pb-4">
                     <h2 class="font-serif text-xl font-bold text-[#063B25]">Panduan & Syarat Pengunggahan</h2>
@@ -109,7 +109,7 @@
                 </div>
             </section>
 
-            <!-- PILIH ANGGOTA JAMAAH (Untuk Mengunggah Berkas Masing-Masing Orang) -->
+            <!-- pilih anggota jamaah -->
             @if(isset($jamaahs) && $jamaahs->isNotEmpty())
             <section class="rounded-3xl border border-stone-200 bg-white p-5 shadow-sm space-y-3">
                 <div class="flex flex-wrap items-center justify-between gap-2">
@@ -141,7 +141,7 @@
             </section>
             @endif
 
-            <!-- Form Upload Dokumen -->
+            <!-- form unggah berkas -->
             <form id="unggah" action="{{ route('user.dokumen.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6" x-data="{ totalStaged: 0 }">
                 @csrf
                 <input type="hidden" name="jamaah_detail_id" value="{{ $jamaahDetail?->id }}">
@@ -177,7 +177,7 @@
                              class="rounded-3xl border p-5 shadow-sm flex flex-col justify-between transition-all duration-200">
                         
                         <div>
-                            <!-- Header Kartu -->
+                            <!-- header kartu berkas -->
                             <div class="flex items-start justify-between gap-3">
                                 <span class="grid h-11 w-11 place-items-center rounded-2xl bg-emerald-50 text-[#063B25]">
                                     <x-icon :name="$item['icon']" class="w-6 h-6" />
@@ -195,7 +195,7 @@
                                 @endif
                             </div>
 
-                            <!-- Judul & Keterangan -->
+                            <!-- judul & keterangan berkas -->
                             <h3 class="mt-4 font-serif text-xl font-bold text-[#063B25]">{{ $item['label'] }}</h3>
                             <p class="mt-1.5 text-xs leading-relaxed text-stone-600">{{ $doc?->admin_notes ?: $item['help'] }}</p>
 
@@ -215,7 +215,7 @@
                                 </div>
                             @endif
 
-                            <!-- Indikator Berkas Yang Sudah Tersimpan di Database -->
+                            <!-- info berkas tersimpan -->
                             @if($doc)
                             <?php
                                 $savedSizeText = null;
@@ -243,7 +243,7 @@
                             </div>
                             @endif
 
-                            <!-- Indikator Interaktif File Baru yang Dipilih -->
+                            <!-- info file yang dipilih -->
                             <div x-show="isPicked" x-cloak class="mt-3.5 p-3 rounded-2xl bg-amber-50 border border-amber-300 text-xs space-y-1 animate-fade-in">
                                 <div class="flex items-center justify-between text-amber-950 font-bold">
                                     <span class="flex items-center gap-1.5 truncate">
@@ -256,7 +256,7 @@
                             </div>
                         </div>
 
-                        <!-- Tombol Interaktif Upload -->
+                        <!-- tombol pilih file -->
                         <div class="mt-5 pt-3 border-t border-stone-100">
                             <label :class="isPicked 
                                             ? 'bg-emerald-800 hover:bg-emerald-900 text-white ring-2 ring-emerald-500' 
@@ -289,7 +289,7 @@
                     @endforeach
                 </div>
 
-                <!-- Tombol Simpan Berkas di bawah Card Dokumen -->
+                <!-- tombol simpan berkas -->
                 <div class="bg-white rounded-3xl border border-stone-200 p-5 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div class="text-xs text-stone-600">
                         <strong class="block text-[#063B25] text-sm font-serif">Konfirmasi Pengiriman Berkas</strong>

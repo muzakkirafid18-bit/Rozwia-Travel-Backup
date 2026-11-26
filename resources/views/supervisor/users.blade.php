@@ -5,7 +5,7 @@
 @section('content')
 <div class="space-y-6">
 
-    <!-- Header Card: Daftar Akun Pengguna -->
+    <!-- header daftar pengguna -->
     <div class="bg-white/80 backdrop-blur-md border border-stone-200/80 rounded-[32px] p-6 sm:p-7 shadow-xs space-y-1">
         <h1 class="text-2xl sm:text-3xl font-[800] font-['Abhaya_Libre'] text-stone-900">
             Daftar Akun Pengguna
@@ -15,7 +15,7 @@
         </p>
     </div>
 
-    <!-- 3 Kartu Statistik Ringkasan -->
+    <!-- ringkasan statistik akun -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 font-serif">
         <div class="bg-white p-6 sm:p-7 rounded-[32px] border border-stone-200 shadow-sm space-y-1">
             <span class="text-xs font-[700] uppercase tracking-wider text-stone-400 font-sans">Total Akun</span>
@@ -31,10 +31,10 @@
         </div>
     </div>
 
-    <!-- Tabel & Filter Section -->
+    <!-- tabel & filter akun -->
     <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-sm border border-stone-200 space-y-6 font-sans">
 
-        <!-- Bagian Atas Tabel: Judul, Search, Download, & Filter Status -->
+        <!-- header tabel & filter -->
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
             <div>
                 <h3 class="text-base font-[800] text-stone-900 font-['Abhaya_Libre']">Daftar Akun Jamaah</h3>
@@ -42,7 +42,7 @@
             </div>
 
             <form action="{{ route('supervisor.users') }}" method="GET" class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
-                <!-- Search Input -->
+                <!-- kotak pencarian -->
                 <div class="relative flex-1 sm:flex-initial">
                     <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-stone-400 text-sm"><x-icon name="search" class="w-4 h-4" /></span>
                     <input type="text"
@@ -52,14 +52,14 @@
                            class="w-full sm:w-64 pl-10 pr-4 py-2.5 rounded-full bg-white border border-stone-200 text-xs font-medium focus:outline-none focus:border-stone-400 shadow-xs">
                 </div>
 
-                <!-- Tombol Download Data Akun -->
+                <!-- tombol unduh data akun -->
                 <a href="{{ route('supervisor.users.export', ['search' => $search, 'status' => $status]) }}"
                    class="bg-white hover:bg-stone-50 text-stone-800 border border-stone-200 font-[700] text-xs py-2.5 px-5 rounded-full transition cursor-pointer flex items-center gap-2 shadow-xs">
                     <x-icon name="download_2" class="w-4 h-4" />
                     <span>Download Data Akun</span>
                 </a>
 
-                <!-- Filter "Semua Status" -->
+                <!-- filter status akun -->
                 <div class="relative">
                     <select name="status"
                             onchange="this.form.submit()"
@@ -73,7 +73,7 @@
             </form>
         </div>
 
-        <!-- Tabel Daftar Akun Pengguna -->
+        <!-- tabel daftar akun -->
         <div class="overflow-x-auto rounded-2xl border border-stone-200">
             <table class="w-full text-left text-xs">
                 <thead>

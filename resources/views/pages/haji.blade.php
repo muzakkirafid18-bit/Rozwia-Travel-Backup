@@ -82,7 +82,7 @@
             });
         @endphp
 
-        <!-- FILTER KATEGORI PILL -->
+        <!-- filter kategori -->
         <div class="flex flex-wrap items-center gap-2 pt-2">
             <a href="{{ route('paket.haji', ['filter' => 'semua']) }}" class="{{ $activeFilter === 'semua' ? 'bg-[#0B3B24] text-white' : 'bg-white hover:bg-emerald-50 text-[#0B3B24]' }} border border-[#0B3B24] text-xs font-semibold px-5 py-2.5 rounded-full shadow-xs transition">Semua</a>
             
@@ -93,7 +93,7 @@
             <a href="{{ route('paket.haji', ['filter' => 'furoda']) }}" class="{{ $activeFilter === 'furoda' ? 'bg-[#0B3B24] text-white' : 'bg-white hover:bg-emerald-50 text-[#0B3B24]' }} border border-[#0B3B24] text-xs font-semibold px-5 py-2.5 rounded-full shadow-xs transition">Haji Furoda</a>
         </div>
 
-        <!-- GRID KATALOG HAJI -->
+        <!-- daftar paket haji -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             @forelse($filteredHaji as $item)

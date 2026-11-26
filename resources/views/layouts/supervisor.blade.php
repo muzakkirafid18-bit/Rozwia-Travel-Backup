@@ -56,7 +56,7 @@
            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
 
         <div class="space-y-8">
-            <!-- Logo Header Sidebar -->
+            <!-- logo sidebar -->
             <div class="flex items-center justify-between gap-3 pb-4 border-b border-emerald-800/80 font-serif">
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('images/lOGO rozwia.png') }}" alt="Logo ROZWIA" class="h-11 w-11 object-contain shrink-0">
@@ -70,7 +70,7 @@
                 </button>
             </div>
 
-            <!-- Menu Navigasi Utama -->
+            <!-- menu sidebar -->
             <nav class="space-y-2 font-serif text-sm">
                 <a href="{{ route('supervisor.dashboard') }}"
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('supervisor.dashboard') ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">

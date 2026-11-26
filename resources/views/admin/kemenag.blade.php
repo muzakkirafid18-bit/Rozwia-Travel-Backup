@@ -64,7 +64,7 @@
      }" 
      class="space-y-6">
     
-    <!-- Header -->
+    <!-- header halaman -->
     <div class="space-y-1">
         <h1 class="text-3xl sm:text-4xl font-bold font-serif text-stone-900 tracking-tight">Status Surat Kemenag Dan Visa</h1>
         <p class="text-xs sm:text-sm text-stone-600 font-serif">
@@ -72,7 +72,7 @@
         </p>
     </div>
 
-    <!-- 3 Kartu Statistik Putih (Perlu tindakan paling kiri, lanjut Kemenag dan Visa) -->
+    <!-- ringkasan status kemenag & visa -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl font-serif">
         <div class="bg-white p-5 rounded-2xl border border-stone-200/80 shadow-xs space-y-2">
             <span class="text-xs text-rose-600 font-medium block">Perlu tindakan</span>
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <!-- Filter Pills -->
+    <!-- filter status -->
     <div class="flex flex-wrap items-center gap-3 pt-2 font-serif">
         <button type="button" 
                 @click="filterState = 'semua'" 
@@ -114,7 +114,7 @@
         </button>
     </div>
 
-    <!-- Konten Utama: Tabel Kiri & Form Perbaharui Status Kanan -->
+    <!-- tabel jamaah & form ubah status -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
         <!-- tabel status jamaah -->
@@ -213,7 +213,7 @@
                     <div><strong>Belum Lunas:</strong> Jamaah ini belum menyelesaikan pelunasan di menu <strong>Kelola Pembayaran</strong>. Status Surat Kemenag &amp; Visa baru bisa diubah setelah pembayaran berstatus <strong>Lunas</strong>.</div>
                 </div>
 
-                <!-- Pilihan Status Surat Kemenag -->
+                <!-- pilihan status kemenag -->
                 <div class="space-y-2">
                     <label class="block text-xs font-medium text-stone-700">Surat Kemenag</label>
                     <div class="grid grid-cols-2 gap-2">
@@ -229,7 +229,7 @@
                     </div>
                 </div>
 
-                <!-- Pilihan Status Visa -->
+                <!-- pilihan status visa -->
                 <div class="space-y-2">
                     <label class="block text-xs font-medium text-stone-700">Visa</label>
                     <div class="grid grid-cols-2 gap-2">

@@ -5,7 +5,7 @@
 @section('content')
 <div class="space-y-6">
 
-    <!-- Header Card: Profile Perusahaan -->
+    <!-- header profil perusahaan -->
     <div class="bg-white border border-stone-200 rounded-[32px] p-6 sm:p-7 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div class="space-y-1">
             <h1 class="text-2xl sm:text-3xl font-[800] font-['Abhaya_Libre'] text-stone-900">
@@ -24,18 +24,18 @@
         </div>
     @endif
 
-    <!-- Grid Konten Utama -->
+    <!-- konten utama -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-        <!-- KOLOM KIRI: Logo, Glow Emerald, & Detail Kontak -->
+        <!-- kolom kiri info perusahaan -->
         <div class="lg:col-span-5 space-y-6 relative">
 
-            <!-- Elemen Lingkaran Glow Emerald - diperhalus -->
+            <!-- efek dekorasi latar -->
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
                 <div class="w-72 h-72 bg-emerald-700/10 rounded-full blur-2xl"></div>
             </div>
 
-            <!-- Kartu Identitas Utama -->
+            <!-- kartu identitas perusahaan -->
             <div class="relative z-10 text-center flex flex-col items-center space-y-4 py-12 px-6">
                 <div class="flex items-center justify-center">
                     <img src="{{ asset('images/lOGO rozwia.png') }}" alt="Logo Rozwia" class="w-24 h-24 object-contain drop-shadow-md">
@@ -51,10 +51,10 @@
                 </div>
             </div>
 
-            <!-- KARTU DETAIL KONTAK -->
+            <!-- kartu detail kontak -->
             <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-sm border border-stone-200 space-y-4 text-xs relative z-10 font-sans">
 
-                <!-- Email -->
+                <!-- input email -->
                 <div class="flex items-start gap-3">
                     <x-icon name="mail" class="w-5 h-5 text-amber-600 mt-0.5" />
                     <div>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
 
-                <!-- Telepon (WhatsApp) -->
+                <!-- nomor whatsapp -->
                 <div class="flex items-start gap-3 pt-3 border-t border-stone-100">
                     @include('partials.wa-icon', ['size' => '1.6em'])
                     <div>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <!-- Alamat -->
+                <!-- alamat kantor -->
                 <div class="flex items-start gap-3 pt-3 border-t border-stone-100">
                     <x-icon name="location_on" class="w-5 h-5 text-rose-600 mt-0.5" />
                     <div>
@@ -85,7 +85,7 @@
 
             </div>
 
-            <!-- KARTU REKENING PERUSAHAAN -->
+            <!-- kartu rekening perusahaan -->
             <div class="bg-gradient-to-br from-emerald-50 via-white to-amber-50/40 rounded-[32px] p-6 sm:p-8 shadow-sm border border-emerald-200 space-y-4 text-xs relative z-10 font-sans">
                 <div class="flex items-center justify-between border-b border-emerald-200/70 pb-3">
                     <div class="flex items-center gap-2">
@@ -103,7 +103,7 @@
             </div>
         </div>
 
-        <!-- KOLOM KANAN: Form Pengaturan Identitas & Rekening Perusahaan -->
+        <!-- form ubah profil & rekening -->
         <div class="lg:col-span-7 bg-white rounded-[32px] p-6 sm:p-8 shadow-sm border border-stone-200 space-y-6">
 
             <div class="space-y-1 border-b border-stone-100 pb-4">
@@ -114,7 +114,7 @@
             <form action="{{ route('supervisor.profile.update') }}" method="POST" class="space-y-4 text-xs font-sans">
                 @csrf
 
-                <!-- Nama Perusahaan & No Izin -->
+                <!-- nama & nomor izin -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-1.5">
                         <label class="font-[700] text-stone-800 block">Nama Perusahaan</label>
@@ -126,7 +126,7 @@
                     </div>
                 </div>
 
-                <!-- Email & Telepon -->
+                <!-- email & telepon -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-1.5">
                         <label class="font-[700] text-stone-800 block">Email Perusahaan</label>
@@ -138,20 +138,20 @@
                     </div>
                 </div>
 
-                <!-- Alamat Kantor -->
+                <!-- alamat kantor -->
                 <div class="space-y-1.5">
                     <label class="font-[700] text-stone-800 block">Alamat Perusahaan</label>
                     <textarea name="alamat_perusahaan" rows="3" required class="w-full px-4 py-3 rounded-2xl bg-white border border-stone-200 text-stone-800 font-medium hover:bg-[#DFD7C6]/30 focus:bg-[#DFD7C6]/40 focus:outline-none focus:border-stone-400 transition shadow-xs resize-none">{{ old('alamat_perusahaan', $profile['alamat_perusahaan'] ?? '') }}</textarea>
                 </div>
 
-                <!-- Divider Rekening -->
+                <!-- pemisah bagian rekening -->
                 <div class="pt-4 mt-2 border-t border-emerald-200/70 space-y-4 rounded-2xl bg-emerald-50/60 p-4 border border-emerald-200">
                     <div class="space-y-1">
                         <h4 class="text-sm font-[800] font-['Abhaya_Libre'] text-[#0B3B24]">Informasi Rekening Bank</h4>
                         <p class="text-[11px] text-emerald-800">Nomor rekening resmi yang tampil pada invoice dan halaman pembayaran DP jamaah.</p>
                     </div>
 
-                    <!-- Nama Bank & Nomor Rekening -->
+                    <!-- bank & nomor rekening -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="space-y-1.5">
                             <label class="font-[700] text-stone-800 block">Nama Bank</label>
@@ -163,14 +163,14 @@
                         </div>
                     </div>
 
-                    <!-- Atas Nama -->
+                    <!-- nama pemilik rekening -->
                     <div class="space-y-1.5">
                         <label class="font-[700] text-stone-800 block">Atas Nama Rekening</label>
                         <input type="text" name="atas_nama" value="{{ old('atas_nama', $profile['atas_nama'] ?? '') }}" required placeholder="Contoh: PT Pangrango Berkah Digital" class="w-full px-4 py-3 rounded-2xl bg-white border border-emerald-200 text-stone-900 font-medium focus:outline-none focus:border-emerald-600 transition shadow-xs">
                     </div>
                 </div>
 
-                <!-- Tombol Aksi Bawah -->
+                <!-- tombol simpan -->
                 <div class="flex items-center justify-end gap-3 pt-4 border-t border-stone-100">
                     <button type="reset" class="px-6 py-3 rounded-2xl border border-stone-300 bg-[#DFD7C6]/40 text-stone-700 font-[700] hover:bg-[#DFD7C6] transition cursor-pointer shadow-xs">
                         Reset

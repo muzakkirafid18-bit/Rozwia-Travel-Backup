@@ -41,7 +41,7 @@
 
     <!-- 3 kartu ringkasan -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 font-sans">
-        {{-- KPI 1: Antrean Aktivasi Akun --}}
+        {{-- kartu antrean aktivasi akun --}}
         <div class="bg-[#FBF9F3] rounded-[20px] border border-stone-200/80 p-5 shadow-xs flex flex-col justify-between space-y-4">
             <div class="flex items-start justify-between gap-4">
                 <div>
@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        {{-- KPI 2: Antrean Verifikasi Berkas --}}
+        {{-- kartu antrean verifikasi berkas --}}
         <div class="bg-[#FBF9F3] rounded-[20px] border border-stone-200/80 p-5 shadow-xs flex flex-col justify-between space-y-4">
             <div class="flex items-start justify-between gap-4">
                 <div>
@@ -81,7 +81,7 @@
             </div>
         </div>
 
-        {{-- KPI 3: Total Jamaah Terdaftar --}}
+        {{-- kartu total jamaah terdaftar --}}
         <div class="bg-[#FBF9F3] rounded-[20px] border border-stone-200/80 p-5 shadow-xs flex flex-col justify-between space-y-4">
             <div class="flex items-start justify-between gap-4">
                 <div>
@@ -104,7 +104,7 @@
 
     <!-- 3 kartu analitik -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 font-sans items-stretch">
-        {{-- Kiri: Grafik Pendaftaran Jamaah 6 Bulan Terakhir --}}
+        {{-- grafik pendaftaran 6 bulan terakhir --}}
         <div class="lg:col-span-6 bg-[#FBF9F3] rounded-[20px] border border-stone-200/80 p-6 shadow-xs flex flex-col justify-between space-y-5">
             <div class="flex flex-wrap items-center justify-between gap-3">
                 <div class="flex items-center gap-3">
@@ -164,7 +164,7 @@
             </div>
         </div>
 
-        {{-- Tengah: Jumlah Berkas Terkirim --}}
+        {{-- ringkasan jumlah berkas --}}
         <div class="lg:col-span-3 bg-[#FBF9F3] rounded-[20px] border border-stone-200/80 p-6 shadow-xs flex flex-col justify-between space-y-5">
             <div class="flex items-center gap-3">
                 <span class="w-10 h-10 rounded-full bg-[#EFE7D6] text-[#B78616] flex items-center justify-center shrink-0">
@@ -200,7 +200,7 @@
             </div>
         </div>
 
-        {{-- Kanan: Jumlah Akun Berdasarkan Status --}}
+        {{-- ringkasan status akun --}}
         <div class="lg:col-span-3 bg-[#FBF9F3] rounded-[20px] border border-stone-200/80 p-6 shadow-xs flex flex-col justify-between space-y-5">
             <div class="flex items-center gap-3">
                 <span class="w-10 h-10 rounded-full bg-[#CFE5D5] text-[#063B25] flex items-center justify-center shrink-0">
@@ -229,7 +229,7 @@
         </div>
     </div>
 
-    <!-- TABEL 1: ANTREAN VERIFIKASI PEMBAYARAN DP               -->
+    <!-- tabel antrean verifikasi pembayaran dp -->
     <div id="pembayaran-dp" class="bg-white rounded-[32px] p-6 sm:p-8 shadow-sm border border-stone-200/80 space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>

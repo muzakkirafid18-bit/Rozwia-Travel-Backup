@@ -15,7 +15,7 @@
 <!-- wrapper halaman -->
 <div class="w-full bg-[#F4EFE6] min-h-screen pt-28 sm:pt-32 pb-24">
 
-    <!-- BANNER HERO HEADER -->
+    <!-- banner halaman -->
     <div class="relative w-full bg-[#0B3B24] overflow-hidden shadow-md py-16 sm:py-20 px-4 sm:px-6 lg:px-8 mb-16">
         <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('{{ asset('images/about us.jpg') }}')"></div>
 
@@ -37,7 +37,7 @@
         <!-- latar belakang & legalitas -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-            <!-- Kolom Teks Latar Belakang -->
+            <!-- teks profil perusahaan -->
             <div class="lg:col-span-7 space-y-6">
                 <div class="space-y-2">
                     <span class="text-amber-700 font-bold uppercase tracking-wider text-xs font-serif">Latar Belakang &amp; Legalitas</span>
@@ -55,7 +55,7 @@
                     </p>
                 </div>
 
-                <!-- Poin Statistik Resmi -->
+                <!-- statistik perusahaan -->
                 <div class="grid grid-cols-2 gap-4 pt-2">
                     <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-xs space-y-1">
                         <span class="block text-2xl sm:text-3xl font-bold text-[#0B3B24] font-serif">100%</span>
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <!-- Kolom Gambar / Visual Estetik -->
+            <!-- gambar profil -->
             <div class="lg:col-span-5">
                 <div class="relative h-[420px] rounded-[32px] overflow-hidden shadow-xl border-4 border-white">
                     <img src="{{ asset('images/Masjid nabawi.jpg') }}" alt="Masjid Nabawi Madinah - ROZWIA Islamic Travel" class="w-full h-full object-cover">
@@ -91,7 +91,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Paket Haji -->
+                <!-- layanan haji -->
                 <div class="bg-[#0B3B24] rounded-3xl p-8 sm:p-10 shadow-lg text-white flex flex-col justify-between space-y-6 border border-emerald-900">
                     <div class="space-y-3">
                         <span class="inline-block bg-amber-400 text-emerald-950 text-[10px] font-bold font-serif px-3 py-1 rounded-full uppercase tracking-wider">Eksklusif &amp; Resmi</span>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
 
-                <!-- Paket Umrah -->
+                <!-- layanan umrah -->
                 <div class="bg-white rounded-3xl p-8 sm:p-10 shadow-sm text-stone-800 flex flex-col justify-between space-y-6 border border-stone-200/80">
                     <div class="space-y-3">
                         <span class="inline-block bg-emerald-100 text-emerald-900 text-[10px] font-bold font-serif px-3 py-1 rounded-full uppercase tracking-wider">Pilihan Fleksibel</span>
@@ -134,7 +134,7 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- 1 -->
+                <!-- poin 1 -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/85 space-y-4 relative flex flex-col justify-between">
                     <div class="space-y-3">
                         <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B3B24] flex items-center justify-center font-bold">
@@ -146,7 +146,7 @@
                     <span class="absolute bottom-4 right-5 text-xs font-bold text-stone-300 font-serif">01</span>
                 </div>
 
-                <!-- 2 -->
+                <!-- poin 2 -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/85 space-y-4 relative flex flex-col justify-between">
                     <div class="space-y-3">
                         <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B3B24] flex items-center justify-center font-bold">
@@ -158,7 +158,7 @@
                     <span class="absolute bottom-4 right-5 text-xs font-bold text-stone-300 font-serif">02</span>
                 </div>
 
-                <!-- 3 -->
+                <!-- poin 3 -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/85 space-y-4 relative flex flex-col justify-between">
                     <div class="space-y-3">
                         <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B3B24] flex items-center justify-center font-bold">
@@ -170,7 +170,7 @@
                     <span class="absolute bottom-4 right-5 text-xs font-bold text-stone-300 font-serif">03</span>
                 </div>
 
-                <!-- 4 -->
+                <!-- poin 4 -->
                 <div class="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/85 space-y-4 relative flex flex-col justify-between">
                     <div class="space-y-3">
                         <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-[#0B3B24] flex items-center justify-center font-bold">
@@ -183,7 +183,7 @@
                 </div>
             </div>
 
-            <!-- Quote banner kecil -->
+            <!-- kutipan -->
             <div class="bg-[#0B3B24] text-white text-center py-4 px-6 rounded-2xl font-serif text-xs sm:text-sm tracking-wide shadow-sm">
                 Lebih tenang mempersiapkan perjalanan, lebih fokus menjalankan ibadah.
             </div>
@@ -271,7 +271,7 @@
                 </div>
             </div>
 
-            <!-- Google Maps Embed -->
+            <!-- peta lokasi -->
             <div class="lg:col-span-6">
                 <div class="relative h-72 sm:h-80 rounded-2xl overflow-hidden shadow-inner border border-stone-300 bg-stone-100">
                     <iframe

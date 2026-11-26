@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 0. Akun Administrator Sistem (Pengelola Seluruh Akun & Hak Akses)
+        // akun super admin
         User::firstOrCreate(['email' => 'administrator@rozwia.com'], [
             'name' => 'Super Administrator ROZWIA',
             'nomor_telepon' => '081111111111',
@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Administrator123!'),
         ]);
 
-        // 1. Akun Admin Utama
+        // akun admin utama
         User::firstOrCreate(['email' => 'admin@rozwia.com'], [
             'name' => 'Administrator Rozwia',
             'nomor_telepon' => '081234567890',
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Admin123!'),
         ]);
 
-        // 2. Akun Supervisor
+        // akun supervisor
         User::firstOrCreate(['email' => 'supervisor@rozwia.com'], [
             'name' => 'Supervisor Rozwia',
             'nomor_telepon' => '081298765432',
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Supervisor123!'),
         ]);
 
-        // 3. Akun Jamaah (Aktif)
+        // akun jamaah aktif
         User::firstOrCreate(['email' => 'jamaah@rozwia.com'], [
             'name' => 'Gunawan Maryono (Jamaah)',
             'nomor_telepon' => '082321122334',
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Jamaah123!'),
         ]);
 
-        // 4. Akun Jamaah (Belum Aktif / Belum Bayar DP - untuk uji keamanan)
+        // akun jamaah pending dp
         User::firstOrCreate(['email' => 'pending@rozwia.com'], [
             'name' => 'Calon Jamaah (Pending DP)',
             'nomor_telepon' => '085678901234',
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Jamaah123!'),
         ]);
 
-        // 5. Master Rekening Perusahaan
+        // data rekening perusahaan
         \App\Models\RekeningPerusahaan::firstOrCreate(['nomor_rekening' => '7123456789'], [
             'nama_bank' => 'Bank Syariah Indonesia (BSI)',
             'atas_nama' => 'PT Pangrango Berkah Digital',
@@ -75,7 +75,7 @@ class DatabaseSeeder extends Seeder
             'status' => 'active',
         ]);
 
-        // 5b. Master Perusahaan
+        // profil perusahaan default
         \App\Models\Perusahaan::firstOrCreate(['nomor_rekening' => '7123456789'], [
             'nama_perusahaan'   => 'Rozwia Islamic Travel',
             'email_perusahaan'  => 'rozwia@gmail.com',
@@ -88,12 +88,12 @@ class DatabaseSeeder extends Seeder
             'status'            => 'active',
         ]);
 
-        // 6. Master Maskapai
+        // data maskapai
         foreach (['Garuda Indonesia', 'Saudia Airlines', 'Qatar Airways', 'Emirates'] as $airline) {
             \App\Models\Maskapai::firstOrCreate(['nama_maskapai' => $airline]);
         }
 
-        // 7. Master Jenis Layanan
+        // data jenis layanan
         foreach ([
             'Umroh Reguler',
             'Umroh VIP',
@@ -105,12 +105,12 @@ class DatabaseSeeder extends Seeder
             \App\Models\JenisLayanan::firstOrCreate(['nama_pelayanan' => $layanan]);
         }
 
-        // 8. Master Tipe Kamar
+        // data tipe kamar
         \App\Models\TipeKamar::firstOrCreate(['nama' => 'Quad'], ['kapasitas' => 4]);
         \App\Models\TipeKamar::firstOrCreate(['nama' => 'Triple'], ['kapasitas' => 3]);
         \App\Models\TipeKamar::firstOrCreate(['nama' => 'Double'], ['kapasitas' => 2]);
 
-        // 9. Master Hotel dengan Foto
+        // data hotel
         $hotelMakkah = \App\Models\Hotel::firstOrCreate(['nama_hotel' => 'Pullman Zamzam Makkah'], [
             'bintang_hotel' => 5,
             'lokasi' => 'Makkah',
@@ -124,14 +124,14 @@ class DatabaseSeeder extends Seeder
             'foto_hotel' => 'images/crowne.jpg',
         ]);
 
-        // 10. Paket Perjalanan (13 Paket Resmi Sesuai Travel 2.pdf & Figma)
+        // data paket umrah & haji
         $layananUmroh = \App\Models\JenisLayanan::where('nama_pelayanan', 'Umroh VIP')->first();
         $maskapaiSaudia = \App\Models\Maskapai::where('nama_maskapai', 'Saudia Airlines')->first();
         $tipeQuad = \App\Models\TipeKamar::where('nama', 'Quad')->first();
         $tipeDouble = \App\Models\TipeKamar::where('nama', 'Double')->first();
 
         $paketDefs = [
-            // UMRAH (8 PAKET SESUAI TRAVEL 2.PDF)
+            // paket umrah
             [
                 'nama' => 'January Umroh & Istanbul',
                 'kategori' => 'Umroh',
@@ -205,7 +205,7 @@ class DatabaseSeeder extends Seeder
                 'gambar' => 'images/Masjid nabawi.jpg',
             ],
 
-            // HAJI (5 PAKET SESUAI TRAVEL 2.PDF)
+            // paket haji
             [
                 'nama' => 'Perjalanan Haji Penuh Makna',
                 'kategori' => 'Haji',
@@ -303,7 +303,7 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        // 11. Jadwal Penerbangan untuk Paket 1
+        // jadwal awal paket 1
         if ($maskapaiSaudia) {
             \App\Models\Jadwal::firstOrCreate(['id_paket' => $paket1->id, 'nomor_penerbangan' => 'SV 817'], [
                 'id_maskapai' => $maskapaiSaudia->id,
@@ -314,7 +314,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // 12. Relasi Kamar & Hotel untuk Paket 1
+        // relasi kamar & hotel paket 1
         if ($tipeQuad) {
             \App\Models\PaketTipeKamar::firstOrCreate([
                 'id_paket' => $paket1->id,
@@ -334,7 +334,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // 13. Rangkaian Ibadah (Itinerary) Paket 1 (Tabel Baru dari ERD 2)
+        // itinerary paket 1
         $tahapans = [
             ['urutan' => 1, 'judul' => 'Keberangkatan dari Indonesia', 'desc' => 'Jamaah berkumpul di Bandara Soekarno-Hatta (CGK) untuk proses briefing, penyerahan paspor & tiket, lalu terbang langsung menuju Bandara Madinah/Jeddah.'],
             ['urutan' => 2, 'judul' => 'Tiba di Madinah & Ziarah Raudhah', 'desc' => 'Tiba di Tanah Suci, check-in hotel bintang 5 dekat pelataran Masjid Nabawi, ziarah ke Makam Rasulullah SAW dan memperbanyak ibadah di Raudhah.'],

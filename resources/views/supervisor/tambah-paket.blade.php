@@ -13,7 +13,7 @@
 
     <form onsubmit="event.preventDefault(); alert('Paket dan Jadwal Keberangkatan Berhasil Disimpan!');" class="space-y-8 pt-2">
         
-        <!-- BAGIAN 1: INFORMASI UTAMA PAKET -->
+        <!-- informasi utama paket -->
         <div class="space-y-4 p-6 bg-stone-50/70 rounded-2xl border border-stone-200/60">
             <h3 class="text-sm font-bold uppercase tracking-wider text-[#0B3B24] border-b border-stone-200 pb-2">1. Informasi Utama Paket</h3>
             
@@ -53,7 +53,7 @@
         </div>
 
 
-        <!-- BAGIAN 2: DETAIL LAYANAN & BIAYA -->
+        <!-- detail layanan & harga -->
         <div class="space-y-4 p-6 bg-stone-50/70 rounded-2xl border border-stone-200/60">
             <h3 class="text-sm font-bold uppercase tracking-wider text-[#0B3B24] border-b border-stone-200 pb-2">2. Jenis Layanan, Harga & Kamar</h3>
             
@@ -85,7 +85,7 @@
         </div>
 
 
-        <!-- BAGIAN 3: DETAIL JADWAL KEBERANGKATAN & AKomodasi -->
+        <!-- jadwal berangkat & akomodasi -->
         <div class="space-y-4 p-6 bg-stone-50/70 rounded-2xl border border-stone-200/60">
             <h3 class="text-sm font-bold uppercase tracking-wider text-[#0B3B24] border-b border-stone-200 pb-2">3. Jadwal Keberangkatan & Akomodasi Hotel/Maskapai</h3>
             

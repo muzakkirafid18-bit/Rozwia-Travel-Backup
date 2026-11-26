@@ -8,9 +8,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 /**
- * Pengirim email non-blocking agar aksi Admin/Jamaah merespons instan (<100ms)
- * tanpa tertahan handshake SMTP, dengan pengiriman andal di PHP-FPM/LiteSpeed
- * maupun server lokal (`php artisan serve`).
+ * Kirim email di background biar request admin/jamaah tetap cepat.
+ * Di hosting PHP-FPM/LiteSpeed pakai terminating callback setelah respons terkirim.
  */
 class AsyncMailer
 {
@@ -97,7 +96,7 @@ class AsyncMailer
     }
 
     /**
-     * Kirim seluruh file antrean `.ser` secara aman dengan file lock.
+     * Proses semua file antrean email yang tertunda.
      */
     public static function flushQueueNow(): int
     {
@@ -232,8 +231,7 @@ class AsyncMailer
             return;
         }
 
-        // Di PHP-FPM / LiteSpeed hosting, tutup koneksi client via terminating callback lalu flush
-        // langsung di proses yang sama agar tidak gagal karena `exec` disable atau salah PHP_BINARY.
+        // Di PHP-FPM / LiteSpeed langsung kirim pas request selesai biar gak mentok exec() disabled
         if (self::canFinishRequestInBackground()) {
             self::registerTerminatingFlush();
             return;

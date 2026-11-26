@@ -10,7 +10,7 @@
         <p class="text-stone-600 text-sm">Daftar jamaah yang siap berangkat dan jadwal manasik.</p>
     </div>
 
-    <!-- Tabel Manifest -->
+    <!-- tabel manifest -->
     <div class="overflow-x-auto pt-2">
         <table class="w-full text-left border-collapse">
             <thead>
