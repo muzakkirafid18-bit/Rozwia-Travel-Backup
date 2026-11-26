@@ -340,23 +340,23 @@
 
     <!-- banner ajakan daftar -->
     <section id="cta-bawah" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <div class="bg-[#0B3B24] rounded-[32px] p-8 sm:p-14 shadow-xl border border-emerald-900 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="bg-white rounded-[28px] p-8 sm:p-12 lg:px-14 lg:py-12 shadow-md border border-emerald-900/20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             
             <div class="space-y-3 max-w-xl">
-                <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
-                    Siap Memulai Perjalanan Menuju Baitullah?
+                <h2 class="text-2xl sm:text-4xl font-serif font-bold text-[#1B1B1B] leading-tight tracking-tight">
+                    Siap Memulai Perjalanan <br class="hidden sm:inline"> Menuju Baitullah?
                 </h2>
-                <p class="text-emerald-100/85 text-sm sm:text-base font-serif leading-relaxed">
+                <p class="text-stone-600 text-sm sm:text-[15px] font-serif leading-relaxed">
                     Jangan ragu untuk mengambil langkah pertama. Daftarkan diri Anda atau konsultasi kebutuhan perjalanan Umrah bersama tim ROZWIA.
                 </p>
             </div>
 
-            <div class="flex flex-wrap items-center gap-4 shrink-0">
-                <a href="{{ route('paket.umroh') }}" class="bg-[#F59100] hover:bg-[#e08500] text-[#0B3B24] font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5">
+            <div class="flex flex-wrap items-center gap-3.5 shrink-0">
+                <a href="{{ route('paket.umroh') }}" class="bg-[#FFA000] hover:bg-[#e69100] text-[#1B1B1B] font-serif font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-sm transition transform hover:-translate-y-0.5">
                     Daftar Paket
                 </a>
-                <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20perjalanan." target="_blank" class="bg-[#25D366] hover:bg-[#20ba5a] text-white font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5">
-                    @include('partials.wa-icon', ['size' => '1.25em'])
+                <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20perjalanan." target="_blank" class="bg-[#25D366] hover:bg-[#20ba5a] text-white font-serif font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-sm transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    @include('partials.wa-icon', ['size' => '1.15em'])
                     <span>Chat Via WhatsApp</span>
                 </a>
             </div>
