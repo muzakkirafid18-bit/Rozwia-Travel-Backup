@@ -91,7 +91,7 @@
 
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
 
-        <!-- 2. FILTER KATEGORI PILL -->
+        <!-- filter kategori -->
         <div class="flex flex-wrap items-center gap-3">
             <button type="button" @click="activeCategory = 'semua'; openIndex = 0"
                     :class="activeCategory === 'semua' ? 'bg-[#0B3B24] text-white' : 'bg-[#FBF9F5] text-[#0B3B24] hover:bg-emerald-50'"
@@ -120,7 +120,7 @@
             </button>
         </div>
 
-        <!-- 3. ACCORDION PERTANYAAN -->
+        <!-- daftar pertanyaan -->
         <div class="space-y-4">
             <template x-for="(item, idx) in filteredFaqs()" :key="item.q">
                 <div class="bg-[#FBF9F5] rounded-2xl border border-[#0B3B24]/80 shadow-xs overflow-hidden transition">
@@ -131,7 +131,7 @@
                             <h3 class="text-sm sm:text-base font-bold text-[#0B3B24]" x-text="item.q"></h3>
                         </div>
                         <span class="text-[#0B3B24] transition-transform duration-200 shrink-0" :class="openIndex === idx ? 'rotate-180' : ''">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                            <x-icon name="keyboard_arrow_down" class="w-5 h-5" />
                         </span>
                     </button>
                     <div x-show="openIndex === idx" x-collapse class="px-6 pb-5 pt-1 text-xs sm:text-sm text-stone-700 leading-relaxed border-t border-stone-200/60">
@@ -141,7 +141,7 @@
             </template>
         </div>
 
-        <!-- 4. CTA BAWAH FAQ -->
+        <!-- banner cta bawah -->
         <div class="bg-[#0B3B24] rounded-[28px] p-8 sm:p-10 shadow-xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div class="space-y-2 max-w-xl">
                 <h2 class="text-2xl sm:text-3xl font-bold text-white">Pertanyaan Anda belum terjawab?</h2>
@@ -153,8 +153,9 @@
                 <a href="{{ route('paket.umroh') }}" class="bg-[#F59100] hover:bg-[#e08500] text-[#0B3B24] font-bold text-xs sm:text-sm px-7 py-3 rounded-full shadow-md transition">
                     Daftar Paket
                 </a>
-                <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20memiliki%20pertanyaan%20seputar%20paket%20ibadah." target="_blank" class="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs sm:text-sm px-7 py-3 rounded-full shadow-md transition">
-                    Chat Via WhatsApp
+                <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20memiliki%20pertanyaan%20seputar%20paket%20ibadah." target="_blank" class="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs sm:text-sm px-7 py-3 rounded-full shadow-md transition inline-flex items-center justify-center gap-2">
+                    @include('partials.wa-icon', ['size' => '1.25em'])
+                    <span>Chat Via WhatsApp</span>
                 </a>
             </div>
         </div>

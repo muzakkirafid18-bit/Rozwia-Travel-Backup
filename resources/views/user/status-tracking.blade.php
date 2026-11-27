@@ -9,7 +9,7 @@
     $date = $jadwal?->tanggal_keberangkatan;
     $returnDate = $jadwal?->tanggal_pulang;
     $daysDiff = $date ? max(0, (int) now()->startOfDay()->diffInDays($date->copy()->startOfDay(), false)) : null;
-    $room = $booking?->catatan ? str_replace('Tipe Kamar: ', '', $booking->catatan) : 'Quad (4 Orang)';
+    $room = $booking?->catatan ? str_replace('Tipe Kamar: ', '', $booking->catatan) : 'Belum ditentukan';
     $maskapaiName = $jadwal?->maskapai?->nama_maskapai ?? 'Menunggu konfirmasi maskapai';
     $isFlightConfirmed = filled($jadwal?->maskapai?->nama_maskapai);
     $isTitikKumpulConfirmed = filled($jadwal?->tempat_kumpul) || filled($jadwal?->tanggal_kumpul);
@@ -99,7 +99,7 @@
     <main class="min-w-0 px-5 py-7 sm:px-8 lg:px-10 lg:py-9">
         <div class="mx-auto max-w-6xl space-y-6">
 
-            {{-- Header --}}
+            {{-- header halaman --}}
             <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                     <h1 class="font-serif-display text-3xl sm:text-4xl font-bold text-[#0B3B24] tracking-tight">
@@ -126,7 +126,7 @@
                 </div>
             </header>
 
-            {{-- 1. Hero Banner Hijau Gelap (#063B25) --}}
+            {{-- banner jadwal keberangkatan --}}
             <section class="rounded-[24px] bg-[#0B3B24] px-6 py-5 sm:px-8 sm:py-6 text-white shadow-sm">
                 <div class="flex flex-col justify-between gap-5 md:flex-row md:items-center">
                     <div class="space-y-1.5">
@@ -148,7 +148,7 @@
                         @endif
                     </div>
 
-                    {{-- Countdown Boxes --}}
+                    {{-- hitung mundur keberangkatan --}}
                     <div class="flex items-center gap-2.5 shrink-0">
                         <div class="min-w-[68px] rounded-xl bg-[#0D4A31] border border-white/15 px-4 py-2.5 text-center">
                             <span class="block font-serif-display text-2xl sm:text-3xl font-bold text-white leading-none" x-text="days">{{ $daysDiff ?? '-' }}</span>
@@ -168,9 +168,9 @@
                 </div>
             </section>
 
-            {{-- 2. Tiga Kartu Informasi Perjalanan --}}
+            {{-- kartu info perjalanan --}}
             <div class="grid gap-5 md:grid-cols-3">
-                {{-- Kartu 1: Titik Kumpul --}}
+                {{-- kartu titik kumpul --}}
                 <section class="rounded-[24px] border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs flex flex-col justify-between space-y-4">
                     <div class="flex items-center justify-between gap-2">
                         <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-stone-600">
@@ -218,7 +218,7 @@
                     </div>
                 </section>
 
-                {{-- Kartu 3: Akomodasi Hotel --}}
+                {{-- kartu akomodasi hotel --}}
                 <section class="rounded-[24px] border border-stone-200/90 bg-white p-5 sm:p-6 shadow-xs flex flex-col justify-between space-y-4">
                     <div class="flex items-center justify-between gap-2">
                         <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-stone-600">
@@ -238,25 +238,20 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="rounded-2xl bg-[#FBF9F3] border border-stone-200/60 px-4 py-2.5">
-                                <span class="block text-[10px] text-stone-400 font-semibold">Makkah</span>
-                                <p class="mt-0.5 text-xs font-bold text-stone-900">Pullman Zamzam Tower</p>
-                            </div>
-                            <div class="rounded-2xl bg-[#FBF9F3] border border-stone-200/60 px-4 py-2.5">
-                                <span class="block text-[10px] text-stone-400 font-semibold">Madinah</span>
-                                <p class="mt-0.5 text-xs font-bold text-stone-900">Anwar Al Madinah Mövenpick</p>
+                            <div class="rounded-2xl bg-[#FBF9F3] border border-stone-200/60 px-4 py-3 text-xs text-stone-500">
+                                Menunggu konfirmasi hotel akomodasi
                             </div>
                         @endif
 
                         <p class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-stone-600 pt-1">
                             <x-icon name="hotel" class="w-3.5 h-3.5 text-amber-700" />
-                            <span>Kamar {{ $room }}</span>
+                            <span>{{ $booking ? "Kamar {$room}" : 'Tipe kamar: Belum ditentukan' }}</span>
                         </p>
                     </div>
                 </section>
             </div>
 
-            {{-- 3. Tabel Status Surat Kemenag & Visa Jamaah --}}
+            {{-- tabel status kemenag & visa --}}
             <section class="rounded-[24px] border border-stone-200/90 bg-white p-6 shadow-xs space-y-5">
                 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                     <div>

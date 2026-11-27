@@ -287,7 +287,7 @@
         </div>
     </div>
 
-    <!-- FILTER KATEGORI UMROH & HAJI -->
+    <!-- filter kategori paket -->
     <div class="flex items-center gap-2 font-sans">
         <button type="button"
                 @click="filterKategori = 'semua'"
@@ -349,7 +349,7 @@
                 </div>
             </div>
 
-            <!-- Body Kartu -->
+            <!-- isi kartu paket -->
             <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
                 <div class="flex flex-wrap gap-2 text-[12px] text-stone-500">
                     <span class="bg-stone-100 px-3 py-1 rounded-lg inline-flex items-center gap-1.5">
@@ -391,7 +391,7 @@
                     </div>
                 </div>
 
-                <!-- Tombol Aksi (Edit, Toggle, Hapus) -->
+                <!-- tombol aksi paket -->
                 <div class="pt-3 border-t border-stone-100 flex items-center justify-between gap-2 text-[11px]">
                     <div class="flex items-center gap-1.5">
                         <button type="button"
@@ -437,7 +437,7 @@
         <div class="bg-white rounded-[28px] w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl border border-stone-200 overflow-hidden"
              @click.stop>
 
-            <!-- header & stepper modal -->
+            <!-- header modal paket -->
             <div class="px-6 pt-5 pb-4 border-b border-stone-100 space-y-4 shrink-0 bg-white">
                 <div class="flex items-start justify-between gap-4">
                     <div>
@@ -449,7 +449,7 @@
                             title="Tutup">✕</button>
                 </div>
 
-                <!-- Stepper Bar 1-2-3 -->
+                <!-- navigasi tahap form -->
                 <div class="flex items-center justify-between px-4 sm:px-10 font-sans text-xs">
                     <button type="button" @click="modalStep = 1" class="flex flex-col items-center gap-1 cursor-pointer">
                         <span :class="modalStep === 1 ? 'bg-[#063B25] text-white' : 'bg-stone-100 text-stone-600'"
@@ -481,7 +481,7 @@
                 </div>
             </div>
 
-            <!-- Form Multi-Step Scrollable -->
+            <!-- isi form paket -->
             <form :action="formAction" method="POST" enctype="multipart/form-data" novalidate @submit.prevent="submitPaket($event)" class="font-sans text-xs space-y-5 p-6 overflow-y-auto flex-1">
                 @csrf
                 <template x-if="mode === 'edit'">
@@ -701,7 +701,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- KOLOM KIRI: HOTEL MADINAH -->
+                        <!-- hotel madinah -->
                         <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50/70 space-y-2.5">
                             <div class="space-y-1.5">
                                 <label class="font-bold text-stone-800 block">Hotel Madinah</label>
@@ -718,7 +718,7 @@
                             </div>
                         </div>
 
-                        <!-- KOLOM KANAN: HOTEL MAKKAH -->
+                        <!-- hotel makkah -->
                         <div class="p-4 rounded-2xl border border-stone-200 bg-stone-50/70 space-y-2.5">
                             <div class="space-y-1.5">
                                 <label class="font-bold text-stone-800 block">Hotel Makkah</label>

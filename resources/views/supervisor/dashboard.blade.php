@@ -7,7 +7,7 @@
     $chartMax = max(5, (int) collect($monthlyStats)->flatMap(fn ($s) => [$s['umroh'], $s['haji']])->max());
 @endphp
 
-<!-- Banner Utama: Selamat Datang di Dashboard Supervisor -->
+<!-- banner sambutan supervisor -->
 <div class="bg-[#0B3B24] text-white rounded-[32px] p-8 sm:p-10 shadow-sm flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
     <div class="w-24 h-24 rounded-2xl bg-emerald-950/80 border border-emerald-800/60 flex items-center justify-center shrink-0 p-4">
         <img src="{{ asset('images/lOGO rozwia.png') }}" alt="Logo" class="w-full h-full object-contain">
@@ -30,7 +30,7 @@
 <!-- 3 kartu statistik -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-    <!-- Kartu 1: Jumlah Paket Tersedia -->
+    <!-- total paket tersedia -->
     <div class="bg-white rounded-[32px] p-7 border border-stone-200 shadow-sm flex flex-col justify-between space-y-6">
         <div class="space-y-1">
             <span class="text-xs text-stone-500 font-sans block">Jumlah Paket Tersedia</span>
@@ -39,12 +39,22 @@
         <div class="flex justify-between items-end border-t border-stone-100 pt-4">
             <span class="text-xs text-stone-600 font-bold">Kelola Paket</span>
             <a href="{{ route('supervisor.paket') }}" class="w-10 h-10 rounded-2xl bg-amber-50 text-amber-800 flex items-center justify-center text-sm font-bold hover:bg-amber-100 transition">
-                <x-icon name="inventory_2" class="w-5 h-5" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="M0 0h32v32H0z" fill="none" />
+                    <g fill="none">
+                        <path fill="#f3c07b" d="M15.35 2.143c.32-.19.71-.19 1.02 0l10.92 6.64c.26.16.42.45.42.75L15.86 17.5L4 9.632v-.1c0-.3.16-.59.42-.74z" />
+                        <path fill="#ffce7c" d="m15.856 16.246l11.36-6.9a.328.328 0 0 1 .496.282v12.34a1.73 1.73 0 0 1-.83 1.48l-10.64 6.46a.3.3 0 0 1-.087.03a.3.3 0 0 1-.083.011a.9.9 0 0 1-.682-.083h.006L13 19z" />
+                        <path fill="#e19747" d="M15.86 29.622v-13.37l-11.35-6.9a.331.331 0 0 0-.51.28v12.34c0 .61.32 1.17.83 1.48l10.57 6.42a.3.3 0 0 0 .46-.25" />
+                        <path fill="#d3d3d3" d="M14.5 26.782v-1.96c0-.23-.12-.44-.31-.56l-2.8-1.69c-.19-.11-.43.02-.43.24v1.96c0 .23.12.44.31.56l2.8 1.69c.19.11.43-.02.43-.24" />
+                        <path fill="#8c5543" d="M11.76 16.553v-4.56l-3.28-.22v3.16c0 .1.05.2.14.26l2.68 1.63c.2.11.46-.03.46-.27" />
+                        <path fill="#a56953" d="m20.34 4.563l-11.86 7.21l3.28 2l11.86-7.2z" />
+                    </g>
+                </svg>
             </a>
         </div>
     </div>
 
-    <!-- Kartu 2: Jumlah Total Pendapatan -->
+    <!-- total pendapatan -->
     <div class="bg-white rounded-[32px] p-7 border border-stone-200 shadow-sm flex flex-col justify-between space-y-6">
         <div class="space-y-1">
             <span class="text-xs text-stone-500 font-sans block">Jumlah Total Pendapatan</span>
@@ -58,7 +68,7 @@
         </div>
     </div>
 
-    <!-- Kartu 3: Daftar Akun Terdaftar -->
+    <!-- jumlah akun terdaftar -->
     <div class="bg-white rounded-[32px] p-7 border border-stone-200 shadow-sm flex flex-col justify-between space-y-6">
         <div class="space-y-1">
             <span class="text-xs text-stone-500 font-sans block">Daftar Akun Terdaftar</span>
@@ -74,7 +84,7 @@
 
 </div>
 
-<!-- Bagian Bawah: Grafik Pendaftaran & Status -->
+<!-- grafik & ringkasan status -->
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
     <!-- grafik pendaftaran -->
@@ -85,7 +95,7 @@
                 <h3 class="text-base font-[800] font-['Abhaya_Libre'] text-stone-900">Jumlah Pendaftaran Jamaah</h3>
             </div>
 
-            <!-- Legenda -->
+            <!-- legenda grafik -->
             <div class="flex items-center gap-4">
                 <div class="bg-[#F9F6F0] border border-stone-200/80 px-4 py-2 rounded-2xl flex items-center gap-4 text-xs font-[700] font-sans">
                     <span class="flex items-center gap-2 text-stone-800">
@@ -123,7 +133,7 @@
                 @endforeach
             </div>
 
-            <!-- Label Bulan -->
+            <!-- label bulan -->
             <div class="flex justify-around items-center text-[10px] sm:text-xs text-stone-500 font-bold font-sans pt-2 px-1">
                 @foreach($monthlyStats as $stat)
                     <span>{{ $stat['bulan'] }}</span>

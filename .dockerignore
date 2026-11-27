@@ -1,0 +1,41 @@
+# .git and IDE
+.git
+.gitignore
+.gitattributes
+.editorconfig
+.idea
+.vscode
+.cursor
+.codex
+.nova
+.zed
+
+# Dependencies (installed in multi-stage build)
+/vendor
+/node_modules
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+auth.json
+
+# Build & runtime artifacts
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/logs/*
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/bootstrap/cache/*.php
+!/bootstrap/cache/.gitignore
+
+# Tests & local DB
+/tests
+phpunit.xml
+database/database.sqlite
+*.log
+Thumbs.db
+.DS_Store

@@ -98,7 +98,7 @@
             });
         @endphp
 
-        <!-- FILTER KATEGORI PILL -->
+        <!-- filter kategori -->
         <div class="flex flex-wrap items-center gap-2 pt-2">
             <a href="{{ route('paket.umroh', ['filter' => 'semua']) }}" class="{{ $activeFilter === 'semua' ? 'bg-[#0B3B24] text-white' : 'bg-white hover:bg-emerald-50 text-[#0B3B24]' }} border border-[#0B3B24] text-xs font-semibold px-5 py-2.5 rounded-full shadow-xs transition">Semua</a>
             
@@ -113,13 +113,13 @@
             <a href="{{ route('paket.umroh', ['filter' => 'umroh-plus']) }}" class="{{ $activeFilter === 'umroh-plus' ? 'bg-[#0B3B24] text-white' : 'bg-white hover:bg-emerald-50 text-[#0B3B24]' }} border border-[#0B3B24] text-xs font-semibold px-5 py-2.5 rounded-full shadow-xs transition">Umroh Plus</a>
         </div>
 
-        <!-- GRID KATALOG UMROH -->
+        <!-- daftar paket umroh -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             @forelse($filteredList as $item)
             <div class="bg-white rounded-3xl p-5 shadow-sm border border-stone-200/80 flex flex-col justify-between space-y-5">
                 <div class="space-y-4">
-                    <!-- Gambar Banner Card -->
+                    <!-- gambar paket -->
                     <div class="relative w-full h-56 rounded-2xl overflow-hidden shadow-xs">
                         <img src="{{ $item['img'] }}" alt="{{ $item['title'] }}" class="w-full h-full object-cover">
                         @if(!empty($item['tag']))
@@ -129,7 +129,7 @@
                         @endif
                     </div>
 
-                    <!-- Judul & Deskripsi -->
+                    <!-- judul & deskripsi -->
                     <div class="space-y-2">
                         <h3 class="text-xl font-bold text-[#0B3B24] font-serif">{{ $item['title'] }}</h3>
                         <p class="text-stone-600 text-xs leading-relaxed font-serif">
@@ -139,7 +139,7 @@
 
                     <!-- info ringkas paket -->
                     <div class="bg-[#E5D3B3]/70 rounded-full px-4 py-3 flex items-center justify-between border border-stone-300/40 text-emerald-950 font-serif">
-                        <!-- 1. Durasi Hari -->
+                        <!-- durasi paket -->
                         <div class="flex items-center gap-2 px-1">
                             <svg class="w-4 h-4 text-emerald-950 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -149,7 +149,7 @@
 
                         <div class="w-[1px] h-5 bg-stone-400/50"></div>
 
-                        <!-- 2. Rute Lokasi -->
+                        <!-- rute penerbangan -->
                         <div class="flex items-center gap-1.5 px-1">
                             <svg class="w-4 h-4 text-emerald-950 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
@@ -160,7 +160,7 @@
 
                         <div class="w-[1px] h-5 bg-stone-400/50"></div>
 
-                        <!-- 3. Hotel -->
+                        <!-- info hotel -->
                         <div class="flex items-center gap-1.5 px-1">
                             <svg class="w-4 h-4 text-emerald-950 shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
@@ -188,29 +188,6 @@
             @endforelse
 
         </div>
-
-        <!-- CTA BANNER BAWAH -->
-        <section class="pt-8">
-            <div class="bg-[#0B3B24] rounded-[32px] p-8 sm:p-14 shadow-xl border border-emerald-900 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-                <div class="space-y-3 max-w-xl">
-                    <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
-                        Siap Memulai Perjalanan Menuju Baitullah?
-                    </h2>
-                    <p class="text-emerald-100/85 text-sm sm:text-base font-serif leading-relaxed">
-                        Jangan ragu untuk mengambil langkah pertama. Daftarkan diri Anda atau konsultasi kebutuhan perjalanan Umrah bersama tim ROZWIA.
-                    </p>
-                </div>
-
-                <div class="flex flex-wrap items-center gap-4 shrink-0">
-                    <a href="{{ route('paket.umroh') }}" class="bg-amber-500 hover:bg-amber-400 text-emerald-950 font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5">
-                        Daftar Paket
-                    </a>
-                    <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20umroh." target="_blank" class="bg-[#25D366] hover:bg-[#20ba5a] text-white font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2">
-                        <span>💬</span> Chat Via WhatsApp
-                    </a>
-                </div>
-            </div>
-        </section>
 
     </div>
 </div>

@@ -13,6 +13,7 @@
     <!-- alpinejs -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html, body {
@@ -53,7 +54,7 @@
            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
         
         <div class="space-y-8">
-            <!-- Logo Header Sidebar -->
+            <!-- logo sidebar -->
             <div class="flex items-center justify-between gap-3 pb-4 border-b border-emerald-800/80 font-serif">
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('images/lOGO rozwia.png') }}" alt="Logo ROZWIA" class="h-11 w-11 object-contain shrink-0">
@@ -67,44 +68,44 @@
                 </button>
             </div>
 
-            <!-- Menu Navigasi Sidebar -->
+            <!-- menu sidebar -->
             <nav class="space-y-3 font-serif text-xs">
-                <!-- 1. Beranda -->
+                <!-- menu beranda -->
                 <a href="{{ route('admin.dashboard') }}" 
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.dashboard') ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
                     <x-icon name="home" class="w-5 h-5" />
                     <span>Beranda</span>
                 </a>
 
-                <!-- 2. Aktivasi Akun -->
+                <!-- menu aktivasi akun -->
                 <a href="{{ route('admin.aktivasi') }}" 
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.aktivasi*') ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
                     <x-icon name="account_box" class="w-5 h-5" />
                     <span>Aktivasi Akun</span>
                 </a>
 
-                <!-- 3. Verifikasi Dokumen Pribadi -->
+                <!-- menu verifikasi dokumen -->
                 <a href="{{ route('admin.dokumen') }}" 
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.dokumen') ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
                     <x-icon name="scan" class="w-5 h-5" />
                     <span>Verifikasi Dokumen Pribadi</span>
                 </a>
 
-                <!-- 4. Kelola Pembayaran -->
+                <!-- menu kelola pembayaran -->
                 <a href="{{ route('admin.pembayaran') }}" 
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.pembayaran') ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
                     <x-icon name="payments" class="w-5 h-5" />
                     <span>Kelola Pembayaran</span>
                 </a>
 
-                <!-- 5. Status Surat Kemenag & Visa -->
+                <!-- menu kemenag & visa -->
                 <a href="{{ route('admin.kemenag') }}" 
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.kemenag') ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
                     <x-icon name="passport" class="w-5 h-5" />
                     <span>Status Surat Kemenag &amp; Visa</span>
                 </a>
 
-                <!-- 6. Jadwal & Manifest -->
+                <!-- menu jadwal & manifest -->
                 <a href="{{ route('admin.manifest') }}" 
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('admin.manifest') ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">
                     <x-icon name="edit_calendar" class="w-5 h-5" />

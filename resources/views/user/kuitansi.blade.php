@@ -18,7 +18,7 @@
 </head>
 <body class="bg-[#EAE0D0] font-sans text-stone-800 antialiased py-8 px-4">
 
-    <!-- Bar Aksi (Hilang saat dicetak) -->
+    <!-- tombol aksi cetak -->
     <div class="max-w-4xl mx-auto mb-5 flex flex-wrap items-center justify-between gap-3 no-print">
         <a href="{{ route('user.dashboard') }}" class="inline-flex items-center gap-2 rounded-full bg-white border border-stone-200 px-4 py-2 text-xs font-bold text-[#063B25] hover:bg-stone-50 shadow-xs">
             <span>&larr;</span> <span>Kembali ke Beranda Jamaah</span>
@@ -28,10 +28,10 @@
         </button>
     </div>
 
-    <!-- Lembar Kuitansi Resmi -->
+    <!-- lembar kuitansi -->
     <div class="invoice-sheet max-w-4xl mx-auto bg-white rounded-[28px] shadow-xl border border-stone-200 overflow-hidden">
 
-        <!-- Header Perusahaan -->
+        <!-- kop kuitansi -->
         <div class="bg-[#063B25] text-white p-7 sm:p-9 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
             <div class="flex items-center gap-4">
                 <img src="{{ asset('images/lOGO rozwia.png') }}" alt="ROZWIA" class="h-14 w-auto object-contain">
@@ -50,7 +50,7 @@
 
         <div class="p-7 sm:p-9 space-y-7 text-xs">
 
-            <!-- Info Jamaah & Paket -->
+            <!-- info jamaah & paket -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-6 border-b border-stone-200">
                 <div class="space-y-1.5">
                     @php
@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-            <!-- Riwayat Pembayaran Masuk -->
+            <!-- rincian pembayaran -->
             <div class="space-y-3">
                 <h3 class="font-bold text-sm text-[#063B25]">Rincian Pembayaran Terverifikasi</h3>
                 <div class="overflow-x-auto rounded-2xl border border-stone-200">
@@ -110,7 +110,7 @@
                 </div>
             </div>
 
-            <!-- Ringkasan Total -->
+            <!-- ringkasan total -->
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 pt-2">
                 <div class="text-[11px] text-stone-500 max-w-sm space-y-1">
                     <p class="font-bold text-stone-700">Alamat Kantor:</p>

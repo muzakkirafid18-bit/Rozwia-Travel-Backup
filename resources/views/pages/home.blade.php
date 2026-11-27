@@ -15,7 +15,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-transparent"></div>
         </div>
 
-        <!-- Konten Teks Hero di Bagian Atas-Tengah -->
+        <!-- teks utama hero -->
         <div class="relative z-10 mx-auto max-w-4xl space-y-4 text-center font-serif animate-fade-in">
             <span class="block text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#E5C267]">
                 SELAMAT DATANG DI ROZWIA
@@ -123,7 +123,7 @@
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
-            <!-- Kiri: Foto Kubah / Arch "Dream Hajj" -->
+            <!-- foto program haji -->
             <div class="lg:col-span-5">
                 <div class="relative mx-auto max-w-md overflow-hidden rounded-t-[240px] shadow-xl border-4 border-[#FBF9F5]">
                     <img src="{{ asset('images/paket haji.jpg') }}" alt="Program Haji Khusus ROZWIA" class="w-full h-[460px] sm:h-[520px] object-cover">
@@ -134,7 +134,7 @@
                 </div>
             </div>
 
-            <!-- Kanan: Detail Program Haji Khusus -->
+            <!-- detail program haji -->
             <div class="lg:col-span-7 space-y-5 font-serif">
                 <span class="inline-block rounded-full border border-[#C59B40] bg-[#FBF9F3] px-6 py-2 text-xs sm:text-sm font-semibold tracking-wider text-[#0B3B24] shadow-2xs">
                     PROGRAM HAJI KHUSUS
@@ -152,7 +152,7 @@
                     Pendaftaran dibuka . Keberangkatan 2027
                 </p>
 
-                <!-- 3 Pill Fitur Putih -->
+                <!-- keunggulan program haji -->
                 <div class="space-y-3 max-w-md pt-1">
                     <div class="bg-[#FBF9F5] rounded-full px-6 py-3.5 shadow-xs border border-stone-200/70 flex items-center gap-4">
                         <x-icon name="travel" class="w-5 h-5 text-amber-500" />
@@ -168,7 +168,7 @@
                     </div>
                 </div>
 
-                <!-- 2 Tombol CTA Haji -->
+                <!-- tombol cta haji -->
                 <div class="flex flex-wrap items-center gap-4 pt-4">
                     <a href="{{ route('paket.haji') }}" class="bg-[#0B3B24] hover:bg-emerald-900 text-white font-medium text-sm px-8 py-3 rounded-full shadow-md transition transform hover:-translate-y-0.5">
                         Lihat Detail Haji
@@ -195,7 +195,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             
-            <!-- Card 01 -->
+            <!-- layanan 1 -->
             <div class="bg-[#FBF9F5] rounded-[24px] p-8 shadow-xs border border-stone-200/70 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-300 group">
                 <div class="flex items-start gap-5">
                     <div class="w-12 h-12 flex items-center justify-center text-[#C96B00] shrink-0 group-hover:scale-110 transition">
@@ -209,7 +209,7 @@
                 <div class="pt-6 flex justify-end"><span class="text-xs font-serif font-bold text-[#8B6A2B]">01</span></div>
             </div>
 
-            <!-- Card 02 -->
+            <!-- layanan 2 -->
             <div class="bg-[#FBF9F5] rounded-[24px] p-8 shadow-xs border border-stone-200/70 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-300 group">
                 <div class="flex items-start gap-5">
                     <div class="w-12 h-12 flex items-center justify-center text-[#C96B00] shrink-0 group-hover:scale-110 transition">
@@ -223,7 +223,7 @@
                 <div class="pt-6 flex justify-end"><span class="text-xs font-serif font-bold text-[#8B6A2B]">02</span></div>
             </div>
 
-            <!-- Card 03 -->
+            <!-- layanan 3 -->
             <div class="bg-[#FBF9F5] rounded-[24px] p-8 shadow-xs border border-stone-200/70 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-300 group">
                 <div class="flex items-start gap-5">
                     <div class="w-12 h-12 flex items-center justify-center text-[#C96B00] shrink-0 group-hover:scale-110 transition">
@@ -237,7 +237,7 @@
                 <div class="pt-6 flex justify-end"><span class="text-xs font-serif font-bold text-[#8B6A2B]">03</span></div>
             </div>
 
-            <!-- Card 04 -->
+            <!-- layanan 4 -->
             <div class="bg-[#FBF9F5] rounded-[24px] p-8 shadow-xs border border-stone-200/70 flex flex-col justify-between hover:shadow-md hover:-translate-y-1 transition duration-300 group">
                 <div class="flex items-start gap-5">
                     <div class="w-12 h-12 flex items-center justify-center text-[#C96B00] font-serif font-extrabold text-2xl shrink-0 group-hover:scale-110 transition">Rp</div>
@@ -286,7 +286,7 @@
         </div>
 
         <div class="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory scroll-smooth">
-            <!-- Testimoni 1 -->
+            <!-- testimoni 1 -->
             <div class="min-w-[300px] sm:min-w-[340px] max-w-[340px] bg-[#FBF9F5] rounded-2xl p-7 shadow-xs border border-stone-200/70 flex flex-col justify-between snap-start">
                 <div class="space-y-4">
                     <div class="flex items-center gap-1 text-amber-400 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -298,7 +298,7 @@
                 </div>
             </div>
 
-            <!-- Testimoni 2 -->
+            <!-- testimoni 2 -->
             <div class="min-w-[300px] sm:min-w-[340px] max-w-[340px] bg-[#FBF9F5] rounded-2xl p-7 shadow-xs border border-stone-200/70 flex flex-col justify-between snap-start">
                 <div class="space-y-4">
                     <div class="flex items-center gap-1 text-amber-400 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -310,7 +310,7 @@
                 </div>
             </div>
 
-            <!-- Testimoni 3 -->
+            <!-- testimoni 3 -->
             <div class="min-w-[300px] sm:min-w-[340px] max-w-[340px] bg-[#FBF9F5] rounded-2xl p-7 shadow-xs border border-stone-200/70 flex flex-col justify-between snap-start">
                 <div class="space-y-4">
                     <div class="flex items-center gap-1 text-amber-400 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -322,7 +322,7 @@
                 </div>
             </div>
 
-            <!-- Testimoni 4 -->
+            <!-- testimoni 4 -->
             <div class="min-w-[300px] sm:min-w-[340px] max-w-[340px] bg-[#FBF9F5] rounded-2xl p-7 shadow-xs border border-stone-200/70 flex flex-col justify-between snap-start">
                 <div class="space-y-4">
                     <div class="flex items-center gap-1 text-amber-400 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
@@ -340,23 +340,24 @@
 
     <!-- banner ajakan daftar -->
     <section id="cta-bawah" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <div class="bg-[#0B3B24] rounded-[32px] p-8 sm:p-14 shadow-xl border border-emerald-900 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="bg-white rounded-[28px] p-8 sm:p-12 lg:px-14 lg:py-12 shadow-md border-2 border-emerald-900/25 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             
             <div class="space-y-3 max-w-xl">
-                <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
-                    Siap Memulai Perjalanan Menuju Baitullah?
+                <h2 class="text-2xl sm:text-4xl font-serif font-bold text-[#1B1B1B] leading-tight tracking-tight">
+                    Siap Memulai Perjalanan <br class="hidden sm:inline"> Menuju Baitullah?
                 </h2>
-                <p class="text-emerald-100/85 text-sm sm:text-base font-serif leading-relaxed">
+                <p class="text-stone-600 text-sm sm:text-[15px] font-serif leading-relaxed">
                     Jangan ragu untuk mengambil langkah pertama. Daftarkan diri Anda atau konsultasi kebutuhan perjalanan Umrah bersama tim ROZWIA.
                 </p>
             </div>
 
-            <div class="flex flex-wrap items-center gap-4 shrink-0">
-                <a href="{{ route('paket.umroh') }}" class="bg-[#F59100] hover:bg-[#e08500] text-[#0B3B24] font-serif font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition transform hover:-translate-y-0.5">
+            <div class="flex flex-wrap items-center gap-3.5 shrink-0">
+                <a href="{{ route('paket.umroh') }}" class="bg-[#FFA000] hover:bg-[#e69100] text-[#1B1B1B] font-serif font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-sm transition transform hover:-translate-y-0.5">
                     Daftar Paket
                 </a>
-                <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20perjalanan." target="_blank" class="bg-emerald-800 hover:bg-emerald-700 text-white font-serif font-bold text-sm px-7 py-3.5 rounded-2xl border border-emerald-600/50 shadow-md transition transform hover:-translate-y-0.5">
-                    Chat Via WhatsApp
+                <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20bertanya%20mengenai%20jadwal%20keberangkatan%20dan%20paket%20perjalanan." target="_blank" class="bg-[#25D366] hover:bg-[#20ba5a] text-white font-serif font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-sm transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    @include('partials.wa-icon', ['size' => '1.15em'])
+                    <span>Chat Via WhatsApp</span>
                 </a>
             </div>
 

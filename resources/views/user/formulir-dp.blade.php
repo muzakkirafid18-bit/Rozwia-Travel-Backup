@@ -12,6 +12,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html, body {
@@ -80,7 +81,7 @@
     </div>
     @endif
 
-    <!-- Card Utama Pembayaran -->
+    <!-- kartu utama pembayaran -->
     <div class="bg-white p-6 sm:p-10 rounded-[32px] shadow-sm border border-stone-200/80 space-y-8">
         
         <div class="border-b border-stone-100 pb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -117,7 +118,7 @@
         </div>
         @endguest
 
-        <!-- Ringkasan Paket & Tagihan -->
+        <!-- ringkasan paket & tagihan -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans">
             <div class="p-4 bg-stone-50 rounded-2xl border border-stone-200/60">
                 <span class="block text-[10px] text-stone-500 uppercase tracking-wider font-bold">Paket Dipilih</span>
@@ -142,7 +143,7 @@
             </div>
         </div>
 
-        <!-- Rekening Resmi Perusahaan -->
+        <!-- rekening resmi -->
         <div class="bg-[#0B3B24] text-white p-6 sm:p-8 rounded-3xl space-y-4 relative overflow-hidden shadow-md">
             <div class="flex items-center justify-between border-b border-emerald-800/80 pb-3">
                 <span class="text-xs uppercase tracking-widest text-[#D4B996] font-bold">
@@ -170,7 +171,7 @@
             </p>
         </div>
 
-        <!-- Konfirmasi Pembayaran via WhatsApp Admin -->
+        <!-- konfirmasi via whatsapp admin -->
         <div class="bg-[#FBF9F3] border border-stone-200 rounded-3xl p-6 sm:p-8 space-y-5">
             <div class="space-y-2 font-sans">
                 <label class="block text-xs font-bold uppercase tracking-wider text-stone-700">
@@ -204,7 +205,7 @@
                         <span class="text-[11px] text-stone-500">Status pembayaran diperbarui otomatis setelah diverifikasi Admin.</span>
                     </div>
                 @else
-                    <!-- Panduan Langkah Selanjutnya & Tombol Masuk ke Login -->
+                    <!-- panduan lanjut & tombol login -->
                     <div class="rounded-2xl bg-white border border-stone-200/90 p-5 space-y-4 shadow-2xs">
                         <div class="flex items-start gap-3">
                             <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">

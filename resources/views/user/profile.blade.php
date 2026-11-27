@@ -75,7 +75,7 @@
             </div>
             @endif
 
-            <!-- Ringkasan Rombongan -->
+            <!-- ringkasan rombongan -->
             <section class="rounded-3xl border border-stone-200 bg-white p-5 shadow-sm sm:p-7">
                 <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                     <div class="flex items-center gap-4">
@@ -101,7 +101,7 @@
                 </div>
             </section>
 
-            <!-- Daftar Anggota Jamaah -->
+            <!-- daftar anggota jamaah -->
             <section class="space-y-4">
                 <div class="flex flex-wrap items-end justify-between gap-3">
                     <div>
@@ -188,7 +188,7 @@
         </div>
     </main>
 
-    <!-- MODAL LENGKAPI / UBAH DATA ANGGOTA JAMAAH -->
+    <!-- modal ubah data jamaah -->
     <div x-show="editModalOpen" 
          x-transition.opacity 
          style="display: none;" 

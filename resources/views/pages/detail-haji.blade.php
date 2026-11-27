@@ -13,7 +13,7 @@
             <div class="absolute inset-0 opacity-20 bg-cover bg-center pointer-events-none" style="background-image: url('{{ $package['image'] }}')"></div>
             
             <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <!-- Kolom Kiri: Informasi Utama -->
+                <!-- info utama paket -->
                 <div class="lg:col-span-7 space-y-6">
                     <span class="inline-block bg-[#E5D3B3] text-emerald-950 font-serif text-xs font-bold px-3.5 py-1 rounded-full shadow-xs">
                         {{ $package['badge'] ?? 'PAKET HAJI' }}
@@ -28,7 +28,7 @@
                         </p>
                     </div>
 
-                    <!-- Statistik Pill -->
+                    <!-- info ringkas paket -->
                     <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg">
                         <div class="bg-emerald-900/60 border border-emerald-700/50 rounded-2xl p-3 text-center">
                             <span class="block text-[10px] text-emerald-300 uppercase font-serif">Durasi</span>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
 
-                <!-- Kolom Kanan: Gambar Banner -->
+                <!-- gambar paket -->
                 <div class="lg:col-span-5">
                     <div class="relative h-64 sm:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10">
                         <img src="{{ (isset($dbPackage) && $dbPackage?->gambar_utama) ? $package['image'] : asset('images/detail.jpg') }}" alt="{{ $package['name'] }}" onerror="this.onerror=null;this.src='{{ asset('images/detail.jpg') }}';" class="w-full h-full object-cover">
@@ -169,7 +169,7 @@
                         @csrf
                         <input type="hidden" name="jadwal_id" value="{{ $dbPackage?->jadwals?->first()?->id ?? 1 }}">
 
-                        <!-- Pilihan Tipe Kamar -->
+                        <!-- pilihan tipe kamar -->
                         <div class="space-y-2">
                             <label class="block text-xs font-semibold text-amber-300">Pilih tipe kamar yang sesuai</label>
                             <div class="grid grid-cols-3 gap-2">
@@ -197,19 +197,19 @@
                             </div>
                         </div>
 
-                        <!-- Tanggal Keberangkatan -->
+                        <!-- pilih tanggal keberangkatan -->
                         <div class="space-y-1.5">
                             <label class="block text-xs font-semibold text-emerald-200">TANGGAL KEBERANGKATAN</label>
                             <input type="text" readonly value="{{ $package['jadwal'] }}" class="w-full bg-emerald-900/80 border border-emerald-700 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none">
                         </div>
 
-                        <!-- Nama Anda -->
+                        <!-- input nama -->
                         <div class="space-y-1.5">
                             <label class="block text-xs font-semibold text-emerald-200">NAMA ANDA</label>
                             <input type="text" name="nama_lengkap" value="{{ old('nama_lengkap') }}" required placeholder="Nama lengkap sesuai paspor" class="w-full bg-emerald-900/80 border border-emerald-700 text-white placeholder-emerald-400/60 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-amber-400">
                         </div>
 
-                        <!-- Jenis Kelamin -->
+                        <!-- pilih jenis kelamin -->
                         <div class="space-y-1.5">
                             <label class="block text-xs font-semibold text-emerald-200">JENIS KELAMIN *</label>
                             <div class="grid grid-cols-2 gap-2.5">
@@ -228,7 +228,7 @@
                             </div>
                         </div>
 
-                        <!-- Nomor WhatsApp -->
+                        <!-- input nomor whatsapp -->
                         <div class="space-y-1.5">
                             <label class="block text-xs font-semibold text-emerald-200">NOMOR WHATSAPP *</label>
                             <div class="flex items-center bg-emerald-900/80 border border-emerald-700 rounded-xl overflow-hidden focus-within:border-amber-400">
@@ -246,13 +246,13 @@
                             </div>
                         </div>
 
-                        <!-- Email -->
+                        <!-- input email -->
                         <div class="space-y-1.5">
                             <label class="block text-xs font-semibold text-emerald-200">EMAIL</label>
                             <input type="email" name="email" value="{{ old('email') }}" required placeholder="nama@gmail.com" class="w-full bg-emerald-900/80 border border-emerald-700 text-white placeholder-emerald-400/60 rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-amber-400">
                         </div>
 
-                        <!-- Jumlah Jamaah -->
+                        <!-- input jumlah jamaah -->
                         <div class="space-y-1.5">
                             <label class="block text-xs font-semibold text-emerald-200">JUMLAH JAMAAH</label>
                             <input type="number"
@@ -264,14 +264,14 @@
                                    @change="anggotaConfirmed = false; syncAnggotaCount(); if(jumlahJamaah > 1) showAnggotaModal = true;"
                                    class="w-full bg-emerald-900/80 border border-emerald-700 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-amber-400 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
                             <div x-show="jumlahJamaah > 1" x-cloak class="mt-2 p-2.5 rounded-xl bg-emerald-900/60 border border-emerald-700/80 flex items-center justify-between gap-2 text-[11px]">
-                                <span class="text-amber-300">👥 Membawa <strong x-text="jumlahJamaah - 1"></strong> anggota tambahan</span>
-                                <button type="button" @click="syncAnggotaCount(); showAnggotaModal = true" class="bg-amber-500 text-emerald-950 font-bold px-2.5 py-1 rounded-lg hover:bg-amber-400 transition cursor-pointer">
-                                    ✎ Isi Nama
+                                <span class="text-amber-300 inline-flex items-center gap-1.5"><x-icon name="group" class="w-4 h-4" /> Membawa <strong x-text="jumlahJamaah - 1"></strong> anggota tambahan</span>
+                                <button type="button" @click="syncAnggotaCount(); showAnggotaModal = true" class="bg-amber-500 text-emerald-950 font-bold px-2.5 py-1 rounded-lg hover:bg-amber-400 transition cursor-pointer inline-flex items-center gap-1">
+                                    <x-icon name="edit_note" class="w-3.5 h-3.5" /> Isi Nama
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Hidden Inputs untuk Anggota Jamaah -->
+                        <!-- input anggota rombongan -->
                         <template x-for="(nama, idx) in anggotaList" :key="idx">
                             <div>
                                 <input type="hidden" name="anggota_jamaah[]" :value="nama">
@@ -279,17 +279,14 @@
                             </div>
                         </template>
 
-                        <!-- Tombol Aksi Menumpuk Vertikal & WhatsApp Hijau -->
-                        <div class="pt-2 space-y-3">
+                        <!-- tombol daftar -->
+                        <div class="pt-2">
                             <button type="submit"
                                     :disabled="isSubmitting"
                                     :class="isSubmitting ? 'opacity-60 cursor-not-allowed' : 'hover:bg-amber-400 active:scale-98 hover:shadow-lg cursor-pointer'"
                                     class="w-full bg-amber-500 text-emerald-950 font-bold py-3.5 px-4 rounded-xl shadow-md transition-all duration-200 text-xs uppercase tracking-wider text-center">
                                 <span x-text="isSubmitting ? 'Memproses Pendaftaran...' : 'Daftar Paket'">Daftar Paket</span>
                             </button>
-                            <a href="https://wa.me/6285122978237?text=Assalamualaikum%20ROZWIA,%20saya%20ingin%20berkonsultasi%20mengenai%20paket%20{{ urlencode($package['name']) }}." target="_blank" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition text-xs flex items-center justify-center gap-2 text-center">
-                                <span>💬</span> Chat Via WhatsApp
-                            </a>
                         </div>
                     </form>
 

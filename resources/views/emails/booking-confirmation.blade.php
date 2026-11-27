@@ -11,7 +11,7 @@
             <td align="center">
                 <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.08);">
                     
-                    <!-- Header -->
+                    <!-- header halaman -->
                     <tr>
                         <td style="background-color:#0B3B24; padding:32px; text-align:center;">
                             <h1 style="color:#ffffff; font-size:24px; margin:0;">🕌 ROZWIA Islamic Travel</h1>
@@ -19,7 +19,7 @@
                         </td>
                     </tr>
 
-                    <!-- Body -->
+                    <!-- isi email -->
                     <tr>
                         <td style="padding:32px;">
                             <p style="font-size:16px; color:#1a1a1a; margin:0 0 8px;">Assalamu'alaikum Warahmatullahi Wabarakatuh, <strong>{{ $sapaan ?? 'Bapak/Ibu' }} {{ $user->name }}</strong></p>
@@ -27,7 +27,7 @@
                                 Alhamdulillah, terima kasih telah mempercayakan perjalanan ibadah bersama ROZWIA Islamic Travel. Pendaftaran {{ $sapaan ?? 'Bapak/Ibu' }} telah kami terima dengan rincian sebagai berikut:
                             </p>
 
-                            <!-- Info Booking -->
+                            <!-- detail booking -->
                             <table width="100%" cellpadding="8" cellspacing="0" style="background-color:#f8f6f2; border-radius:12px; font-size:14px; margin-bottom:24px;">
                                 <tr>
                                     <td style="color:#888; width:180px;">Kode Booking</td>
@@ -51,7 +51,7 @@
                                 </tr>
                             </table>
 
-                            <!-- Info Rekening -->
+                            <!-- info rekening -->
                             @if($rekening)
                             <div style="background-color:#0B3B24; color:#fff; padding:20px; border-radius:12px; margin-bottom:24px;">
                                 <p style="font-size:12px; color:#D4B996; margin:0 0 8px; letter-spacing:1px;">REKENING TUJUAN TRANSFER</p>
@@ -61,7 +61,7 @@
                             </div>
                             @endif
 
-                            <!-- Kredensial Login -->
+                            <!-- info akun login -->
                             <div style="background-color:#fef3c7; padding:20px; border-radius:12px; border-left:4px solid #d97706; margin-bottom:24px;">
                                 <p style="font-size:13px; font-weight:bold; color:#92400e; margin:0 0 8px;">🔐 Kredensial Login Anda (Sementara)</p>
                                 <p style="font-size:14px; color:#78350f; margin:2px 0;">Email: <strong>{{ $user->email }}</strong></p>
@@ -81,7 +81,7 @@
                         </td>
                     </tr>
 
-                    <!-- Footer -->
+                    <!-- footer email -->
                     <tr>
                         <td style="background-color:#f8f6f2; padding:20px; text-align:center; border-top:1px solid #e5e2dc;">
                             <p style="font-size:12px; color:#999; margin:0;">© {{ date('Y') }} ROZWIA Islamic Travel — PPIU Resmi Kementerian Agama RI</p>

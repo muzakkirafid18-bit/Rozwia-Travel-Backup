@@ -9,6 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- alpinejs -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body class="bg-[#FDFBF7] font-sans text-stone-800 antialiased selection:bg-emerald-900 selection:text-white min-h-screen flex flex-col justify-between"
@@ -21,7 +22,7 @@
     @endphp
     <header class="fixed top-0 z-50 w-full bg-[#F4EBDD] px-4 pb-4 pt-5 sm:px-8">
         <div class="mx-auto flex max-w-7xl items-center justify-between rounded-[22px] border border-emerald-900/50 bg-[#063B25] px-4 sm:px-6 py-3 shadow-lg">
-            <!-- Logo Rozwia -->
+            <!-- logo navbar -->
             <div class="flex items-center gap-4">
                 <a href="{{ $landingUrl }}" class="flex items-center gap-3 text-white font-serif font-bold tracking-wider group">
                     <img src="{{ asset('images/lOGO rozwia.png') }}" alt="ROZWIA Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
@@ -33,7 +34,7 @@
                 <span class="hidden md:block h-7 w-px bg-emerald-700/70 ml-2"></span>
             </div>
 
-            <!-- Menu Navigasi Desktop -->
+            <!-- menu desktop -->
             <nav class="hidden md:flex items-center space-x-2 text-sm font-serif text-emerald-100">
                 <a href="{{ $landingUrl }}" class="px-4 py-1.5 rounded-lg transition {{ request()->routeIs('landing') ? 'border border-[#B78616]/70 bg-emerald-900/40 text-white' : 'hover:bg-emerald-900/40 hover:text-white' }}">Beranda</a>
                 <a href="{{ route('tentang.kami') }}" class="px-4 py-1.5 rounded-lg transition {{ request()->routeIs('tentang.kami') ? 'border border-[#B78616]/70 bg-emerald-900/40 text-white' : 'hover:bg-emerald-900/40 hover:text-white' }}">Tentang Kami</a>
@@ -42,7 +43,7 @@
                 <a href="{{ route('faq') }}" class="px-4 py-1.5 rounded-lg transition {{ request()->routeIs('faq') ? 'border border-[#B78616]/70 bg-emerald-900/40 text-white' : 'hover:bg-emerald-900/40 hover:text-white' }}">FAQ</a>
             </nav>
 
-            <!-- Tombol Navigasi Auth & Hamburger Mobile -->
+            <!-- tombol login & menu mobile -->
             <div class="flex items-center gap-2 sm:gap-3">
                 @auth
                     @php
@@ -107,12 +108,12 @@
         @yield('content')
     </main>
 
-    <!-- FOOTER -->
+    <!-- footer -->
     <footer class="bg-[#0B3B24] text-[#E8DFD1] pt-16 pb-10 border-t border-emerald-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
                 
-                <!-- Kolom 1: Logo & Deskripsi -->
+                <!-- kolom logo & deskripsi -->
                 <div class="lg:col-span-4 space-y-5">
                     <div class="flex items-center gap-3">
                         <img src="{{ asset('images/lOGO rozwia.png') }}" alt="ROZWIA Logo" class="h-11 w-auto object-contain">
@@ -126,7 +127,7 @@
                     </p>
                 </div>
 
-                <!-- Kolom 2: Paket -->
+                <!-- kolom paket -->
                 <div class="lg:col-span-3 space-y-4 font-serif">
                     <h4 class="font-bold text-[#D4B996] text-base tracking-wide">Paket</h4>
                     <ul class="space-y-2.5 text-sm text-[#E8DFD1]/85">
@@ -136,7 +137,7 @@
                     </ul>
                 </div>
 
-                <!-- Kolom 3: Perusahaan -->
+                <!-- kolom perusahaan -->
                 <div class="lg:col-span-2 space-y-4 font-serif">
                     <h4 class="font-bold text-[#D4B996] text-base tracking-wide">Perusahaan</h4>
                     <ul class="space-y-2.5 text-sm text-[#E8DFD1]/85">
@@ -146,7 +147,7 @@
                     </ul>
                 </div>
 
-                <!-- Kolom 4: Kontak -->
+                <!-- kolom kontak -->
                 @php
                     $companyProfile = \App\Helpers\RozwiaHelper::companyProfile();
                     $waDigits = preg_replace('/[^0-9]/', '', $companyProfile['telepon'] ?? '');
@@ -162,15 +163,16 @@
                     </div>
                     <div class="pt-2 space-y-3 text-sm">
                         <a href="https://wa.me/{{ $waDigits ?: '6285122978237' }}" target="_blank" class="flex items-center gap-3 hover:text-white transition">
-                            <span class="w-7 h-7 rounded-full bg-emerald-800 text-emerald-300 flex items-center justify-center">
-                                <x-icon name="call" class="w-3.5 h-3.5" />
-                            </span>
+                            @include('partials.wa-icon', ['size' => '1.3em'])
                             <span class="font-sans">{{ $companyProfile['telepon'] }}</span>
                         </a>
                         <a href="mailto:{{ $companyProfile['email'] }}" class="flex items-center gap-3 hover:text-white transition">
-                            <span class="w-7 h-7 rounded-full bg-amber-500 text-emerald-950 flex items-center justify-center">
-                                <x-icon name="mail" class="w-3.5 h-3.5" />
-                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 1024 1024" aria-hidden="true" class="inline-block shrink-0">
+                                <path d="M0 0h1024v1024H0z" fill="none" />
+                                <path fill="currentColor" fill-opacity=".15" d="M477.5 536.3L135.9 270.7l-27.5-21.4l27.6 21.5V792h752V270.8L546.2 536.3a55.99 55.99 0 0 1-68.7 0" />
+                                <path fill="currentColor" fill-opacity=".15" d="m876.3 198.8l39.3 50.5l-27.6 21.5l27.7-21.5l-39.3-50.5z" />
+                                <path fill="currentColor" d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32m-94.5 72.1L512 482L190.5 232.1zm54.5 38.7V792H136V270.8l-27.6-21.5l27.5 21.4l341.6 265.6a55.99 55.99 0 0 0 68.7 0zl27.6-21.5l-39.3-50.5h.1l39.3 50.5z" />
+                            </svg>
                             <span class="font-sans">{{ $companyProfile['email'] }}</span>
                         </a>
                     </div>
@@ -178,7 +180,7 @@
 
             </div>
 
-            <!-- Garis Pemisah & Copyright -->
+            <!-- copyright -->
             <div class="pt-6 border-t border-[#E8DFD1]/20 flex flex-col sm:flex-row items-center justify-between text-xs text-[#E8DFD1]/70 font-serif gap-4">
                 <p>&copy; 2026 {{ $companyProfile['nama_perusahaan'] }}</p>
                 <p>{{ $companyProfile['no_izin'] }}</p>
@@ -247,17 +249,17 @@
                 </div>
                 @endif
 
-                <!-- Form Login -->
+                <!-- form login -->
                 <form action="{{ route('login.store') }}" method="POST" class="space-y-4 font-serif">
                     @csrf
 
-                    <!-- Email -->
+                    <!-- input email -->
                     <div class="space-y-1.5">
                         <label class="block text-xs font-bold uppercase tracking-wider text-stone-700">Email</label>
                         <input type="text" name="email" value="{{ old('email') }}" placeholder="nama@gmail.com" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-[#0B3B24] text-xs font-sans" required autofocus>
                     </div>
 
-                    <!-- Password -->
+                    <!-- input password -->
                     <div class="space-y-1.5" x-data="{ showModalPassword: false }">
                         <div class="flex items-center justify-between">
                             <label class="block text-xs font-bold uppercase tracking-wider text-stone-700">Password</label>
@@ -281,19 +283,13 @@
                         </p>
                     </div>
 
-                    <!-- Tombol Masuk -->
+                    <!-- tombol masuk -->
                     <div class="pt-2">
                         <button type="submit" class="w-full bg-[#0B3B24] hover:bg-emerald-900 text-white font-serif font-bold text-xs py-3.5 rounded-xl shadow-md transition cursor-pointer uppercase tracking-wider">
                             Masuk Sekarang
                         </button>
                     </div>
                 </form>
-
-                <div class="text-center pt-2 border-t border-stone-100">
-                    <button @click="loginOpen = false" type="button" class="text-xs text-stone-500 hover:text-[#0B3B24] transition cursor-pointer font-serif">
-                        ✕ Tutup Jendela Login
-                    </button>
-                </div>
 
             </div>
 

@@ -66,19 +66,7 @@ class PublicController extends Controller
             'paketTipeKamars.tipeKamar',
             'rangkaianIbadahs',
             'gambarPakets',
-        ])->find($id);
-
-        if (!$dbPackage) {
-            // fallback ke paket pertama kalau id nggak ketemu
-            $dbPackage = Paket::with([
-                'jenisLayanan',
-                'jadwals.maskapai',
-                'paketTipeKamars.hotel',
-                'paketTipeKamars.tipeKamar',
-                'rangkaianIbadahs',
-                'gambarPakets',
-            ])->first();
-        }
+        ])->findOrFail($id);
 
         // rapikan data paket buat dikirim ke view
         $jadwalPertama = $dbPackage?->jadwals->first();

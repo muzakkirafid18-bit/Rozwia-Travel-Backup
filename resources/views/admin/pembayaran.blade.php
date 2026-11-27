@@ -45,44 +45,44 @@
         </div>
 
         <div class="overflow-x-auto">
-            <table class="min-w-[950px] w-full text-left text-xs">
+            <table class="w-full text-left text-xs">
                 <thead class="bg-stone-100 text-stone-600">
                     <tr>
-                        <th class="px-6 py-4 font-semibold">Nama Akun</th>
-                        <th class="px-4 py-4 font-semibold">Paket / Booking</th>
-                        <th class="px-4 py-4 font-semibold">Total Harga</th>
-                        <th class="px-4 py-4 font-semibold">Sisa Bayar</th>
-                        <th class="px-4 py-4 font-semibold">Status</th>
-                        <th class="px-6 py-4 text-center font-semibold">Aksi</th>
+                        <th class="px-3.5 py-3.5 font-semibold">Nama Akun</th>
+                        <th class="px-3 py-3.5 font-semibold">Paket / Booking</th>
+                        <th class="px-3 py-3.5 font-semibold whitespace-nowrap">Total Harga</th>
+                        <th class="px-3 py-3.5 font-semibold whitespace-nowrap">Sisa Bayar</th>
+                        <th class="px-3 py-3.5 font-semibold">Status</th>
+                        <th class="px-3.5 py-3.5 text-center font-semibold">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-stone-200">
                     @forelse($bookings as $booking)
                     <tr class="hover:bg-stone-50">
-                        <td class="px-6 py-4">
+                        <td class="px-3.5 py-3.5">
                             <p class="font-bold text-[#0B3B24]">{{ $booking->user?->name ?? 'Akun terhapus' }}</p>
                             <p class="mt-0.5 text-[11px] text-stone-500">{{ $booking->user?->email ?? '-' }}</p>
                         </td>
-                        <td class="px-4 py-4">
+                        <td class="px-3 py-3.5">
                             <p class="font-medium text-stone-800">{{ $booking->jadwal?->paket?->nama_paket ?? 'Paket belum tersedia' }}</p>
                             <p class="mt-0.5 font-mono text-[10px] text-stone-500">{{ $booking->kode_booking }}</p>
                         </td>
-                        <td class="px-4 py-4 font-semibold font-mono">{{ \App\Helpers\RozwiaHelper::formatRupiah($booking->total_harga) }}</td>
-                        <td class="px-4 py-4 font-bold font-mono {{ $booking->sisa_bayar > 0 ? 'text-rose-700' : 'text-emerald-700' }}">{{ \App\Helpers\RozwiaHelper::formatRupiah($booking->sisa_bayar) }}</td>
-                        <td class="px-4 py-4">
+                        <td class="px-3 py-3.5 font-semibold font-mono whitespace-nowrap">{{ \App\Helpers\RozwiaHelper::formatRupiah($booking->total_harga) }}</td>
+                        <td class="px-3 py-3.5 font-bold font-mono whitespace-nowrap {{ $booking->sisa_bayar > 0 ? 'text-rose-700' : 'text-emerald-700' }}">{{ \App\Helpers\RozwiaHelper::formatRupiah($booking->sisa_bayar) }}</td>
+                        <td class="px-3 py-3.5 whitespace-nowrap">
                             @if($booking->sisa_bayar <= 0)
                                 <span class="rounded-full bg-emerald-100 px-2.5 py-1 text-[10px] font-bold text-emerald-800">Sudah Lunas</span>
                             @else
                                 <span class="rounded-full bg-rose-100 px-2.5 py-1 text-[10px] font-bold text-rose-700">Belum Lunas</span>
                             @endif
                         </td>
-                        <td class="px-6 py-4 text-center">
+                        <td class="px-3.5 py-3.5 text-center whitespace-nowrap">
                             @if($booking->sisa_bayar > 0)
-                                <button type="button" @click="openPayment = {{ $booking->id }}" class="inline-flex items-center gap-1.5 rounded-full bg-[#0B3B24] px-3 py-1.5 text-[10px] font-bold text-white hover:bg-emerald-900 cursor-pointer">
+                                <button type="button" @click="openPayment = {{ $booking->id }}" class="inline-flex items-center gap-1 rounded-full bg-[#0B3B24] px-3 py-1.5 text-[10px] font-bold text-white hover:bg-emerald-900 cursor-pointer whitespace-nowrap">
                                     <x-icon name="add" class="w-3.5 h-3.5" /> Uang Masuk
                                 </button>
                             @else
-                                <span class="inline-flex items-center gap-1 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-[10px] font-bold text-emerald-800">
+                                <span class="inline-flex items-center gap-1 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-[10px] font-bold text-emerald-800 whitespace-nowrap">
                                     <x-icon name="verified" class="w-3.5 h-3.5" /> Sudah Lunas
                                 </span>
                             @endif

@@ -38,7 +38,7 @@
          createOpen: {{ old('_form_mode') === 'create' && $errors->any() ? 'true' : 'false' }}
      }">
 
-    <!-- Header -->
+    <!-- header halaman -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/85 backdrop-blur-md border border-stone-200/80 rounded-[28px] p-6 shadow-xs">
         <div class="space-y-1">
             <span class="text-[10px] font-bold uppercase tracking-widest text-amber-800">Pusat Kendali Akses &amp; Identitas</span>
@@ -56,7 +56,7 @@
         </button>
     </div>
 
-    <!-- Validasi Error Global (jika muncul saat edit/create) -->
+    <!-- pesan error validasi -->
     @if($errors->any())
         <div class="rounded-2xl border border-rose-200 bg-rose-50 p-4 text-xs text-rose-800 space-y-1">
             <strong class="block font-bold">Gagal memproses perubahan:</strong>
@@ -68,7 +68,7 @@
         </div>
     @endif
 
-    <!-- Kartu Statistik Per Role -->
+    <!-- ringkasan jumlah akun per role -->
     <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-3">
         <div class="bg-white rounded-2xl border border-stone-200/80 p-4 shadow-xs">
             <span class="text-[11px] font-semibold text-stone-500 block">Total Akun</span>
@@ -100,7 +100,7 @@
         </div>
     </div>
 
-    <!-- Tabel & Filter -->
+    <!-- filter & tabel pengguna -->
     <section class="rounded-[28px] border border-stone-200 bg-white shadow-sm overflow-hidden">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-stone-200 px-6 py-5">
             <div>
@@ -253,7 +253,7 @@
         @endif
     </section>
 
-    <!-- MODAL TAMBAH AKUN BARU -->
+    <!-- modal tambah akun -->
     <div x-show="createOpen"
          x-cloak
          x-transition.opacity

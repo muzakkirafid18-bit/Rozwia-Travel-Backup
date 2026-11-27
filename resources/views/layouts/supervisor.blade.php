@@ -12,6 +12,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         html, body {
@@ -55,7 +56,7 @@
            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
 
         <div class="space-y-8">
-            <!-- Logo Header Sidebar -->
+            <!-- logo sidebar -->
             <div class="flex items-center justify-between gap-3 pb-4 border-b border-emerald-800/80 font-serif">
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('images/lOGO rozwia.png') }}" alt="Logo ROZWIA" class="h-11 w-11 object-contain shrink-0">
@@ -69,7 +70,7 @@
                 </button>
             </div>
 
-            <!-- Menu Navigasi Utama -->
+            <!-- menu sidebar -->
             <nav class="space-y-2 font-serif text-sm">
                 <a href="{{ route('supervisor.dashboard') }}"
                    class="w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition text-left {{ request()->routeIs('supervisor.dashboard') ? 'bg-[#E5D3B3] text-black font-bold shadow-md' : 'text-[#E5D3B3] hover:bg-emerald-900/60' }}">

@@ -54,7 +54,7 @@
         <div class="md:col-span-7 p-6 sm:p-10 flex flex-col justify-center bg-white space-y-5"
              x-data="{ showPassword: false }">
 
-            <!-- Logo Mobile -->
+            <!-- logo mobile -->
             <div class="flex md:hidden items-center justify-center gap-2.5 pb-1">
                 <img src="{{ asset('images/lOGO rozwia.png') }}" alt="ROZWIA Logo" class="h-9 w-auto object-contain bg-[#0B3B24] rounded-xl p-1">
                 <span class="font-serif-display text-xl font-bold text-[#0B3B24] tracking-wider">ROZWIA</span>

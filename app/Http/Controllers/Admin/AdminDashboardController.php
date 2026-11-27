@@ -258,7 +258,7 @@ class AdminDashboardController extends Controller
 
     /**
      * Ubah status akun dari switch/tombol Admin.
-     * Admin berwenang mengaktifkan atau menonaktifkan akun jamaah secara fleksibel.
+     * Ubah status aktif/nonaktif akun jamaah.
      */
     public function activateAccount(Request $request, int $userId): RedirectResponse
     {
@@ -304,7 +304,8 @@ class AdminDashboardController extends Controller
         });
 
         if ($plainPassword) {
-            AsyncMailer::sendMailable($user->email, new AccountCredentialsMail($user, $plainPassword, 'Aktivasi Akun Portal Jamaah'));
+            $emailToken = $this->createEmailLog($user, 'credentials', 'Aktivasi Akun Portal Jamaah');
+            AsyncMailer::sendMailable($user->email, new AccountCredentialsMail($user, $plainPassword, 'Aktivasi Akun Portal Jamaah', $emailToken));
         }
 
         $statusLabel = $targetStatus === 'active' ? 'diaktifkan' : 'dinonaktifkan';
@@ -1175,7 +1176,7 @@ class AdminDashboardController extends Controller
     }
 
     /**
-     * Sinkronisasi otomatis status_booking & tracking_status seluruh anggota rombongan.
+     * Update status booking otomatis berdasarkan pembayaran dan dokumen.
      */
     private function syncBookingWorkflow(Booking $booking): void
     {
